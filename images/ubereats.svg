@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <circle cx="60" cy="60" r="60" fill="#000000"/>
+  <text x="60" y="52" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="24" text-anchor="middle" letter-spacing="-0.5">Uber</text>
+  <text x="60" y="80" fill="#06C167" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="26" text-anchor="middle" letter-spacing="-0.5">Eats</text>
+</svg>

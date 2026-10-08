@@ -1,0 +1,1843 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Switch Lifestyle - Header & Auto Slider Hero</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Spartan -->
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Lato"', 'sans-serif'],
+                    },
+                    colors: {
+                        brandOrange: '#F58220',
+                        brandDark: '#222222',
+                        brandLight: '#F4F4F4',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Global Typography & Spacing for clean readability */
+        body {
+            letter-spacing: 0.025em;
+            line-height: 1.75;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Keep paragraph copy comfortable and well-spaced */
+        p {
+            font-size: 18px !important;
+            line-height: 1.8 !important;
+            letter-spacing: 0.02em;
+            word-spacing: 0.04em;
+            margin-bottom: 1.25rem;
+        }
+
+        /* Heading spacing & breathable letter tracking */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            letter-spacing: 0.03em;
+            line-height: 1.35;
+        }
+
+        /* Show dropdown on hover */
+        .nav-dropdown:hover .dropdown-menu,
+        .nav-dropdown:focus-within .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        /* Perfect Centered Mega Menu Box */
+        .dropdown-menu {
+            position: fixed;
+            left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            width: 850px;
+            max-width: 94vw;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 10px 12px;
+            background: #ffffff;
+            box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.25);
+            border-radius: 0.875rem;
+            padding: 16px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: 1000;
+        }
+
+        /* Narrower dropdown specifically for Order Online */
+        .dropdown-menu-narrow {
+            width: 280px;
+            grid-template-columns: 1fr;
+        }
+
+        .dropdown-menu>div {
+            display: contents;
+        }
+
+        .dropdown-menu a {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 12px;
+            text-align: left;
+            overflow: hidden;
+            border-radius: 0.625rem;
+            background: #F8F8F8;
+            border: 1px solid #e8e8e8;
+            transition: all 0.2s ease;
+            padding: 8px 10px;
+            text-decoration: none;
+        }
+
+        .dropdown-menu a:hover,
+        .dropdown-menu a:focus {
+            background: rgba(245, 130, 32, 0.1);
+            border-color: rgba(245, 130, 32, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px -4px rgba(245, 130, 32, 0.15);
+            outline: none;
+        }
+
+        .dropdown-menu a img {
+            width: 72px;
+            min-width: 72px;
+            height: 52px;
+            object-fit: cover;
+            border-radius: 0.5rem;
+        }
+
+        .dropdown-menu-narrow a img {
+            width: 48px;
+            min-width: 48px;
+            height: 48px;
+            border-radius: 50%;
+        }
+
+        .dropdown-menu a>div {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            width: 100%;
+            padding: 0 4px;
+        }
+
+        .dropdown-menu a span.item-title {
+            display: block;
+            color: #222222;
+            font-size: 1rem;
+            font-weight: 500;
+            letter-spacing: 0.1px;
+            line-height: 1.3;
+        }
+
+        .dropdown-menu a:hover span.item-title {
+            color: #F58220;
+            font-weight: 500;
+        }
+
+        /* Background Auto Slider Styles */
+        .hero-slide {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+            z-index: 1;
+            pointer-events: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-slide.active {
+            opacity: 1;
+            z-index: 2;
+            pointer-events: auto;
+        }
+
+        /* Functions Auto Slider */
+        .function-slide {
+            opacity: 0;
+            transition: opacity 1.2s ease-in-out;
+            pointer-events: none;
+        }
+
+        .function-slide.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+    </style>
+</head>
+
+<body class="bg-white font-sans m-0 p-0 text-neutral-900">
+
+    <!-- Header Section -->
+    <header
+        class="sticky top-0 bg-[#222222] text-white px-4 sm:px-6 lg:px-12 py-3 sm:py-4 flex items-center justify-between shadow-md z-50">
+
+        <!-- Logo Image (Left) -->
+        <div class="flex items-center">
+            <a href="index.html" class="block">
+                <img src="images/switch-email-logo.png" alt="Switch Lifestyle"
+                    class="h-12 sm:h-14 md:h-12 w-auto object-contain">
+            </a>
+        </div>
+
+        <!-- Desktop Navigation Menu -->
+        <nav class="hidden lg:flex items-center space-x-8 lg:space-x-9 text-lg font-normal tracking-wide text-white">
+            <a href="whats.html" class="text-white hover:text-brandOrange transition-colors py-2">What's On</a>
+
+            <!-- Menu Dropdown -->
+            <div class="relative nav-dropdown cursor-pointer py-2">
+                <button type="button"
+                    class="flex items-center gap-1.5 text-white hover:text-brandOrange focus:text-brandOrange transition-colors focus:outline-none"
+                    aria-haspopup="true">
+                    <span>Menu</span>
+                    <i class="fa-solid fa-chevron-down text-xs"></i>
+                </button>
+
+                <!-- Dropdown Mega Menu Box -->
+                <div class="dropdown-menu top-[75px]">
+                    <!-- Item 1 -->
+                    <a href="#">
+                        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=300&auto=format&fit=crop&q=80"
+                            alt="Something to Share">
+                        <div><span class="item-title">Something to Share</span></div>
+                    </a>
+                    <!-- Item 2 -->
+                    <a href="#">
+                        <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=300&auto=format&fit=crop&q=80"
+                            alt="Salads">
+                        <div><span class="item-title">Salads</span></div>
+                    </a>
+                    <!-- Item 3 -->
+                    <a href="#">
+                        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=300&auto=format&fit=crop&q=80"
+                            alt="Burgers">
+                        <div><span class="item-title">Burgers</span></div>
+                    </a>
+                    <!-- Item 4 -->
+                    <a href="#">
+                        <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=300&auto=format&fit=crop&q=80"
+                            alt="Pans, Oven & Grill">
+                        <div><span class="item-title">Pans, Oven & Grill</span></div>
+                    </a>
+                    <!-- Item 5 -->
+                    <a href="#">
+                        <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=300&auto=format&fit=crop&q=80"
+                            alt="Wood Fire Pizza">
+                        <div><span class="item-title">Wood Fire Pizza</span></div>
+                    </a>
+                    <!-- Item 6 -->
+                    <a href="#">
+                        <img src="https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?w=300&auto=format&fit=crop&q=80"
+                            alt="Cubby House">
+                        <div><span class="item-title">Cubby House</span></div>
+                    </a>
+                    <!-- Item 7 -->
+                    <a href="#">
+                        <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=300&auto=format&fit=crop&q=80"
+                            alt="Something Sweet">
+                        <div><span class="item-title">Something Sweet</span></div>
+                    </a>
+                    <!-- Item 8 -->
+                    <a href="#">
+                        <img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=300&auto=format&fit=crop&q=80"
+                            alt="Wraps & Rolls">
+                        <div><span class="item-title">Wraps & Rolls</span></div>
+                    </a>
+                    <!-- Item 9 -->
+                    <a href="#">
+                        <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=300&auto=format&fit=crop&q=80"
+                            alt="Drinks & Cocktails">
+                        <div><span class="item-title">Drinks & Cocktails</span></div>
+                    </a>
+                    <!-- Item 10 -->
+                    <a href="#">
+                        <img src="https://images.unsplash.com/photo-1572116469696-31de0f17cc34?w=300&auto=format&fit=crop&q=80"
+                            alt="Happy Hour">
+                        <div><span class="item-title">Happy Hour</span></div>
+                    </a>
+                    <!-- Item 11 -->
+                    <a href="#">
+                        <img src="https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?w=300&auto=format&fit=crop&q=80"
+                            alt="Bottomless Brunch">
+                        <div>
+                            <span class="item-title flex items-center justify-center gap-1.5">
+                                Bottomless Brunch
+                                <span
+                                    class="text-[9px] font-medium bg-brandOrange text-white px-1.5 py-0.5 rounded">NEW</span>
+                            </span>
+                        </div>
+                    </a>
+                    <!-- Item 12 -->
+                    <a href="#">
+                        <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?w=300&auto=format&fit=crop&q=80"
+                            alt="Vegan Dishes">
+                        <div><span class="item-title">Vegan Dishes</span></div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Order Online Dropdown Menu -->
+            <div class="relative nav-dropdown cursor-pointer py-2">
+                <button type="button"
+                    class="flex items-center gap-1.5 text-white hover:text-brandOrange focus:text-brandOrange transition-colors focus:outline-none"
+                    aria-haspopup="true">
+                    <span>Order Online</span>
+                    <i class="fa-solid fa-chevron-down text-xs"></i>
+                </button>
+
+                <!-- Dropdown Box -->
+                <div class="dropdown-menu dropdown-menu-narrow top-[75px]">
+                    <!-- Item 1: Order Pickup -->
+                    <a href="#">
+                        <img src="https://images.unsplash.com/photo-1526367790999-0150786686a2?w=300&auto=format&fit=crop&q=80"
+                            alt="Order Pickup">
+                        <div>
+                            <span class="item-title">Order Pickup</span>
+                            <span class="text-xs text-neutral-500 font-light">Skip the wait</span>
+                        </div>
+                    </a>
+                    <!-- Item 2: UberEats -->
+                    <a href="#">
+                        <img src="images/ubereats.svg"
+                            alt="UberEats">
+                        <div>
+                            <span class="item-title">UberEats</span>
+                            <span class="text-xs text-neutral-500 font-light">Delivered to your door</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <a href="#" class="text-white hover:text-brandOrange transition-colors py-2">Functions</a>
+            <a href="#" class="text-white hover:text-brandOrange transition-colors py-2">FAQs</a>
+            <a href="#" class="text-white hover:text-brandOrange transition-colors py-2">Feedback</a>
+            <a href="#" class="text-white hover:text-brandOrange transition-colors py-2">Contact</a>
+        </nav>
+
+        <!-- Book a Table Button (Desktop) -->
+        <div class="hidden lg:flex items-center">
+            <a href="#"
+                class="bg-brandOrange hover:bg-white hover:text-brandOrange text-white font-medium px-7 h-12 rounded-full uppercase tracking-wider text-base transition-all shadow-lg inline-flex items-center justify-center text-center leading-normal">
+                Book a Table
+            </a>
+        </div>
+
+        <!-- Mobile Right: Menu Icon Toggle Button -->
+        <div class="lg:hidden flex items-center">
+            <button id="menu-btn" type="button"
+                class="text-white hover:text-brandOrange focus:outline-none p-2 -mr-1 rounded-lg transition-colors"
+                aria-label="Toggle Navigation Menu">
+                <i class="fa-solid fa-bars text-2xl"></i>
+            </button>
+        </div>
+
+    </header>
+
+    <!-- Mobile Drawer Overlay Backdrop -->
+    <div id="mobile-menu-backdrop"
+        class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[90] opacity-0 pointer-events-none transition-opacity duration-300">
+    </div>
+
+    <!-- Mobile Slide-Out Drawer (From Left) -->
+    <aside id="mobile-drawer"
+        class="fixed top-0 left-0 bottom-0 w-[85%] max-w-[340px] bg-[#1a1a1a] text-white z-[100] transform -translate-x-full transition-transform duration-300 ease-in-out shadow-2xl flex flex-col justify-between overflow-y-auto">
+        
+        <!-- Drawer Top & Nav Items -->
+        <div>
+            <!-- Drawer Header -->
+            <div class="p-4 sm:p-5 flex items-center justify-between border-b border-neutral-800 bg-[#222222]">
+                <a href="index.html" class="block">
+                    <img src="images/switch-email-logo.png" alt="Switch Lifestyle" class="h-10 w-auto object-contain">
+                </a>
+                <button id="close-drawer-btn" type="button"
+                    class="text-neutral-400 hover:text-white p-2 rounded-lg focus:outline-none transition-colors"
+                    aria-label="Close Menu">
+                    <i class="fa-solid fa-xmark text-2xl"></i>
+                </button>
+            </div>
+
+            <!-- Drawer Navigation Links -->
+            <nav class="p-4 sm:p-5 flex flex-col space-y-1 text-base font-normal">
+                <a href="whats.html"
+                    class="flex items-center justify-between py-2.5 px-3 rounded-lg hover:bg-neutral-800 hover:text-brandOrange text-white transition-all">
+                    <span>What's On</span>
+                    <i class="fa-solid fa-arrow-right text-xs text-neutral-500"></i>
+                </a>
+
+                <!-- Mobile Menu Accordion -->
+                <div class="border-y border-neutral-800/60 my-1 py-1">
+                    <button type="button" id="mobile-menu-accordion-btn"
+                        class="w-full flex items-center justify-between py-2.5 px-3 rounded-lg hover:bg-neutral-800 hover:text-brandOrange text-white transition-all text-left">
+                        <span class="font-medium">Menu</span>
+                        <i id="mobile-menu-accordion-icon" class="fa-solid fa-chevron-down text-xs text-neutral-400 transition-transform duration-200"></i>
+                    </button>
+                    <div id="mobile-menu-accordion-content" class="hidden pl-3 pr-2 py-2 space-y-1 bg-neutral-900/70 rounded-lg my-1 text-sm">
+                        <a href="#" class="block py-1.5 px-2.5 text-neutral-300 hover:text-brandOrange rounded transition-colors">Something to Share</a>
+                        <a href="#" class="block py-1.5 px-2.5 text-neutral-300 hover:text-brandOrange rounded transition-colors">Salads</a>
+                        <a href="#" class="block py-1.5 px-2.5 text-neutral-300 hover:text-brandOrange rounded transition-colors">Burgers</a>
+                        <a href="#" class="block py-1.5 px-2.5 text-neutral-300 hover:text-brandOrange rounded transition-colors">Pans, Oven & Grill</a>
+                        <a href="#" class="block py-1.5 px-2.5 text-neutral-300 hover:text-brandOrange rounded transition-colors">Wood Fire Pizza</a>
+                        <a href="#" class="block py-1.5 px-2.5 text-neutral-300 hover:text-brandOrange rounded transition-colors">Cubby House</a>
+                        <a href="#" class="block py-1.5 px-2.5 text-neutral-300 hover:text-brandOrange rounded transition-colors">Something Sweet</a>
+                        <a href="#" class="block py-1.5 px-2.5 text-neutral-300 hover:text-brandOrange rounded transition-colors">Wraps & Rolls</a>
+                        <a href="#" class="block py-1.5 px-2.5 text-neutral-300 hover:text-brandOrange rounded transition-colors">Drinks & Cocktails</a>
+                        <a href="#" class="block py-1.5 px-2.5 text-neutral-300 hover:text-brandOrange rounded transition-colors">Happy Hour</a>
+                        <a href="#" class="block py-1.5 px-2.5 text-brandOrange font-medium rounded transition-colors">Bottomless Brunch <span class="text-[9px] bg-brandOrange text-white px-1.5 py-0.5 rounded ml-1">NEW</span></a>
+                        <a href="#" class="block py-1.5 px-2.5 text-neutral-300 hover:text-brandOrange rounded transition-colors">Vegan Dishes</a>
+                    </div>
+                </div>
+
+                <!-- Mobile Order Online Accordion -->
+                <div class="border-b border-neutral-800/60 pb-1 mb-1">
+                    <button type="button" id="mobile-order-accordion-btn"
+                        class="w-full flex items-center justify-between py-2.5 px-3 rounded-lg hover:bg-neutral-800 hover:text-brandOrange text-white transition-all text-left">
+                        <span class="font-medium">Order Online</span>
+                        <i id="mobile-order-accordion-icon" class="fa-solid fa-chevron-down text-xs text-neutral-400 transition-transform duration-200"></i>
+                    </button>
+                    <div id="mobile-order-accordion-content" class="hidden pl-3 pr-2 py-2 space-y-1.5 bg-neutral-900/70 rounded-lg my-1 text-sm">
+                        <a href="#" class="flex items-center gap-3 py-2 px-2.5 text-neutral-300 hover:text-brandOrange rounded transition-colors">
+                            <img src="https://images.unsplash.com/photo-1526367790999-0150786686a2?w=300&auto=format&fit=crop&q=80" class="w-8 h-8 rounded-full object-cover shrink-0" alt="Order Pickup">
+                            <div>
+                                <div class="font-medium text-white">Order Pickup</div>
+                                <div class="text-xs text-neutral-500 font-light">Skip the wait</div>
+                            </div>
+                        </a>
+                        <a href="#" class="flex items-center gap-3 py-2 px-2.5 text-neutral-300 hover:text-brandOrange rounded transition-colors">
+                            <img src="images/ubereats.svg" class="w-8 h-8 rounded-full object-cover shrink-0" alt="UberEats">
+                            <div>
+                                <div class="font-medium text-white">UberEats</div>
+                                <div class="text-xs text-neutral-500 font-light">Delivered to your door</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <a href="#"
+                    class="flex items-center justify-between py-2.5 px-3 rounded-lg hover:bg-neutral-800 hover:text-brandOrange text-white transition-all">
+                    <span>Functions</span>
+                    <i class="fa-solid fa-arrow-right text-xs text-neutral-500"></i>
+                </a>
+                <a href="#"
+                    class="flex items-center justify-between py-2.5 px-3 rounded-lg hover:bg-neutral-800 hover:text-brandOrange text-white transition-all">
+                    <span>FAQs</span>
+                    <i class="fa-solid fa-arrow-right text-xs text-neutral-500"></i>
+                </a>
+                <a href="#"
+                    class="flex items-center justify-between py-2.5 px-3 rounded-lg hover:bg-neutral-800 hover:text-brandOrange text-white transition-all">
+                    <span>Feedback</span>
+                    <i class="fa-solid fa-arrow-right text-xs text-neutral-500"></i>
+                </a>
+                <a href="#"
+                    class="flex items-center justify-between py-2.5 px-3 rounded-lg hover:bg-neutral-800 hover:text-brandOrange text-white transition-all">
+                    <span>Contact</span>
+                    <i class="fa-solid fa-arrow-right text-xs text-neutral-500"></i>
+                </a>
+            </nav>
+        </div>
+
+        <!-- Drawer Footer CTA -->
+        <div class="p-4 sm:p-5 border-t border-neutral-800 bg-[#222222] space-y-3">
+            <a href="#"
+                class="w-full bg-brandOrange hover:bg-white hover:text-brandOrange text-white font-medium py-3 rounded-full uppercase tracking-wider text-sm transition-all shadow-lg flex items-center justify-center gap-2 text-center">
+                <i class="fa-solid fa-calendar-check text-base"></i>
+                <span>Book a Table</span>
+            </a>
+            <div class="flex items-center justify-center gap-5 pt-1 text-neutral-400 text-lg">
+                <a href="#" class="hover:text-brandOrange transition-colors" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" class="hover:text-brandOrange transition-colors" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="tel:0397042220" class="hover:text-brandOrange transition-colors" aria-label="Phone"><i class="fa-solid fa-phone"></i></a>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Hero Section with Background Auto Slider & Lighter Normal Overlay -->
+    <section class="relative min-h-[420px] sm:min-h-[480px] md:min-h-[85vh] flex items-center justify-center text-white overflow-hidden">
+
+        <!-- Slide 1 (Centered Title, Subtitle & Buttons) -->
+        <div class="hero-slide active" style="background-image: url('images/switch%20lifestyle%20banner.jpg');">
+            <div class="absolute inset-0 bg-black/25 z-10"></div>
+            <div
+                class="relative z-20 max-w-5xl mx-auto w-full flex flex-col items-center text-center px-4 sm:px-6 lg:px-16 py-8 sm:py-10 md:py-16">
+                <!-- Title & Subtitle Group -->
+                <div class="mb-5 sm:mb-8 md:mb-10">
+                    <span
+                        class="inline-block text-brandOrange font-bold uppercase tracking-widest text-xs sm:text-base md:text-xl mb-2.5 sm:mb-4 px-3.5 sm:px-8 py-1 sm:py-2 rounded-lg drop-shadow"
+                        style="background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.28) 20%, rgba(255,255,255,0.28) 80%, rgba(255,255,255,0) 100%); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); box-shadow: 0 2px 20px rgba(0,0,0,0.08);">
+                        Welcome to Switch Lifestyle
+                    </span>
+
+                    <h1
+                        class="text-[22px] sm:text-[36px] md:text-[46px] lg:text-[60px] font-normal leading-[1.25] md:leading-[1.15] tracking-wide text-white drop-shadow-md">
+                        Exceptional Flavours & Unforgettable Moments
+                    </h1>
+                </div>
+
+                <!-- Action Buttons Group -->
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full max-w-[300px] sm:max-w-3xl mx-auto">
+                    <a href="#"
+                        class="bg-brandOrange hover:bg-white hover:text-brandOrange text-white font-semibold px-5 sm:px-6 py-3 rounded-full uppercase tracking-wider text-xs sm:text-sm md:text-base transition-all shadow-lg inline-flex items-center justify-center gap-2.5 text-center leading-none w-full sm:w-auto flex-1">
+                        <i class="fa-solid fa-calendar-check text-sm sm:text-base"></i>
+                        <span>Book a Table</span>
+                    </a>
+                    <a href="#"
+                        class="bg-brandOrange hover:bg-white hover:text-brandOrange text-white font-semibold px-5 sm:px-6 py-3 rounded-full uppercase tracking-wider text-xs sm:text-sm md:text-base transition-all shadow-lg inline-flex items-center justify-center gap-2.5 text-center leading-none w-full sm:w-auto flex-1">
+                        <i class="fa-solid fa-book-open text-sm sm:text-base"></i>
+                        <span>View Menu</span>
+                    </a>
+                    <a href="#"
+                        class="bg-brandOrange hover:bg-white hover:text-brandOrange text-white font-semibold px-5 sm:px-6 py-3 rounded-full uppercase tracking-wider text-xs sm:text-sm md:text-base transition-all shadow-lg inline-flex items-center justify-center gap-2.5 text-center leading-none w-full sm:w-auto flex-1">
+                        <i class="fa-solid fa-champagne-glasses text-sm sm:text-base"></i>
+                        <span>Book a Function</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2 (Centered on mobile, Left-Aligned on Desktop) -->
+        <div class="hero-slide" style="background-image: url('images/switch%20lifestyle%20banner%20(1).jpg');">
+            <div class="absolute inset-0 bg-black/25 z-10"></div>
+            <div class="relative z-20 max-w-7xl mx-auto w-full flex flex-col items-center md:items-start text-center md:text-left px-4 sm:px-6 md:px-0 py-8 sm:py-10 md:py-16">
+                <!-- Title & Subtitle Group (Center on Mobile, Left on Desktop) -->
+                <div class="mb-5 sm:mb-8 md:mb-10 w-full md:w-[60%] lg:w-[50%]">
+                    <span
+                        class="text-brandOrange font-semibold uppercase tracking-widest text-xs sm:text-base md:text-xl mb-2.5 sm:mb-3 block drop-shadow">
+                        Fresh All-Day Dining & Brunch
+                    </span>
+
+                    <h1
+                        class="text-[22px] sm:text-[36px] md:text-[46px] lg:text-[60px] font-normal leading-[1.25] md:leading-[1.15] tracking-wide text-white drop-shadow-md">
+                        Savor every bite, sip, and moment.
+                    </h1>
+                </div>
+
+                <!-- Action Buttons Group (Center on Mobile, Left on Desktop) -->
+                <div
+                    class="flex flex-col sm:flex-row items-center md:items-start justify-center md:justify-start gap-3 sm:gap-4 w-full max-w-[300px] sm:max-w-none">
+                    <a href="#"
+                        class="bg-brandOrange hover:bg-white hover:text-brandOrange text-white font-semibold px-5 sm:px-6 py-3 rounded-full uppercase tracking-wider text-xs sm:text-sm md:text-base transition-all shadow-lg inline-flex items-center justify-center gap-2.5 text-center leading-none w-full sm:w-auto">
+                        <i class="fa-solid fa-calendar-check text-sm sm:text-base"></i>
+                        <span>Book a Table</span>
+                    </a>
+                    <a href="#"
+                        class="bg-brandOrange hover:bg-white hover:text-brandOrange text-white font-semibold px-5 sm:px-6 py-3 rounded-full uppercase tracking-wider text-xs sm:text-sm md:text-base transition-all shadow-lg inline-flex items-center justify-center gap-2.5 text-center leading-none w-full sm:w-auto">
+                        <i class="fa-solid fa-book-open text-sm sm:text-base"></i>
+                        <span>View Menu</span>
+                    </a>
+                    <a href="#"
+                        class="bg-brandOrange hover:bg-white hover:text-brandOrange text-white font-semibold px-5 sm:px-6 py-3 rounded-full uppercase tracking-wider text-xs sm:text-sm md:text-base transition-all shadow-lg inline-flex items-center justify-center gap-2.5 text-center leading-none w-full sm:w-auto">
+                        <i class="fa-solid fa-champagne-glasses text-sm sm:text-base"></i>
+                        <span>Book a Function</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3 (Centered Title, Subtitle & Buttons) -->
+        <div class="hero-slide" style="background-image: url('images/switch%20lifestyle%20banner%20(2).jpg');">
+            <div class="absolute inset-0 bg-black/25 z-10"></div>
+            <div
+                class="relative z-20 max-w-5xl mx-auto w-full flex flex-col items-center text-center px-4 sm:px-6 lg:px-16 py-8 sm:py-10 md:py-16">
+                <!-- Title & Subtitle Group -->
+                <div class="mb-5 sm:mb-8 md:mb-10">
+                    <span
+                        class="inline-block text-brandOrange font-bold uppercase tracking-widest text-xs sm:text-base md:text-xl mb-2.5 sm:mb-4 px-3.5 sm:px-8 py-1 sm:py-2 rounded-lg drop-shadow"
+                        style="background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.28) 20%, rgba(255,255,255,0.28) 80%, rgba(255,255,255,0) 100%); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); box-shadow: 0 2px 20px rgba(0,0,0,0.08);">
+                        Signature Cocktails & Fine Wines
+                    </span>
+
+                    <h1
+                        class="text-[22px] sm:text-[36px] md:text-[46px] lg:text-[60px] font-normal leading-[1.25] md:leading-[1.15] tracking-wide text-white drop-shadow-md">
+                        The Ultimate Destination to Relax, Drink & Celebrate
+                    </h1>
+                </div>
+
+                <!-- Action Buttons Group -->
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full max-w-[300px] sm:max-w-3xl mx-auto">
+                    <a href="#"
+                        class="bg-brandOrange hover:bg-white hover:text-brandOrange text-white font-semibold px-5 sm:px-6 py-3 rounded-full uppercase tracking-wider text-xs sm:text-sm md:text-base transition-all shadow-lg inline-flex items-center justify-center gap-2.5 text-center leading-none w-full sm:w-auto flex-1">
+                        <i class="fa-solid fa-calendar-check text-sm sm:text-base"></i>
+                        <span>Book a Table</span>
+                    </a>
+                    <a href="#"
+                        class="bg-brandOrange hover:bg-white hover:text-brandOrange text-white font-semibold px-5 sm:px-6 py-3 rounded-full uppercase tracking-wider text-xs sm:text-sm md:text-base transition-all shadow-lg inline-flex items-center justify-center gap-2.5 text-center leading-none w-full sm:w-auto flex-1">
+                        <i class="fa-solid fa-book-open text-sm sm:text-base"></i>
+                        <span>View Menu</span>
+                    </a>
+                    <a href="#"
+                        class="bg-brandOrange hover:bg-white hover:text-brandOrange text-white font-semibold px-5 sm:px-6 py-3 rounded-full uppercase tracking-wider text-xs sm:text-sm md:text-base transition-all shadow-lg inline-flex items-center justify-center gap-2.5 text-center leading-none w-full sm:w-auto flex-1">
+                        <i class="fa-solid fa-champagne-glasses text-sm sm:text-base"></i>
+                        <span>Book a Function</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- What's on the menu? Section -->
+    <section class="bg-[#fffaf6] py-12 px-4 sm:px-6 lg:px-16">
+        <div class="max-w-7xl mx-auto">
+
+            <!-- Section Header -->
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-brandOrange font-semibold uppercase tracking-[0.22em] text-sm mb-4 block">
+                    Discover Our Offerings
+                </span>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-normal text-neutral-900 tracking-tight">
+                    What's on the menu?
+                </h2>
+            </div>
+
+            <!-- Menu cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 lg:gap-8">
+
+                <!-- Card 1: Food Menu -->
+                <div
+                    class="group bg-white rounded-2xl overflow-hidden border border-neutral-200/80 shadow-[0_10px_30px_rgba(38,38,38,0.06)] hover:border-brandOrange/50 transition-all duration-500 hover:-translate-y-2 flex flex-col">
+                    <!-- Image Wrapper -->
+                    <div class="relative h-56 sm:h-60 lg:h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=800&auto=format&fit=crop&q=80"
+                            alt="Food Menu"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent">
+                        </div>
+                        <span
+                            class="absolute bottom-4 left-4 text-white font-semibold text-xs tracking-wider uppercase bg-brandOrange px-3.5 py-1.5 rounded-full shadow-lg">
+                            A La Carte
+                        </span>
+                    </div>
+
+                    <div class="p-4 sm:p-5 flex flex-col flex-grow justify-between">
+                        <div>
+                            <h3 class="text-2xl lg:text-3xl font-medium text-neutral-900 mb-2.5">
+                                Food Menu
+                            </h3>
+                            <p class="text-neutral-600 font-normal text-base leading-relaxed mb-3.5">
+                                Fresh salads, signature gourmet burgers, and wood-fired pizzas.
+                            </p>
+                        </div>
+
+                        <div>
+                            <a href="#"
+                                class="w-full bg-neutral-900 hover:bg-brandOrange text-white font-semibold py-3 px-6 rounded-full uppercase tracking-wider text-sm transition-all duration-300 shadow-md hover:shadow-lg flex items-center justify-center gap-2 text-center">
+                                <span>View Food Menu</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square text-xs" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Brunch Menu -->
+                <div
+                    class="group bg-white rounded-2xl overflow-hidden border border-neutral-200/80 shadow-[0_10px_30px_rgba(38,38,38,0.06)] hover:border-brandOrange/50 transition-all duration-500 hover:-translate-y-2 flex flex-col">
+                    <!-- Image Wrapper -->
+                    <div class="relative h-56 sm:h-60 lg:h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1525351484163-7529414344d8?w=800&auto=format&fit=crop&q=80"
+                            alt="Brunch Menu"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent">
+                        </div>
+                        <span
+                            class="absolute bottom-4 left-4 text-white font-semibold text-xs tracking-wider uppercase bg-brandOrange px-3.5 py-1.5 rounded-full shadow-lg">
+                            Daily Until 3PM
+                        </span>
+                    </div>
+
+                    <div class="p-4 sm:p-5 flex flex-col flex-grow justify-between">
+                        <div>
+                            <h3 class="text-2xl lg:text-3xl font-medium text-neutral-900 mb-2.5">
+                                Brunch Menu
+                            </h3>
+                            <p class="text-neutral-600 font-normal text-base leading-relaxed mb-3.5">
+                                Chef-prepared breakfast favorites paired with barista coffee.
+                            </p>
+                        </div>
+
+                        <div>
+                            <a href="#"
+                                class="w-full bg-neutral-900 hover:bg-brandOrange text-white font-semibold py-3 px-6 rounded-full uppercase tracking-wider text-sm transition-all duration-300 shadow-md hover:shadow-lg flex items-center justify-center gap-2 text-center">
+                                <span>View Brunch Menu</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square text-xs" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Drinks Menu -->
+                <div
+                    class="group bg-white rounded-2xl overflow-hidden border border-neutral-200/80 shadow-[0_10px_30px_rgba(38,38,38,0.06)] hover:border-brandOrange/50 transition-all duration-500 hover:-translate-y-2 flex flex-col">
+                    <!-- Image Wrapper -->
+                    <div class="relative h-56 sm:h-60 lg:h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=800&auto=format&fit=crop&q=80"
+                            alt="Drinks Menu"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent">
+                        </div>
+                        <span
+                            class="absolute bottom-4 left-4 text-white font-semibold text-xs tracking-wider uppercase bg-brandOrange px-3.5 py-1.5 rounded-full shadow-lg">
+                            Cocktails & More
+                        </span>
+                    </div>
+
+                    <div class="p-4 sm:p-5 flex flex-col flex-grow justify-between">
+                        <div>
+                            <h3 class="text-2xl lg:text-3xl font-medium text-neutral-900 mb-2.5">
+                                Drinks & Cocktails
+                            </h3>
+                            <p class="text-neutral-600 font-normal text-base leading-relaxed mb-3.5">
+                                Craft beers, fine wines, and signature artisanal cocktails.
+                            </p>
+                        </div>
+
+                        <div>
+                            <a href="#"
+                                class="w-full bg-neutral-900 hover:bg-brandOrange text-white font-semibold py-3 px-6 rounded-full uppercase tracking-wider text-sm transition-all duration-300 shadow-md hover:shadow-lg flex items-center justify-center gap-2 text-center">
+                                <span>View Drinks Menu</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square text-xs" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Dietary Requirements Section -->
+    <section class="relative overflow-hidden bg-neutral-950 py-12 px-6 lg:px-16">
+        <div class="absolute -top-28 -right-20 w-80 h-80 rounded-full bg-brandOrange/15 blur-3xl"></div>
+        <div class="absolute -bottom-32 -left-20 w-80 h-80 rounded-full bg-brandOrange/10 blur-3xl"></div>
+
+        <div class="relative max-w-7xl mx-auto text-center">
+            <span class="inline-block text-brandOrange font-semibold uppercase tracking-[0.22em] text-sm mb-5">Made for
+                everyone</span>
+            <h2
+                class="max-w-3xl mx-auto text-3xl md:text-4xl lg:max-w-none lg:whitespace-nowrap lg:text-[46px] font-normal leading-tight text-white tracking-tight">
+                Browse our dishes by dietary requirements
+            </h2>
+            <p class="max-w-2xl mx-auto mt-5 text-neutral-300 text-lg md:text-xl leading-relaxed">
+                Find delicious options made to suit your preferences.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+
+                <!-- Card 1: Vegan -->
+                <a href="#"
+                    class="group flex flex-col rounded-3xl bg-brandOrange p-3.5 sm:p-4 text-left text-white shadow-[0_14px_30px_rgba(253,117,4,0.2)]">
+                    <div class="w-full h-52 sm:h-56 overflow-hidden rounded-2xl mb-2.5">
+                        <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=600&auto=format&fit=crop"
+                            alt="Vegan Buddha bowl"
+                            class="w-full h-full object-cover shadow-md transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                    <div class="flex items-center justify-between mt-auto pt-0 pb-0.5">
+                        <span class="text-2xl md:text-[22px] font-bold tracking-tight text-white pr-3">Vegan
+                            choices</span>
+                        <div
+                            class="w-8 h-8 rounded-xl bg-black flex items-center justify-center text-white shrink-0 transition-transform duration-300 group-hover:translate-x-1">
+                            <i class="fa-solid fa-arrow-right text-xs" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Card 2: Vegetarian -->
+                <a href="#"
+                    class="group flex flex-col rounded-3xl bg-brandOrange p-3.5 sm:p-4 text-left text-white shadow-[0_14px_30px_rgba(253,117,4,0.2)]">
+                    <div class="w-full h-52 sm:h-56 overflow-hidden rounded-2xl mb-2.5">
+                        <img src="https://images.unsplash.com/photo-1633964913295-ceb43826e7c9?q=80&w=600&auto=format&fit=crop"
+                            alt="Vegetarian plates"
+                            class="w-full h-full object-cover shadow-md transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                    <div class="flex items-center justify-between mt-auto pt-0 pb-0.5">
+                        <span class="text-2xl md:text-[22px] font-bold tracking-tight text-white pr-3">Vegetarian
+                            plates</span>
+                        <div
+                            class="w-8 h-8 rounded-xl bg-black flex items-center justify-center text-white shrink-0 transition-transform duration-300 group-hover:translate-x-1">
+                            <i class="fa-solid fa-arrow-right text-xs" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Card 3: Gluten-free -->
+                <a href="#"
+                    class="group flex flex-col rounded-3xl bg-brandOrange p-3.5 sm:p-4 text-left text-white shadow-[0_14px_30px_rgba(253,117,4,0.2)]">
+                    <div class="w-full h-52 sm:h-56 overflow-hidden rounded-2xl mb-2.5">
+                        <img src="https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?q=80&w=600&auto=format&fit=crop"
+                            alt="Gluten-free Mediterranean salad"
+                            class="w-full h-full object-cover shadow-md transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                    <div class="flex items-center justify-between mt-auto pt-0 pb-0.5">
+                        <span class="text-2xl md:text-[22px] font-bold tracking-tight text-white pr-3">Gluten-free
+                            favourites</span>
+                        <div
+                            class="w-8 h-8 rounded-xl bg-black flex items-center justify-center text-white shrink-0 transition-transform duration-300 group-hover:translate-x-1">
+                            <i class="fa-solid fa-arrow-right text-xs" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- About Switch Lifestyle -->
+    <section class="overflow-hidden bg-[#f7f4ef] px-6 py-12">
+        <div class="mx-auto max-w-7xl">
+            <div class="grid items-start gap-10 lg:grid-cols-12 lg:gap-16">
+
+                <!-- Left Column (Sticky Overview) -->
+                <div class="lg:col-span-5 lg:sticky lg:top-28">
+                    <span
+                        class="inline-block text-brandOrange font-bold uppercase tracking-[0.18em] text-sm md:text-base">The
+                        Switch Lifestyle</span>
+                    <h2
+                        class="mt-3 max-w-lg text-2xl md:text-3xl lg:text-[34px] font-medium leading-snug text-neutral-900">
+                        A local favourite for every kind of catch-up.
+                    </h2>
+                    <p class="mt-2.5 text-base md:text-lg leading-relaxed text-neutral-700">
+                        Contemporary Australian dining, signature cocktails, and artisanal coffee at Fountain Gate.
+                    </p>
+
+                    <div class="group relative mt-5 overflow-hidden rounded-[2rem] shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?w=1000&auto=format&fit=crop&q=85"
+                            alt="Modern restaurant interior and dining experience at Switch Lifestyle"
+                            class="h-64 md:h-[300px] lg:h-[330px] w-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-neutral-950/75 via-black/20 to-transparent">
+                        </div>
+                        <p
+                            class="absolute bottom-4 left-4 right-4 text-sm md:text-base font-medium leading-snug text-white">
+                            Relaxed dining, signature cocktails and excellent coffee.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Right Column (Open, Clean, Unboxed Content) -->
+                <div class="space-y-7 lg:col-span-7 lg:pt-1">
+
+                    <!-- Section 1: Open 7 Days -->
+                    <div class="pb-6 border-b border-neutral-900/10">
+                        <span class="text-xs md:text-sm font-bold uppercase tracking-[0.18em] text-brandOrange">Your
+                            Table, Your Moment</span>
+                        <h3 class="mt-1.5 text-xl md:text-2xl font-medium text-neutral-900">Open 7 Days a Week</h3>
+                        <p class="mt-2 text-base md:text-lg leading-relaxed text-neutral-700">
+                            Open seven days for <a
+                                href="https://www.switchlifestyle.com.au/menu/brunch/"
+                                class="text-brandOrange font-semibold underline underline-offset-4 decoration-brandOrange/40 hover:decoration-brandOrange transition-colors">brunch</a>,
+                            lunch and dinner. The ideal spot for family dinners, coffee, date nights, or <a href="https://www.switchlifestyle.com.au/menu/drinks/"
+                                class="text-brandOrange font-semibold underline underline-offset-4 decoration-brandOrange/40 hover:decoration-brandOrange transition-colors">drinks & cocktails</a>.
+                        </p>
+                    </div>
+
+                    <!-- Section 2: Two Columns (Brunch & After Work) -->
+                    <div class="grid gap-6 md:grid-cols-2 pb-6 border-b border-neutral-900/10">
+                        <!-- Early Brunch -->
+                        <div>
+                            <span class="text-xs md:text-sm font-bold uppercase tracking-[0.18em] text-brandOrange">From
+                                Early On</span>
+                            <h3 class="mt-1.5 text-lg md:text-xl font-medium text-neutral-900">Brunch Until 3PM</h3>
+                            <p class="mt-2 text-base leading-relaxed text-neutral-700">
+                                Serving daily brunch until 3PM with barista coffee and chef-prepared favorites.
+                            </p>
+                        </div>
+
+                        <!-- After Work -->
+                        <div>
+                            <span
+                                class="text-xs md:text-sm font-bold uppercase tracking-[0.18em] text-brandOrange">After
+                                Work & Evenings</span>
+                            <h3 class="mt-1.5 text-lg md:text-xl font-medium text-neutral-900">Unwind & Escape</h3>
+                            <p class="mt-2 text-base leading-relaxed text-neutral-700">
+                                Unwind over craft beers, fine wines, and handcrafted <a
+                                    href="https://www.switchlifestyle.com.au/menu/drinks/#Cocktails"
+                                    class="text-brandOrange font-semibold underline underline-offset-4 decoration-brandOrange/40 hover:decoration-brandOrange transition-colors">signature cocktails</a>.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Section 3: Seasonal Menu -->
+                    <div>
+                        <span class="text-xs md:text-sm font-bold uppercase tracking-[0.18em] text-brandOrange">Made
+                            With The Season</span>
+                        <h3 class="mt-1.5 text-xl md:text-2xl font-medium text-neutral-900">Fresh & Seasonal Ingredients</h3>
+                        <p class="mt-2 text-base md:text-lg leading-relaxed text-neutral-700">
+                            Fresh, seasonal ingredients crafted into <a href="https://www.switchlifestyle.com.au/menu/pans-grill/"
+                                class="text-brandOrange font-semibold underline underline-offset-4 decoration-brandOrange/40 hover:decoration-brandOrange transition-colors">pans & grill</a>, <a href="https://www.switchlifestyle.com.au/menu/burgers/"
+                                class="text-brandOrange font-semibold underline underline-offset-4 decoration-brandOrange/40 hover:decoration-brandOrange transition-colors">burgers</a>, <a href="https://www.switchlifestyle.com.au/menu/wood-fired-pizza/"
+                                class="text-brandOrange font-semibold underline underline-offset-4 decoration-brandOrange/40 hover:decoration-brandOrange transition-colors">wood-fired pizzas</a>, and desserts.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Visit, Contact & Social -->
+    <section class="bg-white px-6 py-12 lg:px-16">
+        <div class="mx-auto max-w-7xl">
+            <div class="grid gap-8 lg:grid-cols-3 lg:gap-10">
+
+                <!-- Card 1: Location (Orange) -->
+                <div
+                    class="group relative overflow-hidden bg-brandOrange rounded-3xl p-5 lg:p-6 text-white shadow-[0_14px_35px_rgba(245,130,32,0.25)] hover:shadow-[0_20px_45px_rgba(245,130,32,0.38)] transition-all duration-500 hover:-translate-y-1.5 flex flex-col justify-between">
+                    <!-- Subtle Glow -->
+                    <div
+                        class="absolute -top-12 -right-12 w-36 h-36 bg-white/15 rounded-full blur-2xl pointer-events-none">
+                    </div>
+
+                    <div>
+                        <div class="flex items-center gap-3.5 mb-3.5">
+                            <span
+                                class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white text-brandOrange shadow-md transition-transform duration-300 group-hover:scale-105">
+                                <i class="fa-solid fa-location-dot text-lg" aria-hidden="true"></i>
+                            </span>
+                            <div>
+                                <span class="text-xs font-bold uppercase tracking-[0.16em] text-white/80">Find Us</span>
+                                <h2 class="text-xl lg:text-2xl font-medium text-white tracking-tight">Location</h2>
+                            </div>
+                        </div>
+                        <p class="text-white/90 text-sm md:text-base leading-relaxed">
+                            Westfield Fountain Gate<br>
+                            352 Princes Highway<br>
+                            Narre Warren VIC 3805
+                        </p>
+                    </div>
+
+                    <div class="mt-4 pt-3.5 border-t border-white/20 relative z-10">
+                        <a href="https://maps.google.com/?q=Switch+Lifestyle+Fountain+Gate" target="_blank"
+                            class="inline-flex items-center gap-2 bg-neutral-900 hover:bg-white hover:text-neutral-900 text-white font-medium px-5 py-2.5 rounded-full text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 shadow-md">
+                            <span>Map & Directions</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 2: Contact (Orange) -->
+                <div
+                    class="group relative overflow-hidden bg-brandOrange rounded-3xl p-5 lg:p-6 text-white shadow-[0_14px_35px_rgba(245,130,32,0.25)] hover:shadow-[0_20px_45px_rgba(245,130,32,0.38)] transition-all duration-500 hover:-translate-y-1.5 flex flex-col justify-between">
+                    <!-- Subtle Glow -->
+                    <div
+                        class="absolute -top-12 -right-12 w-36 h-36 bg-white/15 rounded-full blur-2xl pointer-events-none">
+                    </div>
+
+                    <div>
+                        <div class="flex items-center gap-3.5 mb-3.5">
+                            <span
+                                class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white text-brandOrange shadow-md transition-transform duration-300 group-hover:scale-105">
+                                <i class="fa-solid fa-phone text-base" aria-hidden="true"></i>
+                            </span>
+                            <div>
+                                <span class="text-xs font-bold uppercase tracking-[0.16em] text-white/80">Get In
+                                    Touch</span>
+                                <h2 class="text-xl lg:text-2xl font-medium text-white tracking-tight">Contact</h2>
+                            </div>
+                        </div>
+                        <p class="text-white/90 text-sm md:text-base leading-relaxed">
+                            For table bookings, private functions and general enquiries, call Switch Lifestyle Fountain
+                            Gate.
+                        </p>
+                    </div>
+
+                    <div class="mt-4 pt-3.5 border-t border-white/20 relative z-10">
+                        <a href="tel:0397044333"
+                            class="inline-flex items-center gap-2 bg-neutral-900 text-white hover:bg-white hover:text-neutral-900 font-semibold px-5 py-2.5 rounded-full text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 shadow-md">
+                            <i class="fa-solid fa-phone text-xs"></i>
+                            <span>(03) 9704 4333</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 3: Social (Orange) -->
+                <div
+                    class="group relative overflow-hidden bg-brandOrange rounded-3xl p-5 lg:p-6 text-white shadow-[0_14px_35px_rgba(245,130,32,0.25)] hover:shadow-[0_20px_45px_rgba(245,130,32,0.38)] transition-all duration-500 hover:-translate-y-1.5 flex flex-col justify-between">
+                    <!-- Subtle Glow -->
+                    <div
+                        class="absolute -top-12 -right-12 w-36 h-36 bg-white/15 rounded-full blur-2xl pointer-events-none">
+                    </div>
+
+                    <div>
+                        <div class="flex items-center gap-3.5 mb-3.5">
+                            <span
+                                class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white text-brandOrange shadow-md transition-transform duration-300 group-hover:scale-105">
+                                <i class="fa-solid fa-share-nodes text-base" aria-hidden="true"></i>
+                            </span>
+                            <div>
+                                <span class="text-xs font-bold uppercase tracking-[0.16em] text-white/80">Follow
+                                    Us</span>
+                                <h2 class="text-xl lg:text-2xl font-medium text-white tracking-tight">Social Media</h2>
+                            </div>
+                        </div>
+                        <p class="text-white/90 text-sm md:text-base leading-relaxed">
+                            Connect with Switch Lifestyle Fountain Gate for daily updates, events and special offers.
+                        </p>
+                    </div>
+
+                    <div class="mt-4 pt-3.5 border-t border-white/20 relative z-10">
+                        <nav aria-label="Social media" class="flex flex-wrap gap-2.5">
+                            <!-- Facebook -->
+                            <a href="#" aria-label="Facebook"
+                                class="flex h-10 w-10 items-center justify-center rounded-full bg-[#1e1e1e] text-white transition-all duration-300 hover:scale-110 hover:bg-black shadow-md">
+                                <i class="fa-brands fa-facebook-f text-base" aria-hidden="true"></i>
+                            </a>
+                            <!-- Instagram -->
+                            <a href="#" aria-label="Instagram"
+                                class="flex h-10 w-10 items-center justify-center rounded-full bg-[#1e1e1e] text-white transition-all duration-300 hover:scale-110 hover:bg-black shadow-md">
+                                <i class="fa-brands fa-instagram text-base" aria-hidden="true"></i>
+                            </a>
+                            <!-- Yelp -->
+                            <a href="#" aria-label="Yelp"
+                                class="flex h-10 w-10 items-center justify-center rounded-full bg-[#1e1e1e] text-white transition-all duration-300 hover:scale-110 hover:bg-black shadow-md">
+                                <i class="fa-brands fa-yelp text-base" aria-hidden="true"></i>
+                            </a>
+                            <!-- Tripadvisor -->
+                            <a href="#" aria-label="Tripadvisor"
+                                class="flex h-10 w-10 items-center justify-center rounded-full bg-[#1e1e1e] text-white transition-all duration-300 hover:scale-110 hover:bg-black shadow-md">
+                                <svg class="w-5 h-5 fill-white" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path
+                                        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3.2c2.1 0 3.9 1.3 4.6 3.2h1.6c.4 0 .7.3.7.7s-.3.7-.7.7h-1.2c.1.4.1.7.1 1.1 0 2.8-2.3 5.1-5.1 5.1s-5.1-2.3-5.1-5.1c0-.4.1-.7.1-1.1H5.8c-.4 0-.7-.3-.7-.7s.3-.7.7-.7h1.6C8.1 6.5 9.9 5.2 12 5.2zm-4.8 5.7c1.4 0 2.5 1.1 2.5 2.5s-1.1 2.5-2.5 2.5-2.5-1.1-2.5-2.5 1.1-2.5 2.5-2.5zm9.6 0c1.4 0 2.5 1.1 2.5 2.5s-1.1 2.5-2.5 2.5-2.5-1.1-2.5-2.5 1.1-2.5 2.5-2.5z" />
+                                </svg>
+                            </a>
+                        </nav>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Functions CTA -->
+    <section class="bg-neutral-950">
+        <div class="relative w-full overflow-hidden">
+            <div class="relative min-h-[490px] md:min-h-[540px] lg:min-h-[580px]">
+                <img src="images/Private-Party-Bar-Function-Room-Hire-at-Switch-Lifestyle-in-Melbourne.png"
+                    alt="Private function at Switch Lifestyle"
+                    class="function-slide active absolute inset-0 h-full w-full object-cover">
+                <img src="images/Gender-Reveal-Room-Hire-at-Switch-Lifestyle-in-Melbourne.jpg"
+                    alt="Celebration function at Switch Lifestyle"
+                    class="function-slide absolute inset-0 h-full w-full object-cover">
+                <img src="images/switch-lifestyle-fountain.jpg" alt="Switch Lifestyle venue"
+                    class="function-slide absolute inset-0 h-full w-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/75 to-black/5"></div>
+
+                <div class="absolute inset-x-0 bottom-0 p-6 sm:p-7 text-white md:p-10 lg:p-12">
+                    <div class="flex flex-col items-center sm:items-start text-center sm:text-left gap-6 sm:gap-7 lg:flex-row lg:items-end lg:justify-between lg:gap-12">
+                        <div class="max-w-3xl">
+                            <span class="text-xs font-semibold uppercase tracking-[0.22em] text-brandOrange">Celebrate
+                                with us</span>
+                            <h2 class="mt-3 sm:mt-4 text-2xl sm:text-3xl font-normal tracking-tight md:text-5xl">Large functions also
+                                available</h2>
+                            <p class="mt-3 sm:mt-4 max-w-2xl leading-relaxed text-white/85 text-sm sm:text-base">Host your next special event in one
+                                of our two purpose-built functions rooms that can cater for 50&ndash;200 guests.
+                                We&rsquo;ll help you make it a night to remember.</p>
+                        </div>
+                        <a href="#"
+                            class="inline-flex shrink-0 items-center justify-center rounded-full bg-brandOrange hover:bg-white hover:text-brandOrange px-8 py-3.5 sm:py-4 text-xs sm:text-sm font-semibold uppercase tracking-wider text-white transition-all duration-300 shadow-lg hover:shadow-xl w-full sm:w-auto">View
+                            Functions</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customer Reviews Section -->
+    <section class="bg-[#f7f4ef] py-12 px-4 sm:px-6 lg:px-16 border-t border-neutral-200/60 overflow-hidden">
+        <div class="max-w-7xl mx-auto">
+
+            <!-- Section Header -->
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <span class="text-brandOrange font-semibold uppercase tracking-[0.22em] text-sm mb-3 block">
+                    Guest Experiences
+                </span>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-normal text-neutral-900 tracking-tight">
+                    Customer Reviews
+                </h2>
+            </div>
+
+            <!-- Review Cards Track (Smooth Physical Slide + Compact Height) -->
+            <div class="relative overflow-hidden py-6">
+                <div id="reviewsTrack"
+                     style="display:flex; gap:48px; transition:transform 0.6s cubic-bezier(0.25,1,0.5,1); will-change:transform; align-items:stretch;">
+                    <!-- Cards populated dynamically by JS -->
+                </div>
+
+                <!-- Carousel Indicator Dots -->
+                <div class="mt-8 flex items-center justify-center">
+                    <div id="reviewDotsContainer" class="flex items-center gap-2.5">
+                        <!-- Populated dynamically by JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Review Modal Popup -->
+    <div id="reviewModal"
+        class="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 opacity-0 pointer-events-none transition-all duration-300">
+        <div id="reviewModalBox"
+            class="relative w-full max-w-xl rounded-3xl bg-white p-8 md:p-10 shadow-2xl border border-neutral-100 transform scale-95 transition-all duration-300">
+            <!-- Close Button -->
+            <button id="closeReviewModal" aria-label="Close modal"
+                class="absolute top-6 right-6 flex h-10 w-10 items-center justify-center rounded-full bg-neutral-100 text-neutral-600 hover:bg-brandOrange hover:text-white transition-all duration-200">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+
+            <!-- 5 Stars & Tag -->
+            <div class="flex items-center gap-3 mb-6">
+                <div class="flex items-center gap-1.5 text-brandOrange text-lg">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <span class="text-xs font-semibold uppercase tracking-wider bg-brandOrange/10 text-brandOrange px-3 py-1 rounded-full">
+                    Verified Google Review
+                </span>
+            </div>
+
+            <!-- Full Quote in Modal -->
+            <blockquote id="modalReviewText"
+                class="text-neutral-800 text-lg md:text-xl font-normal leading-relaxed italic mb-8">
+                “Review quote goes here...”
+            </blockquote>
+
+            <!-- Author & Google Badge -->
+            <div class="pt-6 border-t border-neutral-100 flex items-center justify-between gap-4">
+                <div class="flex items-center gap-4">
+                    <img id="modalReviewImg" src="" alt="Author"
+                        class="h-14 w-14 rounded-full object-cover ring-2 ring-brandOrange">
+                    <div>
+                        <h3 id="modalReviewName" class="text-lg font-bold text-neutral-900 leading-snug">Name</h3>
+                        <p class="text-sm font-medium text-neutral-500 leading-snug flex items-center gap-1.5 mt-0.5">
+                            <i class="fa-solid fa-circle-check text-brandOrange text-xs"></i>
+                            Google Verified Diner
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white shadow-md ring-1 ring-neutral-200/80">
+                    <svg class="h-6 w-6" viewBox="0 0 24 24">
+                        <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
+                        <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+                        <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" />
+                        <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Instagram Showcase Gallery Section -->
+    <section class="bg-white py-12 px-3 sm:px-6 lg:px-10 overflow-hidden">
+        <div class="max-w-[1600px] mx-auto">
+
+            <!-- Section Title / Instagram Profile Tag -->
+            <div class="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
+                <span class="inline-flex items-center gap-1.5 text-brandOrange font-semibold uppercase tracking-[0.22em] text-xs sm:text-sm mb-2">
+                    <i class="fa-brands fa-instagram text-sm"></i>
+                    Follow Us On Instagram
+                </span>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-normal text-neutral-900 tracking-tight">
+                    <a href="https://www.instagram.com/switchlifestylerestaurant/" target="_blank" rel="noopener noreferrer"
+                        class="hover:text-brandOrange transition-colors inline-flex items-center gap-2">
+                        <span>@switchlifestylerestaurant</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-sm text-neutral-400"></i>
+                    </a>
+                </h2>
+            </div>
+
+            <!-- 4-Column Image Cards with Hover Instagram Icon -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-4">
+                
+                <!-- Image 1: Dining Feast & Drinks -->
+                <a href="https://www.instagram.com/switchlifestylerestaurant/" target="_blank" rel="noopener noreferrer"
+                    class="group relative aspect-square w-full overflow-hidden bg-neutral-100 shadow-sm block rounded-none">
+                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=1000&auto=format&fit=crop&q=80"
+                        alt="Switch Lifestyle Dining Feast"
+                        class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105">
+                    
+                    <!-- Hover Instagram Overlay -->
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <div class="h-12 w-12 sm:h-14 sm:w-14 rounded-full bg-white/20 backdrop-blur-md border border-white/40 text-white flex items-center justify-center transform scale-75 group-hover:scale-100 transition-all duration-300 shadow-lg">
+                            <i class="fa-brands fa-instagram text-2xl sm:text-3xl text-white"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Image 2: Gourmet Dish Top View -->
+                <a href="https://www.instagram.com/switchlifestylerestaurant/" target="_blank" rel="noopener noreferrer"
+                    class="group relative aspect-square w-full overflow-hidden bg-neutral-100 shadow-sm block rounded-none">
+                    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=1000&auto=format&fit=crop&q=80"
+                        alt="Artisanal Gourmet Dish"
+                        class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105">
+                    
+                    <!-- Hover Instagram Overlay -->
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <div class="h-12 w-12 sm:h-14 sm:w-14 rounded-full bg-white/20 backdrop-blur-md border border-white/40 text-white flex items-center justify-center transform scale-75 group-hover:scale-100 transition-all duration-300 shadow-lg">
+                            <i class="fa-brands fa-instagram text-2xl sm:text-3xl text-white"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Image 3: Long Table Banquet Atmosphere -->
+                <a href="https://www.instagram.com/switchlifestylerestaurant/" target="_blank" rel="noopener noreferrer"
+                    class="group relative aspect-square w-full overflow-hidden bg-neutral-100 shadow-sm block rounded-none">
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1000&auto=format&fit=crop&q=80"
+                        alt="Atmosphere & Long Table Dining"
+                        class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105">
+                    
+                    <!-- Hover Instagram Overlay -->
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <div class="h-12 w-12 sm:h-14 sm:w-14 rounded-full bg-white/20 backdrop-blur-md border border-white/40 text-white flex items-center justify-center transform scale-75 group-hover:scale-100 transition-all duration-300 shadow-lg">
+                            <i class="fa-brands fa-instagram text-2xl sm:text-3xl text-white"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Image 4: Culinary Action & Garnishes -->
+                <a href="https://www.instagram.com/switchlifestylerestaurant/" target="_blank" rel="noopener noreferrer"
+                    class="group relative aspect-square w-full overflow-hidden bg-neutral-100 shadow-sm block rounded-none">
+                    <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=1000&auto=format&fit=crop&q=80"
+                        alt="Chef Finishing Touches"
+                        class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105">
+                    
+                    <!-- Hover Instagram Overlay -->
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <div class="h-12 w-12 sm:h-14 sm:w-14 rounded-full bg-white/20 backdrop-blur-md border border-white/40 text-white flex items-center justify-center transform scale-75 group-hover:scale-100 transition-all duration-300 shadow-lg">
+                            <i class="fa-brands fa-instagram text-2xl sm:text-3xl text-white"></i>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Video Player Modal -->
+    <div id="videoModal"
+        class="fixed inset-0 z-[120] flex items-center justify-center bg-black/80 backdrop-blur-md p-4 opacity-0 pointer-events-none transition-all duration-300">
+        <div id="videoModalBox"
+            class="relative w-full max-w-4xl bg-black rounded-2xl overflow-hidden shadow-2xl border border-neutral-800 transform scale-95 transition-all duration-300">
+            
+            <!-- Video Modal Header -->
+            <div class="flex items-center justify-between p-4 bg-neutral-900 border-b border-neutral-800 text-white">
+                <div class="flex items-center gap-2 min-w-0 pr-4">
+                    <i class="fa-solid fa-circle-play text-brandOrange text-lg shrink-0"></i>
+                    <h3 id="videoModalTitle" class="text-sm sm:text-base font-medium text-white truncate">Switch Lifestyle Video</h3>
+                </div>
+                <button id="closeVideoModalBtn" type="button"
+                    class="h-9 w-9 rounded-full bg-neutral-800 hover:bg-brandOrange text-neutral-300 hover:text-white flex items-center justify-center transition-colors shrink-0">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+
+            <!-- Video Player Iframe Container -->
+            <div class="relative w-full pb-[56.25%] bg-black">
+                <iframe id="videoModalIframe" src=""
+                    class="absolute inset-0 w-full h-full"
+                    title="Switch Lifestyle Video Player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-black px-6 pt-12 pb-8 text-white lg:px-16">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 gap-14 md:grid-cols-2 lg:grid-cols-[1.05fr_1fr_1.35fr] lg:gap-16">
+                <div>
+                    <a href="#" class="inline-block">
+                        <img src="images/switch-email-logo.png" alt="Switch Lifestyle" class="h-auto w-56 max-w-full">
+                    </a>
+                    <p class="mt-7 max-w-xs text-lg leading-relaxed text-white/90">
+                        Modern Australian dining, cocktails and memorable moments at Westfield Fountain Gate.
+                    </p>
+                    <div class="mt-8 flex flex-wrap gap-4">
+                        <a href="#" style="font-size:14px; letter-spacing:0.05em;"
+                            class="rounded-full bg-brandOrange px-7 py-3.5 font-semibold uppercase tracking-wide transition-colors hover:bg-white hover:text-neutral-900">Book a Table</a>
+                        <a href="#" style="font-size:14px; letter-spacing:0.05em;"
+                            class="rounded-full bg-brandOrange px-7 py-3.5 font-semibold uppercase tracking-wide transition-colors hover:bg-white hover:text-neutral-900">Order Pickup</a>
+                    </div>
+                </div>
+
+                <div>
+                    <h2 class="text-2xl font-semibold uppercase tracking-tight">Opening Hours</h2>
+                    <dl class="mt-7 space-y-4 text-lg text-white/95">
+                        <div class="flex gap-2">
+                            <dt>Monday</dt>
+                            <dd>11:30AM – 9:00PM</dd>
+                        </div>
+                        <div class="flex gap-2">
+                            <dt>Tuesday</dt>
+                            <dd>11:30AM – 9:00PM</dd>
+                        </div>
+                        <div class="flex gap-2">
+                            <dt>Wednesday</dt>
+                            <dd>11:30AM – 9:00PM</dd>
+                        </div>
+                        <div class="flex gap-2">
+                            <dt>Thursday</dt>
+                            <dd>11:30AM – 10:00PM</dd>
+                        </div>
+                        <div class="flex gap-2">
+                            <dt>Friday</dt>
+                            <dd>11:30AM – 10:30PM</dd>
+                        </div>
+                        <div class="flex gap-2">
+                            <dt>Saturday</dt>
+                            <dd>11:00AM – 10:30PM</dd>
+                        </div>
+                        <div class="flex gap-2">
+                            <dt>Sunday</dt>
+                            <dd>11:00AM – 9:00PM</dd>
+                        </div>
+                    </dl>
+                </div>
+
+                <div>
+                    <h2 class="text-2xl font-semibold uppercase tracking-tight">Menu</h2>
+                    <nav aria-label="Footer menu" class="mt-7 grid grid-cols-2 gap-x-8 gap-y-4 text-lg text-white/95">
+                        <a href="#" class="transition-colors hover:text-brandOrange">Entrée</a>
+                        <a href="#" class="transition-colors hover:text-brandOrange">Salads &amp; Bowls</a>
+                        <a href="#" class="transition-colors hover:text-brandOrange">Burgers</a>
+                        <a href="#" class="transition-colors hover:text-brandOrange">Pans and Grill</a>
+                        <a href="#" class="transition-colors hover:text-brandOrange">Wood Fired Pizza</a>
+                        <a href="#" class="transition-colors hover:text-brandOrange">Kids Meals</a>
+                        <a href="#" class="transition-colors hover:text-brandOrange">Brunch</a>
+                        <a href="#" class="transition-colors hover:text-brandOrange">Cocktails</a>
+                        <a href="#" class="transition-colors hover:text-brandOrange">Mocktails</a>
+                        <a href="#" class="transition-colors hover:text-brandOrange">Beer &amp; Cyder</a>
+                        <a href="#" class="transition-colors hover:text-brandOrange">Wine</a>
+                        <a href="#" class="transition-colors hover:text-brandOrange">Vegan Dishes</a>
+                        <a href="#" class="transition-colors hover:text-brandOrange">Gluten-free Dishes</a>
+                        <a href="#" class="transition-colors hover:text-brandOrange">Vegetarian Dishes</a>
+                    </nav>
+                </div>
+            </div>
+
+            <div
+                class="mt-16 flex flex-col gap-4 border-t border-white/30 pt-7 text-base text-white/90 md:flex-row md:items-center md:justify-between">
+                <p>© 2026 Switch Lifestyle (ABN: 62 770 030 918)</p>
+                <nav aria-label="Legal links" class="flex flex-wrap gap-x-4 gap-y-2">
+                    <a href="#" class="hover:text-brandOrange transition-colors">Terms &amp; Conditions</a>
+                    <a href="#" class="hover:text-brandOrange transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-brandOrange transition-colors">Cookie Policy</a>
+                </nav>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Sticky Contact Actions -->
+    <div class="fixed right-6 bottom-8 z-[60] flex flex-col items-end gap-3">
+        <!-- Call Us Button -->
+        <div class="group relative flex items-center justify-end">
+            <!-- Label appears on left on hover -->
+            <span
+                class="mr-3 whitespace-nowrap rounded-full bg-[#222222] text-white text-sm font-semibold px-4 py-2 shadow-lg opacity-0 translate-x-3 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 ease-in-out pointer-events-none">Call
+                Us</span>
+            <!-- Orange Circle Icon Button -->
+            <a href="#" aria-label="Call us"
+                class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-brandOrange text-white shadow-[0_10px_22px_rgba(0,0,0,0.2)] transition-all duration-300 hover:scale-110">
+                <i class="fa-solid fa-phone text-2xl" aria-hidden="true"></i>
+            </a>
+        </div>
+        <!-- Book a Table Button -->
+        <div class="group relative flex items-center justify-end">
+            <!-- Label appears on left on hover -->
+            <span
+                class="mr-3 whitespace-nowrap rounded-full bg-[#222222] text-white text-sm font-semibold px-4 py-2 shadow-lg opacity-0 translate-x-3 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 ease-in-out pointer-events-none">Book
+                a Table</span>
+            <!-- Orange Circle Icon Button -->
+            <a href="#" aria-label="Book a table"
+                class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-brandOrange text-white shadow-[0_10px_22px_rgba(0,0,0,0.2)] transition-all duration-300 hover:scale-110">
+                <i class="fa-solid fa-calendar-check text-2xl" aria-hidden="true"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- Auto Slider JavaScript Script -->
+    <script>
+        const slides = document.querySelectorAll('.hero-slide');
+        let currentSlide = 0;
+
+        function nextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+
+        // Change hero slide every 6 seconds
+        setInterval(nextSlide, 6000);
+
+        const functionSlides = document.querySelectorAll('.function-slide');
+        let currentFunctionSlide = 0;
+
+        if (functionSlides.length > 1) {
+            setInterval(() => {
+                functionSlides[currentFunctionSlide].classList.remove('active');
+                currentFunctionSlide = (currentFunctionSlide + 1) % functionSlides.length;
+                functionSlides[currentFunctionSlide].classList.add('active');
+            }, 4000); // 4 seconds
+        }
+
+        // ─── Customer Reviews Carousel ───────────────────────────────────────
+        const reviewsList = [
+            {
+                name: "Gavin F.",
+                avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=120&auto=format&fit=crop&q=80",
+                text: "“The food was amazing. Once you get that first bite in, you can't stop yourself from keep going. Highly recommend the burgers and the grill.”"
+            },
+            {
+                name: "Sharon D.",
+                avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=120&auto=format&fit=crop&q=80",
+                text: "“The food is really good, freshly made, and well put together flavours. I felt I had plenty of vegetarian choices, and they also have the best espresso martini I've ever had.”"
+            },
+            {
+                name: "Alin H.",
+                avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=120&auto=format&fit=crop&q=80",
+                text: "“We always feel so fortunate to have such an amazing restaurant to eat at when visiting Fountain Gate Shopping Centre. Excellent food and a great atmosphere.”"
+            },
+            {
+                name: "David M.",
+                avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&auto=format&fit=crop&q=80",
+                text: "“Switch Lifestyle never fails to impress. Signature cocktails are handcrafted to perfection, steaks are juicy, and service is top-notch every single time.”"
+            },
+            {
+                name: "Jessica T.",
+                avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=120&auto=format&fit=crop&q=80",
+                text: "“Best brunch and coffee in Narre Warren! Relaxed vibe, beautifully presented dishes, and lovely staff. Always my first choice for weekend catch-ups.”"
+            },
+            {
+                name: "Marcus L.",
+                avatar: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=120&auto=format&fit=crop&q=80",
+                text: "“Sensational wood-fired pizzas and pasta dishes! The ambiance is cozy yet upscale, and the staff treats you like family. A true local favorite.”"
+            },
+            {
+                name: "Emily R.",
+                avatar: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=120&auto=format&fit=crop&q=80",
+                text: "“Celebrated my birthday function in their private room. The set menu was exquisite, and the cocktail service was exceptional from start to finish!”"
+            },
+            {
+                name: "Nathan K.",
+                avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=120&auto=format&fit=crop&q=80",
+                text: "“From the breakfast bowls to evening grills, every meal is packed with flavor. Great cocktails, quick service, and consistently 5-star quality.”"
+            }
+        ];
+
+        const track        = document.getElementById('reviewsTrack');
+        const dotsContainer= document.getElementById('reviewDotsContainer');
+        const reviewModal  = document.getElementById('reviewModal');
+        const reviewModalBox= document.getElementById('reviewModalBox');
+        const closeBtn     = document.getElementById('closeReviewModal');
+        const modalText    = document.getElementById('modalReviewText');
+        const modalName    = document.getElementById('modalReviewName');
+        const modalImg     = document.getElementById('modalReviewImg');
+
+        const CARD_COUNT = reviewsList.length; // 8
+        const GAP_PX    = 48;                 // gap between cards (px)
+        const TRANSITION_STYLE = 'transform 0.6s cubic-bezier(0.25, 1, 0.5, 1)';
+
+        // Start at middle set (index 8 = first review of middle set)
+        let trackIndex = CARD_COUNT;
+        let autoTimer  = null;
+
+        // ── Build cards in 3 cloned sets for seamless infinite circular loop ──
+        function buildCards() {
+            if (!track) return;
+            track.innerHTML = '';
+
+            for (let set = 0; set < 3; set++) {
+                reviewsList.forEach((review, rIdx) => {
+                    const domIdx = set * CARD_COUNT + rIdx;
+                    const card = document.createElement('article');
+                    card.id = `rcard-${domIdx}`;
+                    card.dataset.reviewIdx = rIdx;
+                    card.style.cssText = 'flex-shrink:0; width:360px; min-height:260px; display:flex; flex-direction:column; justify-content:space-between;';
+                    card.className = [
+                        'review-card cursor-pointer',
+                        'rounded-3xl p-7',
+                        'transition-all duration-500 ease-in-out',
+                        'shadow-md hover:shadow-xl'
+                    ].join(' ');
+
+                    card.innerHTML = `
+                        <div>
+                            <div class="flex items-center gap-1 text-base mb-5" aria-label="5 stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="text-[0.95rem] leading-relaxed line-clamp-5 italic rcard-text">${review.text}</p>
+                        </div>
+                        <div class="mt-5 pt-5 border-t rcard-divider flex items-center justify-between gap-3">
+                            <div class="flex items-center gap-3">
+                                <!-- Google G logo in a circle -->
+                                <div class="flex-shrink-0 h-11 w-11 rounded-full bg-white flex items-center justify-center shadow-sm ring-1 rcard-gring">
+                                    <svg viewBox="0 0 24 24" class="h-6 w-6">
+                                        <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                                        <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                                        <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                                        <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-sm leading-tight rcard-name">${review.name}</p>
+                                    <p class="text-xs mt-0.5 rcard-sublabel">Google Review</p>
+                                </div>
+                            </div>
+                        </div>`;
+
+                    card.addEventListener('click', () => openModal(rIdx));
+                    track.appendChild(card);
+                });
+            }
+        }
+
+        // ── Style cards: center = orange+zoomed, adjacent = white, far = faded ──
+        function styleCards() {
+            if (!track) return;
+            const allCards = track.querySelectorAll('.review-card');
+            allCards.forEach((card, domIdx) => {
+                const isCenter = domIdx === trackIndex;
+                const isAdjacent = Math.abs(domIdx - trackIndex) === 1;
+
+                card.classList.remove(
+                    'bg-brandOrange','text-white','scale-105','z-10',
+                    'bg-white','text-neutral-800','scale-95','opacity-60'
+                );
+                card.querySelector('.rcard-text')?.classList.remove('text-white/90','text-neutral-700');
+                card.querySelector('.rcard-name')?.classList.remove('text-white','text-neutral-900');
+                card.querySelector('.rcard-sublabel')?.classList.remove('text-white/70','text-neutral-500');
+                const stars = card.querySelectorAll('.fa-star');
+                stars.forEach(s => s.classList.remove('text-white','text-brandOrange'));
+                const divider = card.querySelector('.rcard-divider');
+                if (divider) divider.classList.remove('border-white/30','border-neutral-200');
+                const gring = card.querySelector('.rcard-gring');
+                if (gring) gring.classList.remove('ring-white/40','ring-neutral-200');
+
+                if (isCenter) {
+                    card.classList.add('bg-brandOrange','text-white','scale-105','z-10');
+                    card.querySelector('.rcard-text')?.classList.add('text-white/90');
+                    card.querySelector('.rcard-name')?.classList.add('text-white');
+                    card.querySelector('.rcard-sublabel')?.classList.add('text-white/70');
+                    stars.forEach(s => s.classList.add('text-white'));
+                    if (divider) divider.classList.add('border-white/30');
+                    if (gring)   gring.classList.add('ring-white/40');
+                } else {
+                    card.classList.add('bg-white','text-neutral-800');
+                    if (!isAdjacent) card.classList.add('scale-95','opacity-60');
+                    card.querySelector('.rcard-text')?.classList.add('text-neutral-700');
+                    card.querySelector('.rcard-name')?.classList.add('text-neutral-900');
+                    card.querySelector('.rcard-sublabel')?.classList.add('text-neutral-500');
+                    stars.forEach(s => s.classList.add('text-brandOrange'));
+                    if (divider) divider.classList.add('border-neutral-200');
+                    if (gring)   gring.classList.add('ring-neutral-200');
+                }
+            });
+        }
+
+        // ── Slide track so trackIndex card is centred in viewport ───────────
+        function slideTrack() {
+            if (!track) return;
+            const containerWidth = track.parentElement.offsetWidth;
+            const firstCard = track.querySelector('.review-card');
+            const cardWidth = firstCard ? firstCard.offsetWidth : 360;
+            const offset = (containerWidth / 2) - (trackIndex * (cardWidth + GAP_PX)) - (cardWidth / 2);
+            track.style.transform = `translateX(${offset}px)`;
+        }
+
+        // ── Silent normalize jump when crossing boundary ─────────────────────
+        function normalizeTrackIndex() {
+            if (!track) return;
+            let normalized = false;
+            if (trackIndex >= CARD_COUNT * 2) {
+                trackIndex -= CARD_COUNT;
+                normalized = true;
+            } else if (trackIndex < CARD_COUNT) {
+                trackIndex += CARD_COUNT;
+                normalized = true;
+            }
+
+            if (normalized) {
+                track.style.transition = 'none';
+                styleCards();
+                slideTrack();
+                void track.offsetHeight; // force reflow
+                track.style.transition = TRANSITION_STYLE;
+            }
+        }
+
+        if (track) {
+            track.addEventListener('transitionend', (e) => {
+                if (e.target === track && e.propertyName === 'transform') {
+                    normalizeTrackIndex();
+                }
+            });
+        }
+
+        // ── Update dots ──────────────────────────────────────────────────────
+        function renderDots() {
+            if (!dotsContainer) return;
+            dotsContainer.innerHTML = '';
+            const activeIdx = ((trackIndex % CARD_COUNT) + CARD_COUNT) % CARD_COUNT;
+            reviewsList.forEach((_, i) => {
+                const dot = document.createElement('button');
+                dot.setAttribute('aria-label', `Go to review ${i + 1}`);
+                dot.className = `h-2.5 rounded-full transition-all duration-300 ${i === activeIdx ? 'w-8 bg-brandOrange' : 'w-2.5 bg-neutral-300 hover:bg-neutral-400'}`;
+                dot.addEventListener('click', () => {
+                    goToReview(i);
+                    resetAuto();
+                });
+                dotsContainer.appendChild(dot);
+            });
+        }
+
+        // ── Smooth navigate to specific dot index ────────────────────────────
+        function goToReview(targetIdx) {
+            const currentReview = ((trackIndex % CARD_COUNT) + CARD_COUNT) % CARD_COUNT;
+            let diff = targetIdx - currentReview;
+            if (diff > CARD_COUNT / 2) diff -= CARD_COUNT;
+            if (diff < -CARD_COUNT / 2) diff += CARD_COUNT;
+            trackIndex += diff;
+            update(true);
+        }
+
+        // ── Combined update ──────────────────────────────────────────────────
+        function update(animate = true) {
+            if (!track) return;
+            track.style.transition = animate ? TRANSITION_STYLE : 'none';
+            styleCards();
+            slideTrack();
+            renderDots();
+            if (!animate) {
+                void track.offsetHeight;
+                track.style.transition = TRANSITION_STYLE;
+            }
+        }
+
+        // ── Auto slide ───────────────────────────────────────────────────────
+        function advance() {
+            trackIndex++;
+            update(true);
+        }
+
+        function startAuto() { 
+            clearInterval(autoTimer);
+            autoTimer = setInterval(advance, 4500); 
+        }
+        function resetAuto() { 
+            clearInterval(autoTimer); 
+            startAuto(); 
+        }
+
+        // Pause on hover
+        if (track && track.parentElement) {
+            track.parentElement.addEventListener('mouseenter', () => clearInterval(autoTimer));
+            track.parentElement.addEventListener('mouseleave', () => resetAuto());
+        }
+
+        // ── Modal helpers ────────────────────────────────────────────────────
+        function openModal(idx) {
+            const r = reviewsList[idx];
+            if (!r) return;
+            if (modalText) modalText.textContent = r.text;
+            if (modalName) modalName.textContent = r.name;
+            if (modalImg)  { modalImg.src = r.avatar; modalImg.alt = r.name; }
+            if (reviewModal && reviewModalBox) {
+                reviewModal.classList.remove('opacity-0','pointer-events-none');
+                reviewModalBox.classList.remove('scale-95');
+                reviewModalBox.classList.add('scale-100');
+            }
+        }
+
+        function closeModal() {
+            if (reviewModal && reviewModalBox) {
+                reviewModal.classList.add('opacity-0','pointer-events-none');
+                reviewModalBox.classList.remove('scale-100');
+                reviewModalBox.classList.add('scale-95');
+            }
+        }
+
+        if (closeBtn)     closeBtn.addEventListener('click', closeModal);
+        if (reviewModal)  reviewModal.addEventListener('click', e => { if (e.target === reviewModal) closeModal(); });
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+        // ── Touch / drag swipe support ────────────────────────────────────────
+        let touchStartX = 0;
+        if (track) {
+            track.addEventListener('touchstart', e => { 
+                touchStartX = e.touches[0].clientX; 
+                clearInterval(autoTimer);
+            }, { passive: true });
+            track.addEventListener('touchend', e => {
+                const dx = e.changedTouches[0].clientX - touchStartX;
+                if (Math.abs(dx) > 40) {
+                    if (dx < 0) {
+                        trackIndex++;
+                    } else {
+                        trackIndex--;
+                    }
+                    update(true);
+                }
+                resetAuto();
+            }, { passive: true });
+        }
+
+        // ── Mobile Drawer Navigation & Accordions ───────────────────────────
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileDrawer = document.getElementById('mobile-drawer');
+        const mobileBackdrop = document.getElementById('mobile-menu-backdrop');
+        const closeDrawerBtn = document.getElementById('close-drawer-btn');
+
+        function openMobileMenu() {
+            if (mobileDrawer && mobileBackdrop) {
+                mobileDrawer.classList.remove('-translate-x-full');
+                mobileDrawer.classList.add('translate-x-0');
+                mobileBackdrop.classList.remove('opacity-0', 'pointer-events-none');
+                mobileBackdrop.classList.add('opacity-100', 'pointer-events-auto');
+                document.body.classList.add('overflow-hidden');
+            }
+        }
+
+        function closeMobileMenu() {
+            if (mobileDrawer && mobileBackdrop) {
+                mobileDrawer.classList.remove('translate-x-0');
+                mobileDrawer.classList.add('-translate-x-full');
+                mobileBackdrop.classList.remove('opacity-100', 'pointer-events-auto');
+                mobileBackdrop.classList.add('opacity-0', 'pointer-events-none');
+                document.body.classList.remove('overflow-hidden');
+            }
+        }
+
+        if (menuBtn) menuBtn.addEventListener('click', openMobileMenu);
+        if (closeDrawerBtn) closeDrawerBtn.addEventListener('click', closeMobileMenu);
+        if (mobileBackdrop) mobileBackdrop.addEventListener('click', closeMobileMenu);
+
+        // Mobile Menu Accordion Toggle
+        const menuAccordionBtn = document.getElementById('mobile-menu-accordion-btn');
+        const menuAccordionContent = document.getElementById('mobile-menu-accordion-content');
+        const menuAccordionIcon = document.getElementById('mobile-menu-accordion-icon');
+
+        if (menuAccordionBtn && menuAccordionContent && menuAccordionIcon) {
+            menuAccordionBtn.addEventListener('click', () => {
+                const isHidden = menuAccordionContent.classList.contains('hidden');
+                if (isHidden) {
+                    menuAccordionContent.classList.remove('hidden');
+                    menuAccordionIcon.classList.add('rotate-180');
+                } else {
+                    menuAccordionContent.classList.add('hidden');
+                    menuAccordionIcon.classList.remove('rotate-180');
+                }
+            });
+        }
+
+        // Mobile Order Online Accordion Toggle
+        const orderAccordionBtn = document.getElementById('mobile-order-accordion-btn');
+        const orderAccordionContent = document.getElementById('mobile-order-accordion-content');
+        const orderAccordionIcon = document.getElementById('mobile-order-accordion-icon');
+
+        if (orderAccordionBtn && orderAccordionContent && orderAccordionIcon) {
+            orderAccordionBtn.addEventListener('click', () => {
+                const isHidden = orderAccordionContent.classList.contains('hidden');
+                if (isHidden) {
+                    orderAccordionContent.classList.remove('hidden');
+                    orderAccordionIcon.classList.add('rotate-180');
+                } else {
+                    orderAccordionContent.classList.add('hidden');
+                    orderAccordionIcon.classList.remove('rotate-180');
+                }
+            });
+        }
+
+        // ── Video Modal Player ──────────────────────────────────────────────
+        const videoModal = document.getElementById('videoModal');
+        const videoModalBox = document.getElementById('videoModalBox');
+        const videoModalIframe = document.getElementById('videoModalIframe');
+        const videoModalTitle = document.getElementById('videoModalTitle');
+        const closeVideoModalBtn = document.getElementById('closeVideoModalBtn');
+
+        function openVideoModal(url, title) {
+            if (!videoModal || !videoModalIframe) return;
+            if (videoModalTitle && title) videoModalTitle.textContent = title;
+            videoModalIframe.src = url;
+            videoModal.classList.remove('opacity-0', 'pointer-events-none');
+            videoModal.classList.add('opacity-100', 'pointer-events-auto');
+            if (videoModalBox) {
+                videoModalBox.classList.remove('scale-95');
+                videoModalBox.classList.add('scale-100');
+            }
+            document.body.classList.add('overflow-hidden');
+        }
+
+        function closeVideoModal() {
+            if (!videoModal || !videoModalIframe) return;
+            videoModal.classList.remove('opacity-100', 'pointer-events-auto');
+            videoModal.classList.add('opacity-0', 'pointer-events-none');
+            if (videoModalBox) {
+                videoModalBox.classList.remove('scale-100');
+                videoModalBox.classList.add('scale-95');
+            }
+            // Stop video playing by clearing src
+            setTimeout(() => {
+                videoModalIframe.src = '';
+            }, 300);
+            document.body.classList.remove('overflow-hidden');
+        }
+
+        if (closeVideoModalBtn) closeVideoModalBtn.addEventListener('click', closeVideoModal);
+        if (videoModal) videoModal.addEventListener('click', (e) => {
+            if (e.target === videoModal) closeVideoModal();
+        });
+
+        // Close on ESC key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeMobileMenu();
+                closeVideoModal();
+            }
+        });
+
+        // ── Init ─────────────────────────────────────────────────────────────
+        buildCards();
+        setTimeout(() => { update(false); startAuto(); }, 50);
+        window.addEventListener('resize', () => { slideTrack(); });
+
+    </script>
+
+</body>
+
+</html>
