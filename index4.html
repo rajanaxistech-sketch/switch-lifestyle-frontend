@@ -1,0 +1,1515 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth overflow-x-hidden">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Switch Lifestyle | Artisan Hearth, Wood-Fired Dining & Social Feasts - Fountain Gate</title>
+    <meta name="description" content="Switch Lifestyle at Westfield Fountain Gate. Experience artisan wood-fired pizzas, flame-grilled steaks, handmade pastas, and private celebration suites in a warm terracotta osteria setting.">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: League Spartan, Lato & Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400&family=League+Spartan:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome 6.5.2 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        heading: ['"League Spartan"', 'sans-serif'],
+                        sans: ['"Lato"', 'sans-serif'],
+                        display: ['"Outfit"', 'sans-serif'],
+                    },
+                    colors: {
+                        // Terracotta Brown & Warm Amber Hearth Palette
+                        brandOrange: '#F58220',
+                        brandOrangeHover: '#FF9438',
+                        brandOrangeDark: '#D96E14',
+                        brandTerra: '#7B3F36',
+                        brandTerraHover: '#914B41',
+                        brandTerraDark: '#5E2E27',
+                        brandTerraDeep: '#3F1E19',
+                        brandTerraLight: '#FBF2EF',
+                        brandTerraMuted: '#965A51',
+                        brandBlack: '#000000',
+                        brandDark: '#181312',
+                        brandDarker: '#100D0C',
+                        brandLight: '#FFFFFF',
+                        brandSurface: '#FAF6F4',
+                        brandWarm: '#F5ECE8',
+                    },
+                    boxShadow: {
+                        'glow-orange': '0 0 35px -5px rgba(245, 130, 32, 0.40)',
+                        'glow-terra': '0 0 35px -5px rgba(123, 63, 54, 0.45)',
+                        'card': '0 16px 40px -12px rgba(24, 19, 18, 0.08)',
+                        'card-hover': '0 24px 50px -12px rgba(123, 63, 54, 0.22)',
+                        'hearth': '0 20px 45px -10px rgba(63, 30, 25, 0.35)',
+                    },
+                    screens: {
+                        'xs': '420px',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        * {
+            -webkit-tap-highlight-color: transparent;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+            max-width: 100vw;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            letter-spacing: 0.015em;
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+            background-color: #FAF6F4;
+            color: #181312;
+        }
+
+        h1, h2, h3, h4, h5, h6, .font-heading {
+            font-family: 'League Spartan', sans-serif;
+            letter-spacing: 0.02em;
+        }
+
+        /* Hearth Glass & Framing */
+        .glass-hearth {
+            background: rgba(63, 30, 25, 0.88);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .hearth-card {
+            background: #ffffff;
+            border: 1px solid rgba(123, 63, 54, 0.15);
+            transition: all 0.3s ease;
+        }
+        .hearth-card:hover {
+            border-color: rgba(245, 130, 32, 0.5);
+            transform: translateY(-3px);
+            box-shadow: 0 20px 35px -10px rgba(123, 63, 54, 0.18);
+        }
+
+        /* Polaroid Framing */
+        .polaroid-frame {
+            background: #ffffff;
+            padding: 8px 8px 24px 8px;
+            box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s ease;
+        }
+        .polaroid-frame:hover {
+            transform: scale(1.03) rotate(0deg) !important;
+            z-index: 20;
+        }
+
+        /* Custom Scrollbars */
+        ::-webkit-scrollbar {
+            width: 7px;
+            height: 7px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F5ECE8;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #7B3F36;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #F58220;
+        }
+
+        /* Safe Bottom Padding for Mobile Dock */
+        .safe-bottom-dock {
+            padding-bottom: max(0.65rem, env(safe-area-inset-bottom));
+        }
+    </style>
+</head>
+
+<body class="bg-brandSurface text-brandDark min-h-screen flex flex-col selection:bg-brandOrange selection:text-white">
+
+    <!-- ============================================================ -->
+    <!-- TOP OPERATIONAL UTILITY STRIP                                -->
+    <!-- ============================================================ -->
+    <div class="bg-brandTerraDeep text-neutral-300 text-[11px] sm:text-xs py-2 px-3 sm:px-6 lg:px-12 border-b border-brandTerra/40 relative z-40">
+        <div class="max-w-7xl 2xl:max-w-[1440px] mx-auto flex items-center justify-between gap-2">
+            <div class="flex items-center gap-2 truncate">
+                <span class="inline-flex items-center justify-center w-2 h-2 rounded-full bg-brandOrange shrink-0 animate-pulse"></span>
+                <span class="font-medium text-neutral-200 truncate">Hearth Ovens Fired Daily · Westfield Fountain Gate (Level 1)</span>
+                <span class="hidden md:inline text-brandTerraMuted">|</span>
+                <span class="hidden md:inline text-brandOrange font-semibold">All-Day Wood-Fired Kitchen · Bottomless Brunch 'Til 3PM</span>
+            </div>
+            <div class="flex items-center gap-3 sm:gap-5 text-[11px] sm:text-xs shrink-0">
+                <a href="tel:0397044333" class="hover:text-brandOrange transition-colors flex items-center gap-1.5 text-neutral-300">
+                    <i class="fa-solid fa-phone text-brandOrange text-[10px] sm:text-[11px]"></i>
+                    <span class="font-bold tracking-wide">(03) 9704 4333</span>
+                </a>
+                <a href="#arrival" class="hidden sm:flex items-center gap-1.5 text-brandTerraLight hover:text-white transition-colors">
+                    <i class="fa-solid fa-location-dot text-brandOrange text-[11px]"></i>
+                    <span>Arrival &amp; Cinema Parking</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SYMMETRICAL DOUBLE-DECKER HEADER WITH CENTERED CREST EMBLEM  -->
+    <!-- ============================================================ -->
+    <header class="sticky top-0 z-50 bg-brandTerraDeep/95 backdrop-blur-md text-white border-b border-brandTerra/40 shadow-hearth px-4 sm:px-6 lg:px-12 py-3">
+        <div class="max-w-7xl 2xl:max-w-[1440px] mx-auto flex items-center justify-between">
+            
+            <!-- Left Navigation Wings (Desktop) -->
+            <nav class="hidden lg:flex items-center space-x-6 text-[14px] font-heading font-bold uppercase tracking-wider text-neutral-200">
+                <a href="#hearth" class="hover:text-brandOrange transition-colors">The Hearth</a>
+                <a href="#crafts" class="hover:text-brandOrange transition-colors">Crafts</a>
+                <a href="#feasting" class="hover:text-brandOrange transition-colors">Feasting Menu</a>
+                <a href="#story" class="hover:text-brandOrange transition-colors">Our Roots</a>
+            </nav>
+
+            <!-- Centered Brand Crest & Logo Emblem -->
+            <div class="flex items-center gap-3">
+                <a href="index4.html" class="flex flex-col items-center focus:outline-none group">
+                    <img src="images/switch-email-logo.png" alt="Switch Lifestyle" class="h-9 sm:h-11 w-auto object-contain group-hover:scale-105 transition-transform">
+                    <span class="text-[9px] uppercase font-heading font-extrabold tracking-[0.25em] text-brandOrange mt-0.5">
+                        Artisan Hearth Edition
+                    </span>
+                </a>
+            </div>
+
+            <!-- Right Navigation Wings & Actions (Desktop) -->
+            <div class="hidden lg:flex items-center space-x-6 text-[14px] font-heading font-bold uppercase tracking-wider text-neutral-200">
+                <a href="#packages" class="hover:text-brandOrange transition-colors">Group Feasts</a>
+                <a href="#chronicle" class="hover:text-brandOrange transition-colors">Chronicle</a>
+                <a href="#arrival" class="hover:text-brandOrange transition-colors">Arrival</a>
+                
+                <button onclick="openBookingModal()" class="bg-brandOrange hover:bg-brandOrangeHover text-white text-xs px-5 py-2.5 rounded-full shadow-lg shadow-brandOrange/30 hover:scale-105 transition-all flex items-center gap-2">
+                    <i class="fa-solid fa-fire text-xs"></i>
+                    <span>Reserve Feasting Table</span>
+                </button>
+            </div>
+
+            <!-- Mobile Drawer Button (Mobile) -->
+            <div class="flex items-center gap-2.5 lg:hidden">
+                <button onclick="openBookingModal()" class="bg-brandOrange hover:bg-brandOrangeHover text-white text-[11px] font-heading font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full shadow-sm">
+                    Book Table
+                </button>
+                <button type="button" onclick="toggleMobileNav()" class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors focus:outline-none" aria-label="Open mobile menu">
+                    <i class="fa-solid fa-bars text-sm"></i>
+                </button>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- MOBILE SLIDE-OVER DRAWER -->
+    <div id="mobileDrawer" class="fixed inset-0 z-50 bg-black/75 backdrop-blur-sm transition-opacity duration-300 opacity-0 pointer-events-none">
+        <div id="mobileDrawerPanel" class="fixed top-0 right-0 bottom-0 w-[84%] max-w-sm bg-brandTerraDeep border-l border-brandTerra/40 text-white p-6 shadow-2xl flex flex-col justify-between transform translate-x-full transition-transform duration-300 overflow-y-auto">
+            <div>
+                <div class="flex items-center justify-between pb-5 border-b border-white/10">
+                    <img src="images/switch-email-logo.png" alt="Switch Lifestyle" class="h-9 w-auto object-contain">
+                    <button onclick="toggleMobileNav()" class="w-8 h-8 rounded-full bg-white/10 text-white flex items-center justify-center hover:bg-white/20">
+                        <i class="fa-solid fa-xmark text-sm"></i>
+                    </button>
+                </div>
+
+                <div class="flex flex-col space-y-3 mt-6 text-base font-heading font-semibold">
+                    <a href="#hearth" onclick="toggleMobileNav()" class="px-3 py-2 rounded-lg hover:bg-white/10 flex items-center justify-between">
+                        <span>The Hearth</span>
+                        <i class="fa-solid fa-chevron-right text-xs text-brandOrange"></i>
+                    </a>
+                    <a href="#crafts" onclick="toggleMobileNav()" class="px-3 py-2 rounded-lg hover:bg-white/10 flex items-center justify-between">
+                        <span>The 4 Culinary Crafts</span>
+                        <i class="fa-solid fa-chevron-right text-xs text-brandOrange"></i>
+                    </a>
+                    <a href="#feasting" onclick="toggleMobileNav()" class="px-3 py-2 rounded-lg hover:bg-white/10 flex items-center justify-between">
+                        <span>The Feasting Menu</span>
+                        <i class="fa-solid fa-chevron-right text-xs text-brandOrange"></i>
+                    </a>
+                    <a href="#story" onclick="toggleMobileNav()" class="px-3 py-2 rounded-lg hover:bg-white/10 flex items-center justify-between">
+                        <span>Behind The Hearth</span>
+                        <i class="fa-solid fa-chevron-right text-xs text-brandOrange"></i>
+                    </a>
+                    <a href="#packages" onclick="toggleMobileNav()" class="px-3 py-2 rounded-lg hover:bg-white/10 flex items-center justify-between">
+                        <span>Celebration Packages</span>
+                        <i class="fa-solid fa-chevron-right text-xs text-brandOrange"></i>
+                    </a>
+                    <a href="#chronicle" onclick="toggleMobileNav()" class="px-3 py-2 rounded-lg hover:bg-white/10 flex items-center justify-between">
+                        <span>The Diner Chronicle</span>
+                        <i class="fa-solid fa-chevron-right text-xs text-brandOrange"></i>
+                    </a>
+                    <a href="#arrival" onclick="toggleMobileNav()" class="px-3 py-2 rounded-lg hover:bg-white/10 flex items-center justify-between">
+                        <span>Westfield Arrival Guide</span>
+                        <i class="fa-solid fa-chevron-right text-xs text-brandOrange"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="pt-6 border-t border-white/10 space-y-3">
+                <button onclick="toggleMobileNav(); openBookingModal();" class="w-full bg-brandOrange hover:bg-brandOrangeHover text-white font-heading font-bold py-3 rounded-xl text-center uppercase tracking-wider text-sm shadow-md">
+                    Reserve Feasting Table
+                </button>
+                <a href="tel:0397044333" class="w-full bg-white/10 hover:bg-white/20 text-neutral-200 font-semibold py-2.5 rounded-xl flex items-center justify-center gap-2 text-sm">
+                    <i class="fa-solid fa-phone text-brandOrange"></i>
+                    <span>Call (03) 9704 4333</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN BODY CONTENT -->
+    <main class="flex-grow">
+
+        <!-- ============================================================ -->
+        <!-- 1. FULL-BLEED PANORAMIC HEARTH HERO WITH DUAL CRAFT BADGES   -->
+        <!-- ============================================================ -->
+        <section id="hearth" class="relative pt-12 sm:pt-20 pb-20 sm:pb-32 px-4 sm:px-6 lg:px-12 bg-brandTerraDeep text-white overflow-hidden">
+            <!-- Background Image with Moody Hearth Gradient -->
+            <div class="absolute inset-0 -z-10">
+                <img src="images/terra_hero_dining.jpg" alt="Artisan Hearth Dining at Switch" class="w-full h-full object-cover object-center brightness-50">
+                <div class="absolute inset-0 bg-gradient-to-t from-brandTerraDeep via-brandTerraDeep/70 to-brandTerraDeep/40"></div>
+                <div class="absolute inset-0 bg-radial-gradient from-transparent via-brandTerraDeep/40 to-brandTerraDeep"></div>
+            </div>
+
+            <div class="max-w-5xl mx-auto text-center relative z-10 space-y-6 sm:space-y-8">
+                
+                <!-- Pill Badge -->
+                <div class="inline-flex items-center gap-2 bg-brandTerra/60 backdrop-blur-md border border-brandTerraMuted/50 px-4 py-1.5 rounded-full text-xs font-heading font-bold uppercase tracking-widest text-brandTerraLight shadow-md">
+                    <i class="fa-solid fa-fire-burner text-brandOrange"></i>
+                    <span>Westfield Fountain Gate · Level 1 Osteria &amp; Social Club</span>
+                </div>
+
+                <!-- Main Symmetrical Headline -->
+                <h1 class="text-3xl sm:text-6xl lg:text-7xl font-heading font-black tracking-tight leading-[1.08] sm:leading-[1.05] uppercase">
+                    Where Fire, Dough <br class="hidden sm:inline">
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-brandOrange to-brandOrangeHover">
+                        &amp; Hospitality
+                    </span> 
+                    Converge.
+                </h1>
+
+                <!-- Sub-narrative -->
+                <p class="text-neutral-200 text-sm sm:text-lg lg:text-xl max-w-3xl mx-auto font-light leading-relaxed">
+                    Centred around our 400°C stone oven and flame char-grill. We slow-ferment our dough for 48 hours, simmer house sugo with San Marzano tomatoes, and invite you to break bread at Narre Warren's communal feasting table.
+                </p>
+
+                <!-- Dual Floating Craft Badges (Desktop) -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto pt-2">
+                    <div class="bg-black/40 backdrop-blur-md border border-white/10 rounded-2xl p-4 flex items-center gap-3.5 text-left">
+                        <div class="w-12 h-12 rounded-xl bg-brandOrange/20 text-brandOrange flex items-center justify-center font-bold text-xl shrink-0">
+                            <i class="fa-solid fa-pizza-slice"></i>
+                        </div>
+                        <div>
+                            <div class="font-heading font-bold text-sm text-white">48h Slow Fermentation</div>
+                            <div class="text-xs text-neutral-300">Stone baked with bubbly blistered crusts</div>
+                        </div>
+                    </div>
+
+                    <div class="bg-black/40 backdrop-blur-md border border-white/10 rounded-2xl p-4 flex items-center gap-3.5 text-left">
+                        <div class="w-12 h-12 rounded-xl bg-brandTerra/40 text-brandOrange flex items-center justify-center font-bold text-xl shrink-0">
+                            <i class="fa-solid fa-wine-glass"></i>
+                        </div>
+                        <div>
+                            <div class="font-heading font-bold text-sm text-white">Cellar &amp; Spritz Reserve</div>
+                            <div class="text-xs text-neutral-300">Local Victorian wines &amp; botanical cocktails</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-4 pt-4">
+                    <button onclick="openBookingModal()" class="bg-brandOrange hover:bg-brandOrangeHover text-white font-heading font-bold text-xs sm:text-sm uppercase tracking-wider px-8 sm:px-10 py-3.5 sm:py-4 rounded-full shadow-lg shadow-brandOrange/30 hover:scale-105 transition-all flex items-center gap-2.5">
+                        <i class="fa-solid fa-calendar-check"></i>
+                        <span>Book Your Feasting Table</span>
+                    </button>
+                    <a href="#feasting" class="bg-white/10 hover:bg-white/20 text-white font-heading font-bold text-xs sm:text-sm uppercase tracking-wider px-7 sm:px-8 py-3.5 sm:py-4 rounded-full border border-white/20 transition-all flex items-center gap-2">
+                        <span>Explore Feasting Menu</span>
+                        <i class="fa-solid fa-arrow-down text-xs"></i>
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- 2. THE 4 HEARTH CRAFTS (HORIZONTAL FEATURE RIBBON)           -->
+        <!-- ============================================================ -->
+        <section id="crafts" class="py-12 sm:py-16 bg-white px-4 sm:px-6 lg:px-12 border-b border-neutral-200">
+            <div class="max-w-7xl 2xl:max-w-[1440px] mx-auto">
+                
+                <div class="text-center max-w-2xl mx-auto mb-10 sm:mb-12">
+                    <span class="text-brandOrange font-heading font-extrabold uppercase tracking-[0.2em] text-xs sm:text-sm mb-1.5 block">
+                        Our Culinary Disciplines
+                    </span>
+                    <h2 class="text-2xl sm:text-4xl font-heading font-extrabold text-brandDark tracking-tight">
+                        The Four Hearth Crafts
+                    </h2>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                    
+                    <!-- Craft 1 -->
+                    <div class="hearth-card rounded-2xl p-5 sm:p-6 flex flex-col justify-between group">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-brandWarm text-brandTerra flex items-center justify-center font-bold text-xl mb-4 group-hover:bg-brandTerra group-hover:text-white transition-colors">
+                                <i class="fa-solid fa-fire"></i>
+                            </div>
+                            <span class="text-[10px] font-heading font-bold text-brandOrange uppercase tracking-widest block mb-1">01 · Hearth Oven</span>
+                            <h3 class="text-lg font-heading font-bold text-brandDark mb-2">400°C Stone Pizza</h3>
+                            <p class="text-xs text-neutral-600 leading-relaxed">
+                                Fermented slow dough, San Marzano sugo, creamy burrata, and blistered crusts made in the ancient Napoletana spirit.
+                            </p>
+                        </div>
+                        <div class="pt-4 mt-4 border-t border-neutral-100 flex items-center justify-between text-xs font-heading font-bold text-brandTerra">
+                            <span>Fired Fresh</span>
+                            <i class="fa-solid fa-arrow-right text-[10px] group-hover:translate-x-1 transition-transform"></i>
+                        </div>
+                    </div>
+
+                    <!-- Craft 2 -->
+                    <div class="hearth-card rounded-2xl p-5 sm:p-6 flex flex-col justify-between group">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-brandWarm text-brandTerra flex items-center justify-center font-bold text-xl mb-4 group-hover:bg-brandTerra group-hover:text-white transition-colors">
+                                <i class="fa-solid fa-drumstick-bite"></i>
+                            </div>
+                            <span class="text-[10px] font-heading font-bold text-brandOrange uppercase tracking-widest block mb-1">02 · Char-Grill</span>
+                            <h3 class="text-lg font-heading font-bold text-brandDark mb-2">Prime Cuts &amp; Flame</h3>
+                            <p class="text-xs text-neutral-600 leading-relaxed">
+                                Victorian Black Angus steaks, flame-seared Tasmanian salmon, juicy burger stacks, and charred rosemary lamb cutlets.
+                            </p>
+                        </div>
+                        <div class="pt-4 mt-4 border-t border-neutral-100 flex items-center justify-between text-xs font-heading font-bold text-brandTerra">
+                            <span>Prime Meats</span>
+                            <i class="fa-solid fa-arrow-right text-[10px] group-hover:translate-x-1 transition-transform"></i>
+                        </div>
+                    </div>
+
+                    <!-- Craft 3 -->
+                    <div class="hearth-card rounded-2xl p-5 sm:p-6 flex flex-col justify-between group">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-brandWarm text-brandTerra flex items-center justify-center font-bold text-xl mb-4 group-hover:bg-brandTerra group-hover:text-white transition-colors">
+                                <i class="fa-solid fa-bowl-food"></i>
+                            </div>
+                            <span class="text-[10px] font-heading font-bold text-brandOrange uppercase tracking-widest block mb-1">03 · Pan &amp; Pot</span>
+                            <h3 class="text-lg font-heading font-bold text-brandDark mb-2">House Pastas &amp; Pans</h3>
+                            <p class="text-xs text-neutral-600 leading-relaxed">
+                                Rich slow-braised ragu, seafood linguine with chilli and garlic, and golden pillows of gnocchi tossed in burnt butter sage.
+                            </p>
+                        </div>
+                        <div class="pt-4 mt-4 border-t border-neutral-100 flex items-center justify-between text-xs font-heading font-bold text-brandTerra">
+                            <span>Hand Crafted</span>
+                            <i class="fa-solid fa-arrow-right text-[10px] group-hover:translate-x-1 transition-transform"></i>
+                        </div>
+                    </div>
+
+                    <!-- Craft 4 -->
+                    <div class="hearth-card rounded-2xl p-5 sm:p-6 flex flex-col justify-between group">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-brandWarm text-brandTerra flex items-center justify-center font-bold text-xl mb-4 group-hover:bg-brandTerra group-hover:text-white transition-colors">
+                                <i class="fa-solid fa-wine-bottle"></i>
+                            </div>
+                            <span class="text-[10px] font-heading font-bold text-brandOrange uppercase tracking-widest block mb-1">04 · Cellar &amp; Tap</span>
+                            <h3 class="text-lg font-heading font-bold text-brandDark mb-2">Spritz &amp; Cellar Reserve</h3>
+                            <p class="text-xs text-neutral-600 leading-relaxed">
+                                Blood orange spritzers, barrel-aged negronis, local Victorian vintages, and crisp cold taps to toast every occasion.
+                            </p>
+                        </div>
+                        <div class="pt-4 mt-4 border-t border-neutral-100 flex items-center justify-between text-xs font-heading font-bold text-brandTerra">
+                            <span>Curated Pours</span>
+                            <i class="fa-solid fa-arrow-right text-[10px] group-hover:translate-x-1 transition-transform"></i>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- 3. "THE FEASTING TABLE" MENU WITH SOMMELIER PAIRINGS         -->
+        <!-- ============================================================ -->
+        <section id="feasting" class="py-14 sm:py-20 lg:py-24 bg-brandSurface px-4 sm:px-6 lg:px-12 border-b border-brandTerra/20">
+            <div class="max-w-7xl 2xl:max-w-[1440px] mx-auto">
+                
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10 sm:mb-12">
+                    <div>
+                        <span class="text-brandOrange font-heading font-extrabold uppercase tracking-[0.2em] text-xs sm:text-sm mb-1.5 block">
+                            The Feasting Table
+                        </span>
+                        <h2 class="text-2xl sm:text-4xl lg:text-5xl font-heading font-extrabold text-brandDark tracking-tight">
+                            Course-by-Course Dining Guide
+                        </h2>
+                        <p class="text-neutral-600 text-xs sm:text-base mt-1">Every plate paired with curated wine or cocktail recommendations by our house sommelier.</p>
+                    </div>
+
+                    <!-- Course Switcher Pills -->
+                    <div class="flex flex-wrap items-center gap-2" id="courseFilterBar">
+                        <button onclick="filterFeastCourse('all')" data-course="all" class="course-btn px-4 py-2 rounded-full font-heading font-bold text-xs uppercase tracking-wider transition-all bg-brandTerra text-white shadow-md">
+                            All Courses
+                        </button>
+                        <button onclick="filterFeastCourse('pizza')" data-course="pizza" class="course-btn px-4 py-2 rounded-full font-heading font-bold text-xs uppercase tracking-wider transition-all bg-white text-neutral-600 hover:bg-brandWarm border border-neutral-200">
+                            Wood-Fired Pizza
+                        </button>
+                        <button onclick="filterFeastCourse('grill')" data-course="grill" class="course-btn px-4 py-2 rounded-full font-heading font-bold text-xs uppercase tracking-wider transition-all bg-white text-neutral-600 hover:bg-brandWarm border border-neutral-200">
+                            Flame Grill &amp; Steaks
+                        </button>
+                        <button onclick="filterFeastCourse('pasta')" data-course="pasta" class="course-btn px-4 py-2 rounded-full font-heading font-bold text-xs uppercase tracking-wider transition-all bg-white text-neutral-600 hover:bg-brandWarm border border-neutral-200">
+                            House Pastas
+                        </button>
+                        <button onclick="filterFeastCourse('drinks')" data-course="drinks" class="course-btn px-4 py-2 rounded-full font-heading font-bold text-xs uppercase tracking-wider transition-all bg-white text-neutral-600 hover:bg-brandWarm border border-neutral-200">
+                            Cellar &amp; Spritz
+                        </button>
+                    </div>
+                </div>
+
+                <!-- HIGHLIGHT: GRAND SOCIAL SHARING FEAST BANNER -->
+                <div class="mb-10 bg-brandTerraDeep text-white rounded-3xl overflow-hidden border border-brandTerra/40 shadow-2xl grid lg:grid-cols-12 items-center">
+                    <div class="lg:col-span-6 relative min-h-[260px] sm:min-h-[340px]">
+                        <img src="images/terra_sharing_feast.jpg" alt="Grand Social Sharing Feast Table" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-brandTerraDeep/90 via-transparent to-transparent"></div>
+                        <span class="absolute top-4 left-4 bg-brandOrange text-white text-[10px] font-heading font-extrabold uppercase tracking-widest px-3 py-1 rounded-full shadow">
+                            Designed For 4+ Guests
+                        </span>
+                    </div>
+
+                    <div class="lg:col-span-6 p-6 sm:p-10 lg:p-12 space-y-4">
+                        <span class="text-xs font-heading font-bold uppercase tracking-widest text-brandOrange">Group Sharing Tradition</span>
+                        <h3 class="text-2xl sm:text-3xl font-heading font-extrabold text-white">
+                            The Switch Family Sharing Feast
+                        </h3>
+                        <p class="text-neutral-300 text-xs sm:text-sm leading-relaxed">
+                            Gather your crew around a table heaped with charred sourdough bruschetta, antipasti boards, piping hot artisan pizzas, hand-rolled pastas, and shared dessert platters.
+                        </p>
+                        
+                        <div class="pt-2 flex items-center gap-4 text-xs font-heading font-bold text-neutral-200">
+                            <span class="flex items-center gap-1.5"><i class="fa-solid fa-check text-brandOrange"></i> $58 per guest</span>
+                            <span class="flex items-center gap-1.5"><i class="fa-solid fa-check text-brandOrange"></i> 3 Shared Courses</span>
+                            <span class="flex items-center gap-1.5"><i class="fa-solid fa-check text-brandOrange"></i> Add Spritz Jugs</span>
+                        </div>
+
+                        <div class="pt-2">
+                            <button onclick="openBookingModal(null, null, '6 Guests')" class="bg-brandOrange hover:bg-brandOrangeHover text-white text-xs font-heading font-bold uppercase tracking-wider px-6 py-3 rounded-full transition-all">
+                                Book Group Feasting Table
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6 Course Cards with Sommelier Pairing Badges -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="feastingCardsGrid">
+                    
+                    <!-- Card 1: Pizza -->
+                    <div class="feast-card bg-white rounded-2xl p-5 border border-brandTerra/20 shadow-card flex flex-col justify-between" data-course="pizza">
+                        <div>
+                            <div class="h-48 rounded-xl overflow-hidden mb-4 relative">
+                                <img src="images/terra_artisan_pizza.jpg" alt="Artisan Burrata Pizza" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                                <span class="absolute top-2.5 right-2.5 bg-brandTerraDeep/90 backdrop-blur-sm text-white font-heading font-bold text-xs px-2.5 py-0.5 rounded-full">
+                                    $27.50
+                                </span>
+                            </div>
+                            <h4 class="font-heading font-bold text-lg text-brandDark">Burrata &amp; Prosciutto Pizza</h4>
+                            <p class="text-xs text-neutral-600 mt-1 leading-relaxed">
+                                48-hour fermented dough, San Marzano tomato sugo, creamy whole Italian burrata, 24-month aged prosciutto di Parma, and fresh basil.
+                            </p>
+                        </div>
+                        <div class="mt-4 pt-3.5 border-t border-neutral-100 flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <i class="fa-solid fa-wine-glass text-brandOrange text-xs"></i>
+                                <span class="text-[11px] font-heading font-bold text-brandTerra">Pair: Chianti Classico DOCG</span>
+                            </div>
+                            <span class="text-[10px] font-heading font-extrabold uppercase px-2 py-0.5 rounded bg-brandWarm text-brandTerra">Hearth</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Grill -->
+                    <div class="feast-card bg-white rounded-2xl p-5 border border-brandTerra/20 shadow-card flex flex-col justify-between" data-course="grill">
+                        <div>
+                            <div class="h-48 rounded-xl overflow-hidden mb-4 relative">
+                                <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=600&auto=format&fit=crop&q=80" alt="Crispy Skin Salmon" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                                <span class="absolute top-2.5 right-2.5 bg-brandTerraDeep/90 backdrop-blur-sm text-white font-heading font-bold text-xs px-2.5 py-0.5 rounded-full">
+                                    $34.00
+                                </span>
+                            </div>
+                            <h4 class="font-heading font-bold text-lg text-brandDark">Crispy Skin Tasmanian Salmon</h4>
+                            <p class="text-xs text-neutral-600 mt-1 leading-relaxed">
+                                Pan-seared Atlantic salmon fillet, crushed herbed baby potatoes, broccolini, and warm lemon caper butter sauce.
+                            </p>
+                        </div>
+                        <div class="mt-4 pt-3.5 border-t border-neutral-100 flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <i class="fa-solid fa-wine-glass text-brandOrange text-xs"></i>
+                                <span class="text-[11px] font-heading font-bold text-brandTerra">Pair: Yarra Valley Pinot Grigio</span>
+                            </div>
+                            <span class="text-[10px] font-heading font-extrabold uppercase px-2 py-0.5 rounded bg-sky-100 text-sky-800">Gluten-Free</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Pasta -->
+                    <div class="feast-card bg-white rounded-2xl p-5 border border-brandTerra/20 shadow-card flex flex-col justify-between" data-course="pasta">
+                        <div>
+                            <div class="h-48 rounded-xl overflow-hidden mb-4 relative">
+                                <img src="https://images.unsplash.com/photo-1621996346565-e3d5d6281292?w=600&auto=format&fit=crop&q=80" alt="Slow Braised Beef Ragu Gnocchi" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                                <span class="absolute top-2.5 right-2.5 bg-brandTerraDeep/90 backdrop-blur-sm text-white font-heading font-bold text-xs px-2.5 py-0.5 rounded-full">
+                                    $28.50
+                                </span>
+                            </div>
+                            <h4 class="font-heading font-bold text-lg text-brandDark">Slow-Cooked Beef Cheek Ragu</h4>
+                            <p class="text-xs text-neutral-600 mt-1 leading-relaxed">
+                                8-hour braised Victorian beef cheek, rich tomato red wine sugo, handmade potato gnocchi, and aged pecorino shavings.
+                            </p>
+                        </div>
+                        <div class="mt-4 pt-3.5 border-t border-neutral-100 flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <i class="fa-solid fa-wine-glass text-brandOrange text-xs"></i>
+                                <span class="text-[11px] font-heading font-bold text-brandTerra">Pair: Barossa Valley Shiraz</span>
+                            </div>
+                            <span class="text-[10px] font-heading font-extrabold uppercase px-2 py-0.5 rounded bg-brandWarm text-brandTerra">Handmade</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 4: Pizza -->
+                    <div class="feast-card bg-white rounded-2xl p-5 border border-brandTerra/20 shadow-card flex flex-col justify-between" data-course="pizza">
+                        <div>
+                            <div class="h-48 rounded-xl overflow-hidden mb-4 relative">
+                                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=600&auto=format&fit=crop&q=80" alt="Diavola Spicy Salami" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                                <span class="absolute top-2.5 right-2.5 bg-brandTerraDeep/90 backdrop-blur-sm text-white font-heading font-bold text-xs px-2.5 py-0.5 rounded-full">
+                                    $26.00
+                                </span>
+                            </div>
+                            <h4 class="font-heading font-bold text-lg text-brandDark">Diavola Calabrese &amp; Hot Honey</h4>
+                            <p class="text-xs text-neutral-600 mt-1 leading-relaxed">
+                                Spicy artisan salami, fior di latte, hot chilli honey drizzle, kalamata olives, and fresh torn oregano.
+                            </p>
+                        </div>
+                        <div class="mt-4 pt-3.5 border-t border-neutral-100 flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <i class="fa-solid fa-martini-glass text-brandOrange text-xs"></i>
+                                <span class="text-[11px] font-heading font-bold text-brandTerra">Pair: Blood Orange Spritz</span>
+                            </div>
+                            <span class="text-[10px] font-heading font-extrabold uppercase px-2 py-0.5 rounded bg-red-100 text-red-800">Spicy</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 5: Grill -->
+                    <div class="feast-card bg-white rounded-2xl p-5 border border-brandTerra/20 shadow-card flex flex-col justify-between" data-course="grill">
+                        <div>
+                            <div class="h-48 rounded-xl overflow-hidden mb-4 relative">
+                                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600&auto=format&fit=crop&q=80" alt="Double Wagyu Burger" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                                <span class="absolute top-2.5 right-2.5 bg-brandTerraDeep/90 backdrop-blur-sm text-white font-heading font-bold text-xs px-2.5 py-0.5 rounded-full">
+                                    $25.50
+                                </span>
+                            </div>
+                            <h4 class="font-heading font-bold text-lg text-brandDark">Switch Wagyu &amp; Truffle Stack</h4>
+                            <p class="text-xs text-neutral-600 mt-1 leading-relaxed">
+                                Prime Australian Wagyu beef patty, smoky bacon jam, melted double cheddar, truffle emulsion, and golden beer-battered chips.
+                            </p>
+                        </div>
+                        <div class="mt-4 pt-3.5 border-t border-neutral-100 flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <i class="fa-solid fa-beer-mug-empty text-brandOrange text-xs"></i>
+                                <span class="text-[11px] font-heading font-bold text-brandTerra">Pair: Stone &amp; Wood Pacific Ale</span>
+                            </div>
+                            <span class="text-[10px] font-heading font-extrabold uppercase px-2 py-0.5 rounded bg-amber-100 text-amber-800">Top Pick</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 6: Drinks -->
+                    <div class="feast-card bg-white rounded-2xl p-5 border border-brandTerra/20 shadow-card flex flex-col justify-between" data-course="drinks">
+                        <div>
+                            <div class="h-48 rounded-xl overflow-hidden mb-4 relative">
+                                <img src="images/terra_lounge_bar.jpg" alt="Botanical Spritz & Negroni" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                                <span class="absolute top-2.5 right-2.5 bg-brandTerraDeep/90 backdrop-blur-sm text-white font-heading font-bold text-xs px-2.5 py-0.5 rounded-full">
+                                    $21.00
+                                </span>
+                            </div>
+                            <h4 class="font-heading font-bold text-lg text-brandDark">Smoked Rosemary Old Fashioned</h4>
+                            <p class="text-xs text-neutral-600 mt-1 leading-relaxed">
+                                Woodford Reserve bourbon, bitters, charred orange peel, demerara syrup, infused under a dome of aromatic rosemary smoke.
+                            </p>
+                        </div>
+                        <div class="mt-4 pt-3.5 border-t border-neutral-100 flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <i class="fa-solid fa-fire text-brandOrange text-xs"></i>
+                                <span class="text-[11px] font-heading font-bold text-brandTerra">Pair: Dark Chocolate Tart</span>
+                            </div>
+                            <span class="text-[10px] font-heading font-extrabold uppercase px-2 py-0.5 rounded bg-brandWarm text-brandTerra">Signature</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- 4. "BEHIND THE HEARTH" 3 ACTS OF CRAFT & CHEF PHILOSOPHY     -->
+        <!-- ============================================================ -->
+        <section id="story" class="py-14 sm:py-20 lg:py-24 bg-white px-4 sm:px-6 lg:px-12 border-b border-neutral-200">
+            <div class="max-w-7xl 2xl:max-w-[1440px] mx-auto">
+                
+                <div class="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
+                    <span class="text-brandOrange font-heading font-extrabold uppercase tracking-[0.2em] text-xs sm:text-sm mb-1.5 block">
+                        Our Culinary Lineage
+                    </span>
+                    <h2 class="text-2xl sm:text-4xl lg:text-5xl font-heading font-extrabold text-brandDark tracking-tight">
+                        Behind The Hearth: 3 Acts of Craft
+                    </h2>
+                    <p class="text-neutral-600 mt-2 text-xs sm:text-base">
+                        Great food isn't fast. It's patient, honest, and shaped by fire.
+                    </p>
+                </div>
+
+                <!-- 3 Horizontal Acts of Craft -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+                    
+                    <!-- Act 1 -->
+                    <div class="bg-brandSurface rounded-3xl p-6 sm:p-8 border border-brandTerra/20 flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-2xl bg-brandTerra text-white font-heading font-black text-lg flex items-center justify-center mb-5 shadow">
+                                01
+                            </div>
+                            <span class="text-[11px] font-heading font-bold text-brandOrange uppercase tracking-widest block mb-1">Act I · Patience</span>
+                            <h3 class="text-xl sm:text-2xl font-heading font-bold text-brandDark mb-3">48h Cold Fermentation</h3>
+                            <p class="text-xs sm:text-sm text-neutral-600 leading-relaxed">
+                                Our dough is mixed in small batches with Italian Caputo flour, wild yeast, and sea salt, then rested in cold vaults for 48 hours. This develops incredible airy bubbles and lightness on the stomach.
+                            </p>
+                        </div>
+                        <div class="pt-5 mt-5 border-t border-neutral-200 text-xs text-neutral-500 font-medium">
+                            Result: Digestible, crispy, fragrant crusts.
+                        </div>
+                    </div>
+
+                    <!-- Act 2 -->
+                    <div class="bg-brandSurface rounded-3xl p-6 sm:p-8 border border-brandTerra/20 flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-2xl bg-brandTerra text-white font-heading font-black text-lg flex items-center justify-center mb-5 shadow">
+                                02
+                            </div>
+                            <span class="text-[11px] font-heading font-bold text-brandOrange uppercase tracking-widest block mb-1">Act II · Heritage</span>
+                            <h3 class="text-xl sm:text-2xl font-heading font-bold text-brandDark mb-3">San Marzano &amp; Gippsland Farms</h3>
+                            <p class="text-xs sm:text-sm text-neutral-600 leading-relaxed">
+                                We combine volcanic soil San Marzano tomatoes directly from Campania with the freshest free-range produce, grass-fed beef, and dairy from our local Victorian farmers.
+                            </p>
+                        </div>
+                        <div class="pt-5 mt-5 border-t border-neutral-200 text-xs text-neutral-500 font-medium">
+                            Result: Uncompromised ingredient integrity.
+                        </div>
+                    </div>
+
+                    <!-- Act 3 -->
+                    <div class="bg-brandSurface rounded-3xl p-6 sm:p-8 border border-brandTerra/20 flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-2xl bg-brandTerra text-white font-heading font-black text-lg flex items-center justify-center mb-5 shadow">
+                                03
+                            </div>
+                            <span class="text-[11px] font-heading font-bold text-brandOrange uppercase tracking-widest block mb-1">Act III · The Fire</span>
+                            <h3 class="text-xl sm:text-2xl font-heading font-bold text-brandDark mb-3">400°C Blistering Hearth</h3>
+                            <p class="text-xs sm:text-sm text-neutral-600 leading-relaxed">
+                                Each pizza enters our blistering stone deck for exactly 90 seconds. The fierce radiant heat cooks the crust from below while caramelising the mozzarella and sugo on top.
+                            </p>
+                        </div>
+                        <div class="pt-5 mt-5 border-t border-neutral-200 text-xs text-neutral-500 font-medium">
+                            Result: The authentic char and smoke finish.
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Chef Philosophy Badge -->
+                <div class="mt-10 sm:mt-12 bg-brandWarm rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-brandTerra/30 flex flex-col sm:flex-row items-center justify-between gap-6">
+                    <div class="flex items-center gap-4">
+                        <div class="w-14 h-14 rounded-full bg-brandTerra text-brandOrange flex items-center justify-center text-2xl font-bold shadow-md shrink-0">
+                            <i class="fa-solid fa-quote-left"></i>
+                        </div>
+                        <div>
+                            <blockquote class="text-sm sm:text-base font-heading font-semibold text-brandDark italic">
+                                "Food at Switch Lifestyle isn't made for solitary dining; it is designed to be shared, passed around, and celebrated together."
+                            </blockquote>
+                            <div class="text-xs text-brandTerra font-bold mt-1">Executive Chef &amp; Pizzaiolo Team · Switch Lifestyle Fountain Gate</div>
+                        </div>
+                    </div>
+                    <button onclick="openBookingModal()" class="shrink-0 bg-brandTerra hover:bg-brandTerraHover text-white text-xs font-heading font-bold uppercase tracking-wider px-6 py-3 rounded-full transition-all">
+                        Dine With Us
+                    </button>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- 5. TIERED CELEBRATION PACKAGES (PRIVATE FUNCTIONS)           -->
+        <!-- ============================================================ -->
+        <section id="packages" class="py-14 sm:py-20 lg:py-24 bg-brandTerraDeep text-white px-4 sm:px-6 lg:px-12 relative overflow-hidden">
+            <div class="max-w-7xl 2xl:max-w-[1440px] mx-auto relative z-10">
+                
+                <div class="text-center max-w-2xl mx-auto mb-10 sm:mb-14">
+                    <span class="text-brandOrange font-heading font-extrabold uppercase tracking-[0.2em] text-xs sm:text-sm mb-1.5 block">
+                        Host Your Celebration
+                    </span>
+                    <h2 class="text-2xl sm:text-4xl lg:text-5xl font-heading font-extrabold text-white tracking-tight">
+                        Curated Celebration Packages
+                    </h2>
+                    <p class="text-neutral-300 mt-2.5 text-xs sm:text-base">
+                        From standing cocktail mixers to multi-course banquets. Choose a tailored feasting tier for your next birthday, engagement, or corporate event.
+                    </p>
+                </div>
+
+                <!-- 3 Event Packages Grid -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
+                    
+                    <!-- Package 1: Spritz Mixer -->
+                    <div class="bg-brandTerraDark rounded-3xl p-6 sm:p-8 border border-brandTerra/40 shadow-xl flex flex-col justify-between group hover:border-brandOrange transition-all">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="bg-brandOrange/20 text-brandOrange border border-brandOrange/40 text-[10px] font-heading font-extrabold uppercase tracking-widest px-3 py-1 rounded-full">
+                                    Cocktail &amp; Canapés
+                                </span>
+                                <span class="text-xs text-neutral-400">20 – 40 Guests</span>
+                            </div>
+                            <h3 class="text-2xl font-heading font-extrabold text-white mb-2">The Spritz &amp; Tapas Mixer</h3>
+                            <p class="text-xs text-neutral-300 leading-relaxed mb-6">
+                                Perfect for birthday drinks, farewells, and casual corporate mixers. Continuous roaming pizza boards and finger food with dedicated cocktail bar access.
+                            </p>
+                            
+                            <div class="space-y-2.5 text-xs text-neutral-200">
+                                <div class="flex items-center gap-2"><i class="fa-solid fa-check text-brandOrange"></i> Roaming wood-fired pizza slices</div>
+                                <div class="flex items-center gap-2"><i class="fa-solid fa-check text-brandOrange"></i> Crispy calamari &amp; arancini balls</div>
+                                <div class="flex items-center gap-2"><i class="fa-solid fa-check text-brandOrange"></i> Dedicated high-top cocktail area</div>
+                                <div class="flex items-center gap-2"><i class="fa-solid fa-check text-brandOrange"></i> 2-Hour Beverage Tab Options</div>
+                            </div>
+                        </div>
+
+                        <div class="pt-6 mt-6 border-t border-brandTerra/40">
+                            <button onclick="openFunctionModal('The Spritz & Tapas Mixer (20-40 Guests)')" class="w-full bg-brandOrange hover:bg-brandOrangeHover text-white font-heading font-bold text-xs uppercase tracking-wider py-3 rounded-xl transition-all">
+                                Enquire For Mixer Package
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Package 2: The Family Feast (Featured) -->
+                    <div class="bg-gradient-to-b from-brandTerra to-brandTerraDark rounded-3xl p-6 sm:p-8 border-2 border-brandOrange shadow-2xl flex flex-col justify-between relative transform lg:-translate-y-2">
+                        <span class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-brandOrange text-white text-[10px] font-heading font-extrabold uppercase tracking-widest px-4 py-1 rounded-full shadow-lg">
+                            Most Requested
+                        </span>
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="bg-white/20 text-white text-[10px] font-heading font-extrabold uppercase tracking-widest px-3 py-1 rounded-full">
+                                    Sit-Down Banquet
+                                </span>
+                                <span class="text-xs text-neutral-300">40 – 80 Guests</span>
+                            </div>
+                            <h3 class="text-2xl font-heading font-extrabold text-white mb-2">The Grand Feasting Table</h3>
+                            <p class="text-xs text-neutral-200 leading-relaxed mb-6">
+                                Milestone birthdays (30th, 40th, 50th), engagement dinners, and christenings. Long communal tables with 3 courses of antipasti, pizza, steaks, and dessert.
+                            </p>
+                            
+                            <div class="space-y-2.5 text-xs text-neutral-100">
+                                <div class="flex items-center gap-2"><i class="fa-solid fa-check text-brandOrange"></i> Charcuterie &amp; warm focaccia starter</div>
+                                <div class="flex items-center gap-2"><i class="fa-solid fa-check text-brandOrange"></i> Shared artisan pizzas &amp; handmade pastas</div>
+                                <div class="flex items-center gap-2"><i class="fa-solid fa-check text-brandOrange"></i> Flame-grilled steaks &amp; salmon platters</div>
+                                <div class="flex items-center gap-2"><i class="fa-solid fa-check text-brandOrange"></i> Dessert platters &amp; celebration cake cutting</div>
+                            </div>
+                        </div>
+
+                        <div class="pt-6 mt-6 border-t border-white/20">
+                            <button onclick="openFunctionModal('The Grand Feasting Table (40-80 Guests)')" class="w-full bg-white hover:bg-neutral-100 text-brandTerraDark font-heading font-extrabold text-xs uppercase tracking-wider py-3.5 rounded-xl shadow-lg transition-all">
+                                Enquire For Feasting Banquet
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Package 3: VIP Mezzanine Buyout -->
+                    <div class="bg-brandTerraDark rounded-3xl p-6 sm:p-8 border border-brandTerra/40 shadow-xl flex flex-col justify-between group hover:border-brandOrange transition-all">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="bg-brandOrange/20 text-brandOrange border border-brandOrange/40 text-[10px] font-heading font-extrabold uppercase tracking-widest px-3 py-1 rounded-full">
+                                    Exclusive Suite
+                                </span>
+                                <span class="text-xs text-neutral-400">80 – 200 Guests</span>
+                            </div>
+                            <h3 class="text-2xl font-heading font-extrabold text-white mb-2">Exclusive Mezzanine Buyout</h3>
+                            <p class="text-xs text-neutral-300 leading-relaxed mb-6">
+                                Complete privacy in our elevated mezzanine celebration room. Dedicated private bar, sound system, microphone, DJ space, and tailored culinary packages.
+                            </p>
+                            
+                            <div class="space-y-2.5 text-xs text-neutral-200">
+                                <div class="flex items-center gap-2"><i class="fa-solid fa-check text-brandOrange"></i> Completely private elevated floor</div>
+                                <div class="flex items-center gap-2"><i class="fa-solid fa-check text-brandOrange"></i> Private cocktail bar &amp; dedicated staff</div>
+                                <div class="flex items-center gap-2"><i class="fa-solid fa-check text-brandOrange"></i> Full AV presentation &amp; music system</div>
+                                <div class="flex items-center gap-2"><i class="fa-solid fa-check text-brandOrange"></i> Late closing license option</div>
+                            </div>
+                        </div>
+
+                        <div class="pt-6 mt-6 border-t border-brandTerra/40">
+                            <button onclick="openFunctionModal('Exclusive Mezzanine Buyout (80-200 Guests)')" class="w-full bg-brandOrange hover:bg-brandOrangeHover text-white font-heading font-bold text-xs uppercase tracking-wider py-3 rounded-xl transition-all">
+                                Enquire For Exclusive Suite
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Suite Photo Highlight Frame -->
+                <div class="mt-12 rounded-3xl overflow-hidden shadow-2xl border border-brandTerra/50">
+                    <img src="images/terra_celebration_suite.jpg" alt="Warm Terracotta Celebration Suite at Switch" class="w-full h-64 sm:h-80 lg:h-96 object-cover">
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- 6. THE DINER CHRONICLE EDITORIAL QUOTE WALL                  -->
+        <!-- ============================================================ -->
+        <section id="chronicle" class="py-14 sm:py-20 lg:py-24 bg-white px-4 sm:px-6 lg:px-12 border-b border-neutral-200">
+            <div class="max-w-7xl 2xl:max-w-[1440px] mx-auto">
+                
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10 sm:mb-12">
+                    <div>
+                        <span class="text-brandOrange font-heading font-extrabold uppercase tracking-[0.2em] text-xs sm:text-sm mb-1.5 block">
+                            The Diner Chronicle
+                        </span>
+                        <h2 class="text-2xl sm:text-4xl lg:text-5xl font-heading font-extrabold text-brandDark tracking-tight">
+                            Stories from the Table
+                        </h2>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="bg-brandWarm border border-brandTerra/20 px-4 py-2 rounded-2xl flex items-center gap-2">
+                            <span class="text-brandOrange font-heading font-black text-xl">4.9 ★</span>
+                            <span class="text-xs text-neutral-600 font-medium">Over 1,400 Diners on Google</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3 Editorial Chronicle Quotes -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    
+                    <div class="bg-brandSurface rounded-3xl p-6 sm:p-8 border border-brandTerra/20 shadow-card flex flex-col justify-between">
+                        <div>
+                            <span class="text-4xl font-serif text-brandOrange block mb-2">“</span>
+                            <p class="text-brandDark text-sm sm:text-base leading-relaxed italic mb-6">
+                                The wood-fired crust here is blistered to absolute perfection. You can taste the 48-hour fermentation in every single slice. Best pizza south-east of Melbourne.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-neutral-200 flex items-center justify-between">
+                            <div>
+                                <div class="font-heading font-bold text-sm text-brandDark">Marcus L.</div>
+                                <div class="text-[11px] text-neutral-500">Google Verified Diner · 5 Stars</div>
+                            </div>
+                            <span class="text-[10px] font-heading font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-brandWarm text-brandTerra">
+                                Friday Dinner
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="bg-brandSurface rounded-3xl p-6 sm:p-8 border border-brandTerra/20 shadow-card flex flex-col justify-between">
+                        <div>
+                            <span class="text-4xl font-serif text-brandOrange block mb-2">“</span>
+                            <p class="text-brandDark text-sm sm:text-base leading-relaxed italic mb-6">
+                                We booked the sharing banquet for my mother's 60th birthday. The steaks, seafood, and pizzas just kept coming. The wait staff made our family feel like royalty.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-neutral-200 flex items-center justify-between">
+                            <div>
+                                <div class="font-heading font-bold text-sm text-brandDark">Elena K.</div>
+                                <div class="text-[11px] text-neutral-500">Google Verified Diner · 5 Stars</div>
+                            </div>
+                            <span class="text-[10px] font-heading font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-brandWarm text-brandTerra">
+                                Family Feast
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="bg-brandSurface rounded-3xl p-6 sm:p-8 border border-brandTerra/20 shadow-card flex flex-col justify-between">
+                        <div>
+                            <span class="text-4xl font-serif text-brandOrange block mb-2">“</span>
+                            <p class="text-brandDark text-sm sm:text-base leading-relaxed italic mb-6">
+                                Fantastic cocktails and warm terracotta aesthetic! Such a vibe compared to standard mall restaurants. We'll be coming back every weekend for brunch.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-neutral-200 flex items-center justify-between">
+                            <div>
+                                <div class="font-heading font-bold text-sm text-brandDark">Jordan T.</div>
+                                <div class="text-[11px] text-neutral-500">Google Verified Diner · 5 Stars</div>
+                            </div>
+                            <span class="text-[10px] font-heading font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-brandWarm text-brandTerra">
+                                Cocktail Lounge
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- 7. FRAMED POLAROID SOCIAL TABLE GALLERY                      -->
+        <!-- ============================================================ -->
+        <section class="py-12 sm:py-16 bg-brandWarm px-4 sm:px-6 lg:px-12 border-b border-brandTerra/20">
+            <div class="max-w-7xl 2xl:max-w-[1440px] mx-auto">
+                <div class="flex flex-col sm:flex-row items-center justify-between gap-3 mb-8">
+                    <div>
+                        <span class="text-xs font-heading font-bold uppercase tracking-widest text-brandOrange block">Community Snapshots</span>
+                        <h3 class="text-xl sm:text-2xl font-heading font-extrabold text-brandDark">
+                            <a href="https://www.instagram.com/switchlifestylerestaurant/" target="_blank" rel="noopener noreferrer" class="hover:text-brandOrange transition-colors inline-flex items-center gap-2">
+                                <span>#SwitchLifestyleMoments</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square text-xs text-neutral-400"></i>
+                            </a>
+                        </h3>
+                    </div>
+                    <a href="https://www.instagram.com/switchlifestylerestaurant/" target="_blank" rel="noopener noreferrer" class="bg-white hover:bg-neutral-50 border border-neutral-300 px-4 py-2 rounded-full text-xs font-heading font-bold uppercase tracking-wider text-brandDark flex items-center gap-1.5 transition-colors">
+                        <i class="fa-brands fa-instagram text-brandOrange"></i>
+                        <span>Tag @switchlifestylerestaurant</span>
+                    </a>
+                </div>
+
+                <!-- 4 Polaroid Framed Images -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+                    <div class="polaroid-frame rounded-xl transform -rotate-1">
+                        <img src="images/terra_artisan_pizza.jpg" alt="Artisan stone pizza" class="w-full aspect-square object-cover rounded-lg mb-2">
+                        <span class="text-[11px] font-heading font-bold text-neutral-600 block text-center">Flame Fired Crust</span>
+                    </div>
+
+                    <div class="polaroid-frame rounded-xl transform rotate-2">
+                        <img src="images/terra_lounge_bar.jpg" alt="Cocktail bar" class="w-full aspect-square object-cover rounded-lg mb-2">
+                        <span class="text-[11px] font-heading font-bold text-neutral-600 block text-center">Botanical Spritz Pour</span>
+                    </div>
+
+                    <div class="polaroid-frame rounded-xl transform -rotate-2">
+                        <img src="images/terra_sharing_feast.jpg" alt="Social feast table" class="w-full aspect-square object-cover rounded-lg mb-2">
+                        <span class="text-[11px] font-heading font-bold text-neutral-600 block text-center">Communal Feasting Table</span>
+                    </div>
+
+                    <div class="polaroid-frame rounded-xl transform rotate-1">
+                        <img src="images/terra_celebration_suite.jpg" alt="Celebration private suite" class="w-full aspect-square object-cover rounded-lg mb-2">
+                        <span class="text-[11px] font-heading font-bold text-neutral-600 block text-center">Milestone Celebrations</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- 8. THE 3-STEP WESTFIELD ARRIVAL CONCIERGE & HOURS            -->
+        <!-- ============================================================ -->
+        <section id="arrival" class="py-14 sm:py-20 lg:py-24 bg-white px-4 sm:px-6 lg:px-12">
+            <div class="max-w-7xl 2xl:max-w-[1440px] mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+                    
+                    <!-- Left: 3-Step Arrival Process (6 cols) -->
+                    <div class="lg:col-span-6 space-y-6 sm:space-y-8">
+                        <div>
+                            <span class="text-brandOrange font-heading font-extrabold uppercase tracking-[0.2em] text-xs sm:text-sm mb-1.5 block">
+                                Shopping Centre Concierge
+                            </span>
+                            <h2 class="text-2xl sm:text-4xl font-heading font-extrabold text-brandDark tracking-tight">
+                                Your 3-Step Arrival Guide
+                            </h2>
+                            <p class="text-neutral-600 mt-2 text-xs sm:text-base leading-relaxed">
+                                Located on Level 1 at Westfield Fountain Gate. Follow these three simple steps for seamless parking and entry.
+                            </p>
+                        </div>
+
+                        <!-- 3 Steps -->
+                        <div class="space-y-4">
+                            
+                            <!-- Step 1 -->
+                            <div class="flex items-start gap-4 p-4 sm:p-5 rounded-2xl bg-brandSurface border border-brandTerra/20">
+                                <div class="w-10 h-10 rounded-xl bg-brandTerra text-white font-heading font-bold flex items-center justify-center shrink-0">
+                                    1
+                                </div>
+                                <div>
+                                    <div class="font-heading font-bold text-sm sm:text-base text-brandDark">Park Free at Cinema Yellow Zone</div>
+                                    <p class="text-xs sm:text-sm text-neutral-600 mt-0.5">
+                                        Enter Westfield from Princes Highway and drive up to <strong>Level 1 Cinema Carpark (Yellow Zone)</strong>.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Step 2 -->
+                            <div class="flex items-start gap-4 p-4 sm:p-5 rounded-2xl bg-brandSurface border border-brandTerra/20">
+                                <div class="w-10 h-10 rounded-xl bg-brandTerra text-white font-heading font-bold flex items-center justify-center shrink-0">
+                                    2
+                                </div>
+                                <div>
+                                    <div class="font-heading font-bold text-sm sm:text-base text-brandDark">Walk Past Village Cinemas</div>
+                                    <p class="text-xs sm:text-sm text-neutral-600 mt-0.5">
+                                        Walk through the cinema entrance on Level 1. Switch Lifestyle is located right alongside the entertainment and dining boardwalk.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Step 3 -->
+                            <div class="flex items-start gap-4 p-4 sm:p-5 rounded-2xl bg-brandSurface border border-brandTerra/20">
+                                <div class="w-10 h-10 rounded-xl bg-brandOrange text-white font-heading font-bold flex items-center justify-center shrink-0">
+                                    3
+                                </div>
+                                <div>
+                                    <div class="font-heading font-bold text-sm sm:text-base text-brandDark">Step Into The Hearth</div>
+                                    <p class="text-xs sm:text-sm text-neutral-600 mt-0.5">
+                                        Our hosts welcome both walk-in guests and reservations immediately at the front door.
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="flex flex-col sm:flex-row gap-3 pt-2">
+                            <a href="https://maps.google.com/?q=Switch+Lifestyle+Fountain+Gate" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto bg-brandTerra hover:bg-brandTerraHover text-white font-heading font-bold text-xs sm:text-sm tracking-wider uppercase px-7 py-3.5 rounded-full shadow-md transition-all flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <span>Get Google Directions</span>
+                            </a>
+                            <a href="tel:0397044333" class="w-full sm:w-auto bg-brandWarm hover:bg-neutral-200 text-brandTerraDark font-heading font-bold text-xs sm:text-sm tracking-wider uppercase px-6 py-3.5 rounded-full border border-brandTerra/30 transition-all flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-phone text-brandOrange"></i>
+                                <span>Call (03) 9704 4333</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Right: Trading Hours (6 cols) -->
+                    <div class="lg:col-span-6 bg-brandTerraDeep text-white rounded-3xl p-6 sm:p-8 lg:p-10 border border-brandTerra/40 shadow-2xl">
+                        <div class="flex items-center justify-between pb-6 border-b border-brandTerra/30">
+                            <div>
+                                <span class="text-brandOrange font-heading font-bold uppercase tracking-widest text-xs">Trading Schedule</span>
+                                <h3 class="text-xl sm:text-2xl font-heading font-extrabold text-white mt-1">Open 7 Days A Week</h3>
+                            </div>
+                            <div id="hearthStatusBadge" class="bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-sm">
+                                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                                <span id="hearthStatusText">OPEN TODAY</span>
+                            </div>
+                        </div>
+
+                        <!-- Schedule Rows -->
+                        <div class="space-y-2 mt-5 text-xs sm:text-sm">
+                            <div class="hours-row px-4 py-3 rounded-xl flex items-center justify-between hover:bg-white/5 transition-all" data-day="1">
+                                <span class="font-medium text-neutral-300">Monday</span>
+                                <span class="text-white font-heading font-bold">11:30 AM – 9:00 PM</span>
+                            </div>
+                            <div class="hours-row px-4 py-3 rounded-xl flex items-center justify-between hover:bg-white/5 transition-all" data-day="2">
+                                <span class="font-medium text-neutral-300">Tuesday</span>
+                                <span class="text-white font-heading font-bold">11:30 AM – 9:00 PM</span>
+                            </div>
+                            <div class="hours-row px-4 py-3 rounded-xl flex items-center justify-between hover:bg-white/5 transition-all" data-day="3">
+                                <span class="font-medium text-neutral-300">Wednesday</span>
+                                <span class="text-white font-heading font-bold">11:30 AM – 9:00 PM</span>
+                            </div>
+                            <div class="hours-row px-4 py-3 rounded-xl flex items-center justify-between hover:bg-white/5 transition-all" data-day="4">
+                                <span class="font-medium text-neutral-300">Thursday</span>
+                                <span class="text-white font-heading font-bold">11:30 AM – 10:00 PM</span>
+                            </div>
+                            <div class="hours-row px-4 py-3 rounded-xl flex items-center justify-between hover:bg-white/5 transition-all" data-day="5">
+                                <span class="font-medium text-neutral-300">Friday</span>
+                                <span class="text-white font-heading font-bold">11:30 AM – 10:30 PM</span>
+                            </div>
+                            <div class="hours-row px-4 py-3 rounded-xl flex items-center justify-between hover:bg-white/5 transition-all" data-day="6">
+                                <span class="font-medium text-neutral-300">Saturday</span>
+                                <span class="text-white font-heading font-bold">11:00 AM – 10:30 PM</span>
+                            </div>
+                            <div class="hours-row px-4 py-3 rounded-xl flex items-center justify-between hover:bg-white/5 transition-all" data-day="0">
+                                <span class="font-medium text-neutral-300">Sunday</span>
+                                <span class="text-white font-heading font-bold">11:00 AM – 9:00 PM</span>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 pt-4 border-t border-brandTerra/30 flex items-center justify-between text-xs text-neutral-300">
+                            <span>Westfield Level 1 · Near Cinemas</span>
+                            <span class="text-brandOrange font-semibold">Walk-ins always welcome</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ============================================================ -->
+    <!-- 9. WARM TERRACOTTA OSTERIA FOOTER                           -->
+    <!-- ============================================================ -->
+    <footer class="bg-brandTerraDeep text-white border-t border-brandTerra/40 pt-14 pb-20 sm:pb-12 px-4 sm:px-6 lg:px-12">
+        <div class="max-w-7xl 2xl:max-w-[1440px] mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12 pb-12 border-b border-brandTerra/40">
+                
+                <!-- Col 1: Brand & Hearth Philosophy (4 cols) -->
+                <div class="lg:col-span-4 space-y-4">
+                    <img src="images/switch-email-logo.png" alt="Switch Lifestyle" class="h-10 w-auto object-contain">
+                    <p class="text-neutral-300 text-xs sm:text-sm leading-relaxed max-w-sm">
+                        Switch Lifestyle at Westfield Fountain Gate. Narre Warren's communal hearth for slow-fermented wood-fired pizzas, flame-grilled cuts, and joyful social feasting.
+                    </p>
+                    <div class="flex items-center gap-3 pt-2">
+                        <a href="https://www.instagram.com/switchlifestylerestaurant/" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-white/10 hover:bg-brandOrange text-white flex items-center justify-center transition-colors">
+                            <i class="fa-brands fa-instagram text-sm"></i>
+                        </a>
+                        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-white/10 hover:bg-brandOrange text-white flex items-center justify-center transition-colors">
+                            <i class="fa-brands fa-facebook-f text-sm"></i>
+                        </a>
+                        <a href="https://maps.google.com/?q=Switch+Lifestyle+Fountain+Gate" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-white/10 hover:bg-brandOrange text-white flex items-center justify-center transition-colors">
+                            <i class="fa-solid fa-map-location-dot text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Col 2: Navigation Links (2 cols) -->
+                <div class="lg:col-span-2 space-y-3">
+                    <h4 class="font-heading font-extrabold uppercase text-xs tracking-wider text-brandOrange">Explore</h4>
+                    <ul class="space-y-2 text-xs sm:text-sm text-neutral-300">
+                        <li><a href="#hearth" class="hover:text-white transition-colors">The Hearth</a></li>
+                        <li><a href="#crafts" class="hover:text-white transition-colors">Crafts</a></li>
+                        <li><a href="#feasting" class="hover:text-white transition-colors">Feasting Menu</a></li>
+                        <li><a href="#story" class="hover:text-white transition-colors">Behind The Hearth</a></li>
+                        <li><a href="#packages" class="hover:text-white transition-colors">Celebrations</a></li>
+                        <li><a href="#arrival" class="hover:text-white transition-colors">Arrival Concierge</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Feasts & Packages (3 cols) -->
+                <div class="lg:col-span-3 space-y-3">
+                    <h4 class="font-heading font-extrabold uppercase text-xs tracking-wider text-brandOrange">Celebrations</h4>
+                    <ul class="space-y-2 text-xs sm:text-sm text-neutral-300">
+                        <li><a href="#packages" class="hover:text-white transition-colors">Spritz &amp; Tapas Mixer (20-40)</a></li>
+                        <li><a href="#packages" class="hover:text-white transition-colors">The Grand Family Feast (40-80)</a></li>
+                        <li><a href="#packages" class="hover:text-white transition-colors">Mezzanine Suite Buyout (80-200)</a></li>
+                        <li><a href="#feasting" class="hover:text-white transition-colors">Wine &amp; Cocktail Pairings</a></li>
+                        <li><a href="tel:0397044333" class="hover:text-white transition-colors">Phone Enquiries</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Hearth Club (3 cols) -->
+                <div class="lg:col-span-3 space-y-3">
+                    <h4 class="font-heading font-extrabold uppercase text-xs tracking-wider text-brandOrange">The Hearth Club</h4>
+                    <p class="text-xs text-neutral-300 leading-relaxed">
+                        Join our guest list for invitations to our chef table degustation dinners and seasonal wine tastings.
+                    </p>
+                    <form onsubmit="handleNewsletter(event)" class="space-y-2">
+                        <input type="email" required placeholder="Enter your email" class="w-full bg-white/10 border border-brandTerra text-white placeholder-neutral-400 rounded-xl px-3.5 py-2.5 text-xs focus:outline-none focus:border-brandOrange">
+                        <button type="submit" class="w-full bg-brandOrange hover:bg-brandOrangeHover text-white font-heading font-bold uppercase tracking-wider text-xs py-2.5 rounded-xl transition-all">
+                            Join Hearth Community
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+
+            <!-- Bottom Copyright -->
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-neutral-400">
+                <div>
+                    &copy; <span id="currentYear"></span> Switch Lifestyle Restaurant &amp; Bar. All rights reserved.
+                </div>
+                <div class="flex items-center gap-4">
+                    <span>Westfield Fountain Gate, Victoria</span>
+                    <span>·</span>
+                    <a href="index2.html" class="text-neutral-400 hover:text-white underline">Concept A (Bistro)</a>
+                    <span>·</span>
+                    <a href="index3.html" class="text-neutral-400 hover:text-white underline">Concept B (Editorial)</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MOBILE FLOATING ACTION DOCK -->
+    <div class="sm:hidden fixed bottom-3 left-3 right-3 z-40 bg-brandTerraDeep/95 backdrop-blur-md rounded-full border border-brandTerra/40 shadow-2xl px-4 py-2 flex items-center justify-between safe-bottom-dock">
+        <a href="tel:0397044333" class="flex flex-col items-center justify-center text-neutral-300 hover:text-white text-[10px]">
+            <i class="fa-solid fa-phone text-brandOrange text-sm"></i>
+            <span class="mt-0.5">Call</span>
+        </a>
+        <a href="#feasting" class="flex flex-col items-center justify-center text-neutral-300 hover:text-white text-[10px]">
+            <i class="fa-solid fa-utensils text-sm"></i>
+            <span class="mt-0.5">Menu</span>
+        </a>
+        <button onclick="openBookingModal()" class="bg-brandOrange hover:bg-brandOrangeHover text-white text-[11px] font-heading font-extrabold uppercase tracking-wider px-5 py-2 rounded-full shadow-md">
+            Reserve Feasting
+        </button>
+        <a href="#arrival" class="flex flex-col items-center justify-center text-neutral-300 hover:text-white text-[10px]">
+            <i class="fa-solid fa-location-dot text-sm"></i>
+            <span class="mt-0.5">Arrival</span>
+        </a>
+    </div>
+
+    <!-- TABLE RESERVATION MODAL -->
+    <div id="bookingModal" class="fixed inset-0 z-50 bg-black/75 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border border-neutral-200 relative max-h-[90vh] overflow-y-auto">
+            <button onclick="closeBookingModal()" class="absolute top-5 right-5 w-8 h-8 rounded-full bg-neutral-100 hover:bg-neutral-200 text-neutral-600 flex items-center justify-center">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="mb-5">
+                <span class="text-brandOrange font-heading font-extrabold uppercase text-xs tracking-wider">Switch Lifestyle Fountain Gate</span>
+                <h3 class="text-2xl font-heading font-extrabold text-brandDark mt-1">Book Your Feasting Table</h3>
+                <p class="text-xs text-neutral-500 mt-1">Reserve your table at our wood-fired hearth for up to 10 guests. For private events, choose Celebration Packages.</p>
+            </div>
+
+            <form onsubmit="handleReservationSubmit(event)" class="space-y-3.5 text-xs">
+                <div>
+                    <label class="block font-bold text-neutral-700 mb-1">Full Name</label>
+                    <input type="text" id="modalName" required placeholder="Your full name" class="w-full bg-neutral-50 border border-neutral-300 rounded-xl px-3.5 py-2.5 text-sm focus:outline-none focus:border-brandTerra">
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block font-bold text-neutral-700 mb-1">Mobile Phone</label>
+                        <input type="tel" id="modalPhone" required placeholder="0400 000 000" class="w-full bg-neutral-50 border border-neutral-300 rounded-xl px-3.5 py-2.5 text-sm focus:outline-none focus:border-brandTerra">
+                    </div>
+                    <div>
+                        <label class="block font-bold text-neutral-700 mb-1">Email</label>
+                        <input type="email" id="modalEmail" required placeholder="name@email.com" class="w-full bg-neutral-50 border border-neutral-300 rounded-xl px-3.5 py-2.5 text-sm focus:outline-none focus:border-brandTerra">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block font-bold text-neutral-700 mb-1">Date</label>
+                        <input type="date" id="modalDate" required class="w-full bg-neutral-50 border border-neutral-300 rounded-xl px-3.5 py-2.5 text-sm focus:outline-none focus:border-brandTerra">
+                    </div>
+                    <div>
+                        <label class="block font-bold text-neutral-700 mb-1">Session</label>
+                        <select id="modalTime" class="w-full bg-neutral-50 border border-neutral-300 rounded-xl px-3.5 py-2.5 text-sm focus:outline-none focus:border-brandTerra">
+                            <option value="11:30 AM">Lunch / Brunch · 11:30 AM</option>
+                            <option value="1:00 PM">Afternoon Dining · 1:00 PM</option>
+                            <option value="5:30 PM">Early Dinner · 5:30 PM</option>
+                            <option value="7:00 PM" selected>Prime Dinner · 7:00 PM</option>
+                            <option value="8:30 PM">Late Evening · 8:30 PM</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block font-bold text-neutral-700 mb-1">Number of Guests</label>
+                    <select id="modalGuests" class="w-full bg-neutral-50 border border-neutral-300 rounded-xl px-3.5 py-2.5 text-sm focus:outline-none focus:border-brandTerra">
+                        <option value="2 Guests">2 Guests (Table for Two)</option>
+                        <option value="4 Guests" selected>4 Guests (Standard Table)</option>
+                        <option value="6 Guests">6 Guests (Communal Feast)</option>
+                        <option value="8 Guests">8 Guests (Large Group Feast)</option>
+                        <option value="10+ Guests">10+ Guests (Group Booking)</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block font-bold text-neutral-700 mb-1">Special Requests / Dietary / Occasion</label>
+                    <textarea id="modalNotes" rows="2" placeholder="Birthday, anniversary, high chairs, dietary notes..." class="w-full bg-neutral-50 border border-neutral-300 rounded-xl px-3.5 py-2 text-sm focus:outline-none focus:border-brandTerra"></textarea>
+                </div>
+
+                <button type="submit" class="w-full bg-brandOrange hover:bg-brandOrangeHover text-white font-heading font-bold uppercase tracking-wider text-sm py-3.5 rounded-xl shadow-lg transition-all mt-2">
+                    Confirm Feasting Reservation
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- FUNCTION ENQUIRIES MODAL -->
+    <div id="functionModal" class="fixed inset-0 z-50 bg-black/75 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="bg-brandTerraDeep text-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border border-brandTerra/40 relative max-h-[90vh] overflow-y-auto">
+            <button onclick="closeFunctionModal()" class="absolute top-5 right-5 w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="mb-5">
+                <span class="text-brandOrange font-heading font-extrabold uppercase text-xs tracking-wider">Celebration Feasting Packages</span>
+                <h3 class="text-2xl font-heading font-extrabold text-white mt-1">Host Your Event At Switch</h3>
+                <p class="text-xs text-neutral-300 mt-1">Tell us about your event and our team will provide package brochures and room availability.</p>
+            </div>
+
+            <form onsubmit="handleFunctionSubmit(event)" class="space-y-3.5 text-xs">
+                <div>
+                    <label class="block font-bold text-neutral-200 mb-1">Selected Package</label>
+                    <input type="text" id="fnPackageName" readonly class="w-full bg-white/10 border border-brandTerra rounded-xl px-3.5 py-2.5 text-sm text-brandOrange font-bold">
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block font-bold text-neutral-200 mb-1">Contact Name</label>
+                        <input type="text" required placeholder="Your name" class="w-full bg-white/10 border border-brandTerra rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-brandOrange">
+                    </div>
+                    <div>
+                        <label class="block font-bold text-neutral-200 mb-1">Phone Number</label>
+                        <input type="tel" required placeholder="0400 000 000" class="w-full bg-white/10 border border-brandTerra rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-brandOrange">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block font-bold text-neutral-200 mb-1">Target Date</label>
+                        <input type="date" required class="w-full bg-white/10 border border-brandTerra rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-brandOrange">
+                    </div>
+                    <div>
+                        <label class="block font-bold text-neutral-200 mb-1">Estimated Guests</label>
+                        <input type="number" min="20" max="250" placeholder="e.g. 50" class="w-full bg-white/10 border border-brandTerra rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-brandOrange">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block font-bold text-neutral-200 mb-1">Celebration Details &amp; Notes</label>
+                    <textarea rows="3" placeholder="Birthday milestone, engagement, AV presentation needs, dietary preferences..." class="w-full bg-white/10 border border-brandTerra rounded-xl px-3.5 py-2 text-sm text-white focus:outline-none focus:border-brandOrange"></textarea>
+                </div>
+
+                <button type="submit" class="w-full bg-brandOrange hover:bg-brandOrangeHover text-white font-heading font-bold uppercase tracking-wider text-sm py-3.5 rounded-xl shadow-lg transition-all mt-2">
+                    Submit Feasting Package Enquiry
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Set Year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Default tomorrow for dates
+        const today = new Date();
+        const tomorrow = new Date(today);
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        const yyyy = tomorrow.getFullYear();
+        const mm = String(tomorrow.getMonth() + 1).padStart(2, '0');
+        const dd = String(tomorrow.getDate()).padStart(2, '0');
+        const formattedTomorrow = `${yyyy}-${mm}-${dd}`;
+        
+        const modalDateInput = document.getElementById('modalDate');
+        if (modalDateInput) modalDateInput.value = formattedTomorrow;
+
+        // Mobile Nav Drawer Toggle
+        function toggleMobileNav() {
+            const drawer = document.getElementById('mobileDrawer');
+            const panel = document.getElementById('mobileDrawerPanel');
+            if (drawer.classList.contains('pointer-events-none')) {
+                drawer.classList.remove('pointer-events-none', 'opacity-0');
+                drawer.classList.add('opacity-100');
+                panel.classList.remove('translate-x-full');
+            } else {
+                drawer.classList.add('opacity-0');
+                panel.classList.add('translate-x-full');
+                setTimeout(() => drawer.classList.add('pointer-events-none'), 300);
+            }
+        }
+
+        // Booking Modal Handlers
+        function openBookingModal(date, time, guests) {
+            const modal = document.getElementById('bookingModal');
+            if (date) document.getElementById('modalDate').value = date;
+            if (time) document.getElementById('modalTime').value = time;
+            if (guests) document.getElementById('modalGuests').value = guests;
+            modal.classList.remove('pointer-events-none', 'opacity-0');
+            modal.classList.add('opacity-100');
+        }
+
+        function closeBookingModal() {
+            const modal = document.getElementById('bookingModal');
+            modal.classList.add('opacity-0');
+            setTimeout(() => modal.classList.add('pointer-events-none'), 300);
+        }
+
+        function handleReservationSubmit(e) {
+            e.preventDefault();
+            alert('Thank you! Your feasting table reservation request has been submitted to Switch Lifestyle. Our host will confirm your booking via SMS.');
+            closeBookingModal();
+        }
+
+        // Function Modal Handlers
+        function openFunctionModal(packageName) {
+            document.getElementById('fnPackageName').value = packageName || 'The Grand Feasting Table (40-80 Guests)';
+            const modal = document.getElementById('functionModal');
+            modal.classList.remove('pointer-events-none', 'opacity-0');
+            modal.classList.add('opacity-100');
+        }
+
+        function closeFunctionModal() {
+            const modal = document.getElementById('functionModal');
+            modal.classList.add('opacity-0');
+            setTimeout(() => modal.classList.add('pointer-events-none'), 300);
+        }
+
+        function handleFunctionSubmit(e) {
+            e.preventDefault();
+            alert('Thank you! Your celebration package enquiry has been received. Our event coordinator will email you the full menu brochure within 24 hours.');
+            closeFunctionModal();
+        }
+
+        function handleNewsletter(e) {
+            e.preventDefault();
+            alert('Welcome to The Hearth Club! You will receive invitations to upcoming chef tastings and cellar reserve releases.');
+            e.target.reset();
+        }
+
+        // Course Filtering
+        function filterFeastCourse(course) {
+            // Update button styles
+            const buttons = document.querySelectorAll('.course-btn');
+            buttons.forEach(btn => {
+                if (btn.getAttribute('data-course') === course) {
+                    btn.className = 'course-btn px-4 py-2 rounded-full font-heading font-bold text-xs uppercase tracking-wider transition-all bg-brandTerra text-white shadow-md';
+                } else {
+                    btn.className = 'course-btn px-4 py-2 rounded-full font-heading font-bold text-xs uppercase tracking-wider transition-all bg-white text-neutral-600 hover:bg-brandWarm border border-neutral-200';
+                }
+            });
+
+            // Filter cards
+            const cards = document.querySelectorAll('.feast-card');
+            cards.forEach(card => {
+                if (course === 'all' || card.getAttribute('data-course') === course) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Real-time Hours Status calculation
+        function updateLiveStatus() {
+            const now = new Date();
+            const day = now.getDay();
+            const hour = now.getHours();
+            const minute = now.getMinutes();
+            const decimalTime = hour + minute / 60;
+
+            const rows = document.querySelectorAll('.hours-row');
+            rows.forEach(r => {
+                if (parseInt(r.getAttribute('data-day')) === day) {
+                    r.classList.add('bg-brandTerra', 'text-white', 'font-bold');
+                } else {
+                    r.classList.remove('bg-brandTerra');
+                }
+            });
+
+            let isOpen = false;
+            if (day >= 1 && day <= 3) {
+                isOpen = decimalTime >= 11.5 && decimalTime < 21.0;
+            } else if (day === 4) {
+                isOpen = decimalTime >= 11.5 && decimalTime < 22.0;
+            } else if (day === 5) {
+                isOpen = decimalTime >= 11.5 && decimalTime < 22.5;
+            } else if (day === 6) {
+                isOpen = decimalTime >= 11.0 && decimalTime < 22.5;
+            } else if (day === 0) {
+                isOpen = decimalTime >= 11.0 && decimalTime < 21.0;
+            }
+
+            const badge = document.getElementById('hearthStatusBadge');
+            const badgeText = document.getElementById('hearthStatusText');
+            if (badge && badgeText) {
+                if (isOpen) {
+                    badge.className = 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-sm';
+                    badgeText.textContent = 'HEARTH OPEN NOW';
+                } else {
+                    badge.className = 'bg-neutral-800 text-neutral-400 border border-neutral-700 text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-sm';
+                    badgeText.textContent = 'HEARTH OPENS AT 11:30 AM';
+                }
+            }
+        }
+
+        updateLiveStatus();
+    </script>
+</body>
+</html>

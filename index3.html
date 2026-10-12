@@ -1,0 +1,1784 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth overflow-x-hidden">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Switch Lifestyle | Modern Australian Dining, Cocktails & Functions - Fountain Gate</title>
+    <meta name="description" content="Switch Lifestyle at Westfield Fountain Gate. Experience Modern Australian dining, all-day brunch, artisan wood-fired pizzas, handcrafted cocktails, and private function suites.">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: League Spartan, Lato & Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400&family=League+Spartan:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome 6.5.2 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        heading: ['"League Spartan"', 'sans-serif'],
+                        sans: ['"Lato"', 'sans-serif'],
+                        display: ['"Outfit"', 'sans-serif'],
+                    },
+                    colors: {
+                        // Deep Teal & Vibrant Orange Luxury Palette
+                        brandOrange: '#F58220',
+                        brandOrangeHover: '#FF9438',
+                        brandOrangeDark: '#D96E14',
+                        brandTeal: '#234E52',
+                        brandTealHover: '#2E656A',
+                        brandTealDark: '#173639',
+                        brandTealDeep: '#0D2022',
+                        brandTealLight: '#E8F3F4',
+                        brandTealMuted: '#3A6B70',
+                        brandBlack: '#000000',
+                        brandDark: '#121717',
+                        brandDarker: '#0B0F0F',
+                        brandLight: '#FFFFFF',
+                        brandSurface: '#F6FAFA',
+                        brandWarm: '#EFF5F5',
+                    },
+                    boxShadow: {
+                        'glow-orange': '0 0 35px -5px rgba(245, 130, 32, 0.40)',
+                        'glow-teal': '0 0 35px -5px rgba(35, 78, 82, 0.45)',
+                        'card': '0 16px 40px -12px rgba(13, 32, 34, 0.08)',
+                        'card-hover': '0 24px 50px -12px rgba(35, 78, 82, 0.22)',
+                        'floating': '0 20px 40px -15px rgba(0, 0, 0, 0.35)',
+                    },
+                    screens: {
+                        'xs': '420px',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        * {
+            -webkit-tap-highlight-color: transparent;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+            max-width: 100vw;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            letter-spacing: 0.015em;
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+            background-color: #F6FAFA;
+            color: #121717;
+        }
+
+        h1, h2, h3, h4, h5, h6, .font-heading {
+            font-family: 'League Spartan', sans-serif;
+            letter-spacing: 0.02em;
+        }
+
+        /* Glassmorphism Styles */
+        .glass-island {
+            background: rgba(13, 32, 34, 0.88);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .glass-card-light {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(232, 243, 244, 0.9);
+        }
+
+        .glass-card-dark {
+            background: rgba(18, 23, 23, 0.88);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(58, 107, 112, 0.25);
+        }
+
+        /* Custom Scrollbars */
+        ::-webkit-scrollbar {
+            width: 7px;
+            height: 7px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #EFF5F5;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #234E52;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #F58220;
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Safe Bottom Padding for Mobile Dock */
+        .safe-bottom-dock {
+            padding-bottom: max(0.65rem, env(safe-area-inset-bottom));
+        }
+
+        /* Interactive Timeline Pulse */
+        @keyframes subtlePulse {
+            0%, 100% { opacity: 0.8; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.05); }
+        }
+        .animate-subtle-pulse {
+            animation: subtlePulse 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+
+<body class="bg-brandSurface text-brandDark min-h-screen flex flex-col selection:bg-brandOrange selection:text-white">
+
+    <!-- TOP OPERATIONAL RIBBON -->
+    <div class="bg-brandTealDeep text-neutral-300 text-[11px] sm:text-xs py-2 px-3 sm:px-6 lg:px-12 border-b border-brandTeal/30 relative z-40">
+        <div class="max-w-7xl 2xl:max-w-[1440px] mx-auto flex items-center justify-between gap-2">
+            <div class="flex items-center gap-2 truncate">
+                <span class="inline-flex items-center justify-center w-2 h-2 rounded-full bg-emerald-400 shrink-0 animate-pulse"></span>
+                <span class="font-medium text-neutral-200 truncate">Westfield Fountain Gate · Level 1 (Near Cinemas)</span>
+                <span class="hidden md:inline text-brandTealMuted">|</span>
+                <span class="hidden md:inline text-brandOrange font-semibold">Open 7 Days · All-Day Brunch 'Til 3PM · Cocktail Lounge</span>
+            </div>
+            <div class="flex items-center gap-3 sm:gap-5 text-[11px] sm:text-xs shrink-0">
+                <a href="tel:0397044333" class="hover:text-brandOrange transition-colors flex items-center gap-1.5 text-neutral-300">
+                    <i class="fa-solid fa-phone text-brandOrange text-[10px] sm:text-[11px]"></i>
+                    <span class="font-bold tracking-wide">(03) 9704 4333</span>
+                </a>
+                <a href="#concierge" class="hidden sm:flex items-center gap-1.5 text-brandTealLight hover:text-white transition-colors">
+                    <i class="fa-solid fa-location-dot text-brandOrange text-[11px]"></i>
+                    <span>Parking &amp; Directions</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- FLOATING ISLAND GLASSMORPHISM HEADER -->
+    <header class="sticky top-3 sm:top-4 z-50 px-3 sm:px-6 lg:px-8">
+        <div class="max-w-7xl 2xl:max-w-[1440px] mx-auto">
+            <div class="glass-island rounded-full px-4 sm:px-6 py-2.5 sm:py-3 flex items-center justify-between shadow-floating">
+                
+                <!-- Brand Logo (Left) -->
+                <div class="flex items-center gap-3">
+                    <a href="index3.html" class="flex items-center gap-2.5 focus:outline-none">
+                        <img src="images/switch-email-logo.png" alt="Switch Lifestyle" class="h-8 sm:h-10 md:h-11 w-auto object-contain">
+                    </a>
+                    <span class="hidden xl:inline-flex text-[10px] uppercase font-heading font-extrabold tracking-widest px-2.5 py-0.5 rounded-full bg-brandTeal/60 border border-brandTeal/40 text-brandTealLight">
+                        Editorial Edition
+                    </span>
+                </div>
+
+                <!-- Desktop Navigation Menu (Center) -->
+                <nav class="hidden lg:flex items-center space-x-1 xl:space-x-2 text-[14px] xl:text-[15px] font-medium text-neutral-200">
+                    <a href="#hero" class="px-3.5 py-1.5 rounded-full hover:text-white hover:bg-white/10 transition-all">Overview</a>
+                    <a href="#pillars" class="px-3.5 py-1.5 rounded-full hover:text-white hover:bg-white/10 transition-all">Experiences</a>
+                    <a href="#menu" class="px-3.5 py-1.5 rounded-full hover:text-white hover:bg-white/10 transition-all">Curated Menu</a>
+                    <a href="#journey" class="px-3.5 py-1.5 rounded-full hover:text-white hover:bg-white/10 transition-all">AM to PM</a>
+                    <a href="#functions" class="px-3.5 py-1.5 rounded-full hover:text-white hover:bg-white/10 transition-all">Event Suites</a>
+                    <a href="#reviews" class="px-3.5 py-1.5 rounded-full hover:text-white hover:bg-white/10 transition-all">Testimonials</a>
+                    <a href="#concierge" class="px-3.5 py-1.5 rounded-full hover:text-white hover:bg-white/10 transition-all">Concierge</a>
+                </nav>
+
+                <!-- Right CTA & Mobile Toggle -->
+                <div class="flex items-center gap-2.5 sm:gap-3">
+                    <button onclick="openBookingModal()" class="bg-brandOrange hover:bg-brandOrangeHover text-white font-heading font-bold text-xs sm:text-sm tracking-wider uppercase px-4 sm:px-6 py-2 sm:py-2.5 rounded-full shadow-lg shadow-brandOrange/30 hover:scale-[1.02] active:scale-95 transition-all flex items-center gap-2">
+                        <i class="fa-solid fa-calendar-check text-xs"></i>
+                        <span>Reserve Table</span>
+                    </button>
+                    
+                    <button type="button" onclick="toggleMobileNav()" class="lg:hidden w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors focus:outline-none" aria-label="Open mobile menu">
+                        <i class="fa-solid fa-bars text-sm"></i>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- MOBILE SLIDE-OVER DRAWER -->
+    <div id="mobileDrawer" class="fixed inset-0 z-50 bg-black/75 backdrop-blur-sm transition-opacity duration-300 opacity-0 pointer-events-none">
+        <div id="mobileDrawerPanel" class="fixed top-0 right-0 bottom-0 w-[84%] max-w-sm bg-brandTealDeep border-l border-brandTeal/40 text-white p-6 shadow-2xl flex flex-col justify-between transform translate-x-full transition-transform duration-300 overflow-y-auto">
+            <div>
+                <div class="flex items-center justify-between pb-5 border-b border-white/10">
+                    <img src="images/switch-email-logo.png" alt="Switch Lifestyle" class="h-9 w-auto object-contain">
+                    <button onclick="toggleMobileNav()" class="w-8 h-8 rounded-full bg-white/10 text-white flex items-center justify-center hover:bg-white/20">
+                        <i class="fa-solid fa-xmark text-sm"></i>
+                    </button>
+                </div>
+
+                <div class="flex flex-col space-y-3 mt-6 text-base font-heading font-semibold">
+                    <a href="#hero" onclick="toggleMobileNav()" class="px-3 py-2 rounded-lg hover:bg-white/10 flex items-center justify-between">
+                        <span>Overview</span>
+                        <i class="fa-solid fa-chevron-right text-xs text-brandOrange"></i>
+                    </a>
+                    <a href="#pillars" onclick="toggleMobileNav()" class="px-3 py-2 rounded-lg hover:bg-white/10 flex items-center justify-between">
+                        <span>Experiences</span>
+                        <i class="fa-solid fa-chevron-right text-xs text-brandOrange"></i>
+                    </a>
+                    <a href="#menu" onclick="toggleMobileNav()" class="px-3 py-2 rounded-lg hover:bg-white/10 flex items-center justify-between">
+                        <span>Curated Menu</span>
+                        <i class="fa-solid fa-chevron-right text-xs text-brandOrange"></i>
+                    </a>
+                    <a href="#journey" onclick="toggleMobileNav()" class="px-3 py-2 rounded-lg hover:bg-white/10 flex items-center justify-between">
+                        <span>AM to PM Journey</span>
+                        <i class="fa-solid fa-chevron-right text-xs text-brandOrange"></i>
+                    </a>
+                    <a href="#functions" onclick="toggleMobileNav()" class="px-3 py-2 rounded-lg hover:bg-white/10 flex items-center justify-between">
+                        <span>Private Event Suites</span>
+                        <i class="fa-solid fa-chevron-right text-xs text-brandOrange"></i>
+                    </a>
+                    <a href="#reviews" onclick="toggleMobileNav()" class="px-3 py-2 rounded-lg hover:bg-white/10 flex items-center justify-between">
+                        <span>Guest Testimonials</span>
+                        <i class="fa-solid fa-chevron-right text-xs text-brandOrange"></i>
+                    </a>
+                    <a href="#concierge" onclick="toggleMobileNav()" class="px-3 py-2 rounded-lg hover:bg-white/10 flex items-center justify-between">
+                        <span>Concierge &amp; Hours</span>
+                        <i class="fa-solid fa-chevron-right text-xs text-brandOrange"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="pt-6 border-t border-white/10 space-y-3">
+                <button onclick="toggleMobileNav(); openBookingModal();" class="w-full bg-brandOrange hover:bg-brandOrangeHover text-white font-heading font-bold py-3 rounded-xl text-center uppercase tracking-wider text-sm shadow-md">
+                    Reserve Table Now
+                </button>
+                <a href="tel:0397044333" class="w-full bg-white/10 hover:bg-white/20 text-neutral-200 font-semibold py-2.5 rounded-xl flex items-center justify-center gap-2 text-sm">
+                    <i class="fa-solid fa-phone text-brandOrange"></i>
+                    <span>Call (03) 9704 4333</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN BODY CONTENT -->
+    <main class="flex-grow">
+
+        <!-- ============================================================ -->
+        <!-- 1. CINEMATIC SPLIT-FRAME HERO WITH INTEGRATED FAST-RESERVE   -->
+        <!-- ============================================================ -->
+        <section id="hero" class="relative pt-6 sm:pt-10 pb-16 sm:pb-24 px-4 sm:px-6 lg:px-12 overflow-hidden">
+            <!-- Ambient Backdrop Gradient -->
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[620px] bg-gradient-to-b from-brandTeal/15 via-brandTealDeep/5 to-transparent blur-3xl pointer-events-none -z-10"></div>
+            
+            <div class="max-w-7xl 2xl:max-w-[1440px] mx-auto">
+                
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+                    
+                    <!-- Left Hero Narrative (7 cols) -->
+                    <div class="lg:col-span-7 space-y-5 sm:space-y-6">
+                        
+                        <div class="inline-flex items-center gap-2 bg-brandTealDeep text-white border border-brandTeal/40 px-3.5 py-1.5 rounded-full text-xs font-heading font-bold uppercase tracking-wider shadow-sm">
+                            <span class="w-2 h-2 rounded-full bg-brandOrange animate-pulse"></span>
+                            <span>Westfield Fountain Gate · Contemporary Social Dining</span>
+                        </div>
+
+                        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-heading font-extrabold text-brandDark tracking-tight leading-[1.1] sm:leading-[1.08]">
+                            Modern Australian Dining, <br class="hidden sm:inline">
+                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-brandOrange to-brandOrangeHover">
+                                Artisan Cocktails
+                            </span> 
+                            &amp; Celebrations.
+                        </h1>
+
+                        <p class="text-neutral-600 text-sm sm:text-base lg:text-lg max-w-2xl leading-relaxed">
+                            Welcome to Narre Warren's premier social destination. From sunlit all-day brunch and blistering stone-baked pizzas to craft botanical cocktails and private party suites, Switch Lifestyle elevates every shared moment.
+                        </p>
+
+                        <!-- Primary Actions -->
+                        <div class="flex flex-wrap items-center gap-3 sm:gap-4 pt-1">
+                            <a href="#menu" class="bg-brandTeal hover:bg-brandTealHover text-white font-heading font-bold text-xs sm:text-sm uppercase tracking-wider px-6 sm:px-8 py-3.5 sm:py-4 rounded-full shadow-lg shadow-brandTeal/25 transition-all flex items-center gap-2">
+                                <span>Explore Curated Menu</span>
+                                <i class="fa-solid fa-arrow-right text-xs"></i>
+                            </a>
+                            <a href="#functions" class="bg-white hover:bg-neutral-50 text-brandTealDark font-heading font-bold text-xs sm:text-sm uppercase tracking-wider px-6 sm:px-7 py-3.5 sm:py-4 rounded-full border border-brandTeal/20 shadow-sm transition-all flex items-center gap-2">
+                                <i class="fa-solid fa-champagne-glasses text-brandOrange"></i>
+                                <span>Private Function Suites</span>
+                            </a>
+                        </div>
+
+                        <!-- Trust Metrics Badge -->
+                        <div class="pt-3 sm:pt-4 flex items-center gap-4 sm:gap-6 border-t border-brandTeal/15 max-w-lg">
+                            <div class="flex items-center gap-2">
+                                <div class="w-10 h-10 rounded-full bg-brandOrange/15 text-brandOrange flex items-center justify-center font-bold text-sm shadow-sm">
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <div>
+                                    <div class="text-base font-heading font-black text-brandDark leading-none">4.9 / 5.0</div>
+                                    <div class="text-[11px] text-neutral-500 font-medium mt-0.5">1,400+ Google Reviews</div>
+                                </div>
+                            </div>
+                            <div class="h-8 w-px bg-neutral-300"></div>
+                            <div>
+                                <div class="text-base font-heading font-black text-brandTeal leading-none">Open 7 Days</div>
+                                <div class="text-[11px] text-neutral-500 font-medium mt-0.5">Brunch 'Til 3PM · Dinner 'Til Late</div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Right Staggered Visual Canvas (5 cols) -->
+                    <div class="lg:col-span-5 relative">
+                        <div class="relative z-10 grid grid-cols-2 gap-3 sm:gap-4">
+                            <!-- Main Large Frame -->
+                            <div class="col-span-2 relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border-2 border-white group">
+                                <img src="images/teal_hero_dining.jpg" alt="Switch Lifestyle Dining Ambiance" class="w-full h-64 sm:h-80 object-cover group-hover:scale-105 transition-transform duration-700">
+                                <div class="absolute inset-0 bg-gradient-to-t from-brandTealDeep/85 via-transparent to-transparent"></div>
+                                <div class="absolute bottom-4 left-4 right-4 text-white">
+                                    <span class="inline-block bg-brandOrange text-white text-[10px] font-heading font-extrabold uppercase tracking-widest px-2.5 py-0.5 rounded-full mb-1">
+                                        Atmospheric Dining
+                                    </span>
+                                    <h3 class="font-heading font-bold text-base sm:text-lg text-white">Cozy Booths &amp; Vibrant Social Tables</h3>
+                                </div>
+                            </div>
+
+                            <!-- Sub Frame 1: Cocktails -->
+                            <div class="relative rounded-xl sm:rounded-2xl overflow-hidden shadow-lg border-2 border-white group">
+                                <img src="images/teal_cocktails_bar.jpg" alt="Craft Mixology Bar" class="w-full h-32 sm:h-40 object-cover group-hover:scale-105 transition-transform duration-500">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                                <span class="absolute bottom-2.5 left-2.5 text-[11px] font-heading font-bold text-white tracking-wider uppercase">
+                                    Cocktail Lounge
+                                </span>
+                            </div>
+
+                            <!-- Sub Frame 2: Brunch Spread -->
+                            <div class="relative rounded-xl sm:rounded-2xl overflow-hidden shadow-lg border-2 border-white group">
+                                <img src="images/teal_brunch_spread.jpg" alt="Artisan Brunch Spread" class="w-full h-32 sm:h-40 object-cover group-hover:scale-105 transition-transform duration-500">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                                <span class="absolute bottom-2.5 left-2.5 text-[11px] font-heading font-bold text-white tracking-wider uppercase">
+                                    Bottomless Brunch
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Floating Decorative Ring -->
+                        <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-brandOrange/20 rounded-full blur-2xl pointer-events-none"></div>
+                    </div>
+
+                </div>
+
+                <!-- INTEGRATED FAST-RESERVE STRIP -->
+                <div class="mt-8 sm:mt-12 bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-7 shadow-xl border border-brandTeal/20">
+                    <form id="heroBookingForm" onsubmit="handleHeroQuickBooking(event)" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-3 sm:gap-4 items-end">
+                        
+                        <!-- Col 1: Date -->
+                        <div class="lg:col-span-3">
+                            <label class="block text-xs font-heading font-bold uppercase tracking-wider text-neutral-500 mb-1.5">
+                                <i class="fa-regular fa-calendar text-brandOrange mr-1"></i> Date
+                            </label>
+                            <input type="date" id="heroDate" required class="w-full bg-brandSurface border border-neutral-300 rounded-xl px-3.5 py-2.5 text-sm font-medium text-brandDark focus:outline-none focus:border-brandTeal">
+                        </div>
+
+                        <!-- Col 2: Time Session -->
+                        <div class="lg:col-span-3">
+                            <label class="block text-xs font-heading font-bold uppercase tracking-wider text-neutral-500 mb-1.5">
+                                <i class="fa-regular fa-clock text-brandOrange mr-1"></i> Dining Session
+                            </label>
+                            <select id="heroTime" class="w-full bg-brandSurface border border-neutral-300 rounded-xl px-3.5 py-2.5 text-sm font-medium text-brandDark focus:outline-none focus:border-brandTeal">
+                                <option value="11:30 AM">Lunch / Brunch · 11:30 AM</option>
+                                <option value="1:00 PM">Afternoon Dining · 1:00 PM</option>
+                                <option value="5:30 PM">Early Dinner · 5:30 PM</option>
+                                <option value="7:00 PM" selected>Prime Dinner · 7:00 PM</option>
+                                <option value="8:30 PM">Late Evening &amp; Cocktails · 8:30 PM</option>
+                            </select>
+                        </div>
+
+                        <!-- Col 3: Guests -->
+                        <div class="lg:col-span-3">
+                            <label class="block text-xs font-heading font-bold uppercase tracking-wider text-neutral-500 mb-1.5">
+                                <i class="fa-solid fa-user-group text-brandOrange mr-1"></i> Guests
+                            </label>
+                            <select id="heroGuests" class="w-full bg-brandSurface border border-neutral-300 rounded-xl px-3.5 py-2.5 text-sm font-medium text-brandDark focus:outline-none focus:border-brandTeal">
+                                <option value="2 Guests">2 Guests (Table for Two)</option>
+                                <option value="4 Guests" selected>4 Guests (Standard Booth)</option>
+                                <option value="6 Guests">6 Guests (Social Table)</option>
+                                <option value="8+ Guests">8+ Guests (Group Dining)</option>
+                                <option value="Private Function">Private Function (20+ Guests)</option>
+                            </select>
+                        </div>
+
+                        <!-- Col 4: Submit Button -->
+                        <div class="lg:col-span-3">
+                            <button type="submit" class="w-full bg-brandOrange hover:bg-brandOrangeHover text-white font-heading font-bold uppercase tracking-wider text-xs sm:text-sm py-3 sm:py-3.5 rounded-xl shadow-md transition-all flex items-center justify-center gap-2">
+                                <span>Check Availability</span>
+                                <i class="fa-solid fa-arrow-right text-xs"></i>
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- 2. 3 INTERACTIVE EXPERIENCE PILLARS (REPLACING MARQUEE)      -->
+        <!-- ============================================================ -->
+        <section id="pillars" class="py-12 sm:py-16 bg-brandTealDeep text-white px-4 sm:px-6 lg:px-12 relative overflow-hidden">
+            <div class="max-w-7xl 2xl:max-w-[1440px] mx-auto relative z-10">
+                
+                <div class="text-center max-w-2xl mx-auto mb-10 sm:mb-12">
+                    <span class="text-brandOrange font-heading font-extrabold uppercase tracking-[0.2em] text-xs sm:text-sm mb-2 block">
+                        The Three Cornerstones
+                    </span>
+                    <h2 class="text-2xl sm:text-4xl lg:text-5xl font-heading font-extrabold text-white tracking-tight">
+                        Crafted For Every Palate &amp; Occasion
+                    </h2>
+                    <p class="text-neutral-300 mt-2.5 text-xs sm:text-base">
+                        Step inside and discover how our kitchen and mixologists blend passion with seasonal Victorian produce.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
+                    
+                    <!-- Pillar 1: Brunch -->
+                    <div class="bg-brandTealDark/90 rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-brandTeal/40 hover:border-brandOrange/60 transition-all duration-300 group flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-2xl bg-brandOrange/20 text-brandOrange flex items-center justify-center font-bold text-xl mb-5 group-hover:bg-brandOrange group-hover:text-white transition-colors">
+                                <i class="fa-solid fa-mug-saucer"></i>
+                            </div>
+                            <span class="text-[11px] font-heading font-bold text-brandOrange uppercase tracking-widest block mb-1">
+                                01 · All-Day Awakening
+                            </span>
+                            <h3 class="text-xl sm:text-2xl font-heading font-extrabold text-white mb-2.5">
+                                Artisanal Brunch &amp; Specialty Roast
+                            </h3>
+                            <p class="text-neutral-300 text-xs sm:text-sm leading-relaxed">
+                                Freshly pulled espresso, smashed avocado bowls, chilli scramble, buttermilk hotcakes, and weekend Bottomless Brunch with prosecco.
+                            </p>
+                        </div>
+                        <div class="pt-6 mt-6 border-t border-brandTeal/30 flex items-center justify-between">
+                            <span class="text-xs text-brandTealLight font-medium">Served Daily 'Til 3:00 PM</span>
+                            <a href="#menu" onclick="filterMenuCategory('brunch')" class="text-brandOrange font-heading font-bold text-xs uppercase tracking-wider flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                                <span>View Plates</span>
+                                <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Pillar 2: Wood-Fired -->
+                    <div class="bg-brandTealDark/90 rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-brandTeal/40 hover:border-brandOrange/60 transition-all duration-300 group flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-2xl bg-brandOrange/20 text-brandOrange flex items-center justify-center font-bold text-xl mb-5 group-hover:bg-brandOrange group-hover:text-white transition-colors">
+                                <i class="fa-solid fa-fire-burner"></i>
+                            </div>
+                            <span class="text-[11px] font-heading font-bold text-brandOrange uppercase tracking-widest block mb-1">
+                                02 · Hearth &amp; Flame
+                            </span>
+                            <h3 class="text-xl sm:text-2xl font-heading font-extrabold text-white mb-2.5">
+                                48h Stone-Fired Craft Kitchen
+                            </h3>
+                            <p class="text-neutral-300 text-xs sm:text-sm leading-relaxed">
+                                Naturally fermented slow dough blistered at 400°C. Topped with San Marzano tomatoes, fior di latte mozzarella, and premium prosciutto.
+                            </p>
+                        </div>
+                        <div class="pt-6 mt-6 border-t border-brandTeal/30 flex items-center justify-between">
+                            <span class="text-xs text-brandTealLight font-medium">Lunch &amp; Dinner Daily</span>
+                            <a href="#menu" onclick="filterMenuCategory('pizza')" class="text-brandOrange font-heading font-bold text-xs uppercase tracking-wider flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                                <span>See Pizzas</span>
+                                <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Pillar 3: Mixology -->
+                    <div class="bg-brandTealDark/90 rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-brandTeal/40 hover:border-brandOrange/60 transition-all duration-300 group flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-2xl bg-brandOrange/20 text-brandOrange flex items-center justify-center font-bold text-xl mb-5 group-hover:bg-brandOrange group-hover:text-white transition-colors">
+                                <i class="fa-solid fa-martini-glass"></i>
+                            </div>
+                            <span class="text-[11px] font-heading font-bold text-brandOrange uppercase tracking-widest block mb-1">
+                                03 · Evening Mixology
+                            </span>
+                            <h3 class="text-xl sm:text-2xl font-heading font-extrabold text-white mb-2.5">
+                                Botanical Cocktails &amp; Tap Lounge
+                            </h3>
+                            <p class="text-neutral-300 text-xs sm:text-sm leading-relaxed">
+                                Signature smoked Old Fashioneds, passionfruit sours, chilled espresso martinis, and cold Australian craft beers poured to perfection.
+                            </p>
+                        </div>
+                        <div class="pt-6 mt-6 border-t border-brandTeal/30 flex items-center justify-between">
+                            <span class="text-xs text-brandTealLight font-medium">Late Night Bar Vibes</span>
+                            <a href="#menu" onclick="filterMenuCategory('drinks')" class="text-brandOrange font-heading font-bold text-xs uppercase tracking-wider flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                                <span>Cocktail List</span>
+                                <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- 3. SPLIT-SCREEN CULINARY SHOWCASE & DYNAMIC FEED             -->
+        <!-- ============================================================ -->
+        <section id="menu" class="py-14 sm:py-20 lg:py-24 bg-brandSurface px-4 sm:px-6 lg:px-12 border-t border-brandTeal/15">
+            <div class="max-w-7xl 2xl:max-w-[1440px] mx-auto">
+                
+                <!-- Section Header -->
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10 sm:mb-12">
+                    <div>
+                        <span class="text-brandOrange font-heading font-extrabold uppercase tracking-[0.2em] text-xs sm:text-sm mb-1.5 block">
+                            Curated Seasonal Selections
+                        </span>
+                        <h2 class="text-2xl sm:text-4xl lg:text-5xl font-heading font-extrabold text-brandDark tracking-tight">
+                            Chef's Interactive Menu Feed
+                        </h2>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="text-xs text-neutral-500 font-medium">Showing freshest seasonal ingredients</span>
+                    </div>
+                </div>
+
+                <!-- 2-Column Split: Left Sticky Category Nav + Right Dynamic Dish Feed -->
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                    
+                    <!-- Left Sticky Sidebar (4 cols) -->
+                    <div class="lg:col-span-4 lg:sticky lg:top-24 space-y-4">
+                        
+                        <div class="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-6 shadow-card border border-neutral-200">
+                            <span class="text-xs font-heading font-bold uppercase tracking-wider text-neutral-400 block mb-3">
+                                Select Culinary Category
+                            </span>
+
+                            <div class="space-y-1.5" id="categoryNav">
+                                <button onclick="filterMenuCategory('all')" data-cat="all" class="cat-btn w-full text-left px-4 py-3 rounded-xl font-heading font-bold text-sm flex items-center justify-between transition-all bg-brandTeal text-white">
+                                    <span class="flex items-center gap-2.5">
+                                        <i class="fa-solid fa-utensils text-xs"></i>
+                                        <span>All Signature Dishes</span>
+                                    </span>
+                                    <span class="text-xs px-2 py-0.5 rounded-full bg-white/20">6</span>
+                                </button>
+
+                                <button onclick="filterMenuCategory('brunch')" data-cat="brunch" class="cat-btn w-full text-left px-4 py-3 rounded-xl font-heading font-bold text-sm flex items-center justify-between transition-all text-neutral-600 hover:bg-brandWarm">
+                                    <span class="flex items-center gap-2.5">
+                                        <i class="fa-solid fa-egg text-xs text-brandOrange"></i>
+                                        <span>All-Day Brunch</span>
+                                    </span>
+                                    <span class="text-xs text-neutral-400">Daily 'Til 3PM</span>
+                                </button>
+
+                                <button onclick="filterMenuCategory('pizza')" data-cat="pizza" class="cat-btn w-full text-left px-4 py-3 rounded-xl font-heading font-bold text-sm flex items-center justify-between transition-all text-neutral-600 hover:bg-brandWarm">
+                                    <span class="flex items-center gap-2.5">
+                                        <i class="fa-solid fa-pizza-slice text-xs text-brandOrange"></i>
+                                        <span>Wood-Fired Pizza</span>
+                                    </span>
+                                    <span class="text-xs text-neutral-400">Stone Oven</span>
+                                </button>
+
+                                <button onclick="filterMenuCategory('mains')" data-cat="mains" class="cat-btn w-full text-left px-4 py-3 rounded-xl font-heading font-bold text-sm flex items-center justify-between transition-all text-neutral-600 hover:bg-brandWarm">
+                                    <span class="flex items-center gap-2.5">
+                                        <i class="fa-solid fa-burger text-xs text-brandOrange"></i>
+                                        <span>Burgers &amp; Grill</span>
+                                    </span>
+                                    <span class="text-xs text-neutral-400">Angus &amp; Flame</span>
+                                </button>
+
+                                <button onclick="filterMenuCategory('drinks')" data-cat="drinks" class="cat-btn w-full text-left px-4 py-3 rounded-xl font-heading font-bold text-sm flex items-center justify-between transition-all text-neutral-600 hover:bg-brandWarm">
+                                    <span class="flex items-center gap-2.5">
+                                        <i class="fa-solid fa-cocktail text-xs text-brandOrange"></i>
+                                        <span>Craft Cocktails</span>
+                                    </span>
+                                    <span class="text-xs text-neutral-400">Lounge Bar</span>
+                                </button>
+
+                                <button onclick="filterMenuCategory('dietary')" data-cat="dietary" class="cat-btn w-full text-left px-4 py-3 rounded-xl font-heading font-bold text-sm flex items-center justify-between transition-all text-neutral-600 hover:bg-brandWarm">
+                                    <span class="flex items-center gap-2.5">
+                                        <i class="fa-solid fa-leaf text-xs text-emerald-600"></i>
+                                        <span>Vegan &amp; Gluten-Free</span>
+                                    </span>
+                                    <span class="text-xs text-emerald-600 font-bold">Informed</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- PDF Download Card -->
+                        <div class="bg-brandTeal text-white rounded-2xl sm:rounded-3xl p-5 sm:p-6 shadow-md">
+                            <span class="text-brandOrange font-heading font-bold uppercase text-[10px] tracking-widest block mb-1">
+                                Full Menu Cards
+                            </span>
+                            <h4 class="font-heading font-bold text-lg mb-2">Dining &amp; Drinks PDF</h4>
+                            <p class="text-xs text-neutral-200 leading-relaxed mb-4">
+                                Download our full printed restaurant menu with wine list, cocktail cards and kids options.
+                            </p>
+                            <a href="tel:0397044333" class="w-full bg-white hover:bg-neutral-100 text-brandTealDark font-heading font-bold text-xs uppercase tracking-wider py-2.5 rounded-xl flex items-center justify-center gap-2 transition-colors">
+                                <i class="fa-solid fa-download text-xs text-brandOrange"></i>
+                                <span>Request Menu Package</span>
+                            </a>
+                        </div>
+
+                    </div>
+
+                    <!-- Right Dynamic Dish Feed (8 cols) -->
+                    <div class="lg:col-span-8 space-y-6">
+                        
+                        <!-- FEATURED CHEF SPOTLIGHT BANNER -->
+                        <div class="bg-brandTealDeep text-white rounded-2xl sm:rounded-3xl overflow-hidden border border-brandTeal/30 shadow-xl grid md:grid-cols-12">
+                            <div class="md:col-span-5 relative min-h-[220px]">
+                                <img src="images/teal_artisan_pizza.jpg" alt="Chef's Stone Baked Burrata Pizza" class="w-full h-full object-cover">
+                                <span class="absolute top-3 left-3 bg-brandOrange text-white text-[10px] font-heading font-extrabold uppercase tracking-widest px-2.5 py-0.5 rounded-full shadow">
+                                    Chef's Cut
+                                </span>
+                            </div>
+                            <div class="md:col-span-7 p-5 sm:p-7 flex flex-col justify-between space-y-3">
+                                <div>
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-xs font-heading font-bold text-brandOrange uppercase tracking-wider">Wood-Fired Signature</span>
+                                        <span class="font-heading font-extrabold text-xl text-white">$27.50</span>
+                                    </div>
+                                    <h3 class="text-xl sm:text-2xl font-heading font-extrabold text-white mt-1">
+                                        Artisan Burrata &amp; Prosciutto Pizza
+                                    </h3>
+                                    <p class="text-xs sm:text-sm text-neutral-300 leading-relaxed mt-2">
+                                        San Marzano tomato sugo, whole creamy Italian burrata, 24-month aged prosciutto di Parma, blistered crust, and cold-pressed extra virgin olive oil.
+                                    </p>
+                                </div>
+                                <div class="flex items-center gap-3 pt-2">
+                                    <button onclick="openBookingModal()" class="bg-brandOrange hover:bg-brandOrangeHover text-white text-xs font-heading font-bold uppercase tracking-wider px-5 py-2.5 rounded-full transition-all">
+                                        Book Table To Taste
+                                    </button>
+                                    <span class="text-[11px] text-neutral-400">Available Daily from 11:30 AM</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 6 Dynamic Dish Cards -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5" id="dishGrid">
+                            
+                            <!-- Dish 1: Brunch -->
+                            <div class="dish-card bg-white rounded-2xl p-4 sm:p-5 border border-neutral-200/90 shadow-card hover:border-brandTeal transition-all" data-category="brunch">
+                                <div class="h-44 rounded-xl overflow-hidden mb-3.5 relative">
+                                    <img src="images/teal_brunch_spread.jpg" alt="Smashed Avocado & Feta" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                                    <span class="absolute top-2.5 right-2.5 bg-brandTealDeep/90 backdrop-blur-sm text-white font-heading font-bold text-xs px-2.5 py-0.5 rounded-full">
+                                        $23.90
+                                    </span>
+                                </div>
+                                <div class="flex items-center gap-2 mb-1.5">
+                                    <span class="text-[10px] font-heading font-extrabold tracking-wider uppercase px-2 py-0.5 rounded bg-emerald-100 text-emerald-800">Vegetarian</span>
+                                    <span class="text-[10px] font-heading font-extrabold tracking-wider uppercase px-2 py-0.5 rounded bg-brandWarm text-brandTeal">Brunch Regular</span>
+                                </div>
+                                <h4 class="font-heading font-bold text-base sm:text-lg text-brandDark">Avocado Smash on Sourdough</h4>
+                                <p class="text-xs text-neutral-600 mt-1 line-clamp-2">
+                                    Heirloom cherry tomatoes, Persian feta, toasted seeds, poached free-range eggs, and herb oil.
+                                </p>
+                            </div>
+
+                            <!-- Dish 2: Pizza -->
+                            <div class="dish-card bg-white rounded-2xl p-4 sm:p-5 border border-neutral-200/90 shadow-card hover:border-brandTeal transition-all" data-category="pizza">
+                                <div class="h-44 rounded-xl overflow-hidden mb-3.5 relative">
+                                    <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=600&auto=format&fit=crop&q=80" alt="Diavola Wood Fired Pizza" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                                    <span class="absolute top-2.5 right-2.5 bg-brandTealDeep/90 backdrop-blur-sm text-white font-heading font-bold text-xs px-2.5 py-0.5 rounded-full">
+                                        $26.00
+                                    </span>
+                                </div>
+                                <div class="flex items-center gap-2 mb-1.5">
+                                    <span class="text-[10px] font-heading font-extrabold tracking-wider uppercase px-2 py-0.5 rounded bg-red-100 text-red-800">Spicy</span>
+                                    <span class="text-[10px] font-heading font-extrabold tracking-wider uppercase px-2 py-0.5 rounded bg-brandWarm text-brandTeal">Wood Fired</span>
+                                </div>
+                                <h4 class="font-heading font-bold text-base sm:text-lg text-brandDark">Diavola Calabrese Pizza</h4>
+                                <p class="text-xs text-neutral-600 mt-1 line-clamp-2">
+                                    Spicy artisan salami, fior di latte, hot honey glaze, kalamata olives, and fresh basil.
+                                </p>
+                            </div>
+
+                            <!-- Dish 3: Burger -->
+                            <div class="dish-card bg-white rounded-2xl p-4 sm:p-5 border border-neutral-200/90 shadow-card hover:border-brandTeal transition-all" data-category="mains">
+                                <div class="h-44 rounded-xl overflow-hidden mb-3.5 relative">
+                                    <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600&auto=format&fit=crop&q=80" alt="Double Wagyu Burger" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                                    <span class="absolute top-2.5 right-2.5 bg-brandTealDeep/90 backdrop-blur-sm text-white font-heading font-bold text-xs px-2.5 py-0.5 rounded-full">
+                                        $25.50
+                                    </span>
+                                </div>
+                                <div class="flex items-center gap-2 mb-1.5">
+                                    <span class="text-[10px] font-heading font-extrabold tracking-wider uppercase px-2 py-0.5 rounded bg-amber-100 text-amber-800">Crowd Fave</span>
+                                    <span class="text-[10px] font-heading font-extrabold tracking-wider uppercase px-2 py-0.5 rounded bg-brandWarm text-brandTeal">With Chips</span>
+                                </div>
+                                <h4 class="font-heading font-bold text-base sm:text-lg text-brandDark">Switch Signature Wagyu Stack</h4>
+                                <p class="text-xs text-neutral-600 mt-1 line-clamp-2">
+                                    Prime beef patty, melted aged cheddar, smoky bacon jam, truffle mayo, pickles, toasted milk bun.
+                                </p>
+                            </div>
+
+                            <!-- Dish 4: Cocktail -->
+                            <div class="dish-card bg-white rounded-2xl p-4 sm:p-5 border border-neutral-200/90 shadow-card hover:border-brandTeal transition-all" data-category="drinks">
+                                <div class="h-44 rounded-xl overflow-hidden mb-3.5 relative">
+                                    <img src="images/teal_cocktails_bar.jpg" alt="Botanical Passionfruit Cocktail" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                                    <span class="absolute top-2.5 right-2.5 bg-brandTealDeep/90 backdrop-blur-sm text-white font-heading font-bold text-xs px-2.5 py-0.5 rounded-full">
+                                        $21.00
+                                    </span>
+                                </div>
+                                <div class="flex items-center gap-2 mb-1.5">
+                                    <span class="text-[10px] font-heading font-extrabold tracking-wider uppercase px-2 py-0.5 rounded bg-brandOrange/15 text-brandOrange font-bold">House Mixology</span>
+                                </div>
+                                <h4 class="font-heading font-bold text-base sm:text-lg text-brandDark">Smoked Blood Orange Spritz</h4>
+                                <p class="text-xs text-neutral-600 mt-1 line-clamp-2">
+                                    Aperol, blood orange reduction, Victorian botanical gin, prosecco, rosemary smoke bubble.
+                                </p>
+                            </div>
+
+                            <!-- Dish 5: Dietary / Vegan -->
+                            <div class="dish-card bg-white rounded-2xl p-4 sm:p-5 border border-neutral-200/90 shadow-card hover:border-brandTeal transition-all" data-category="dietary">
+                                <div class="h-44 rounded-xl overflow-hidden mb-3.5 relative">
+                                    <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?w=600&auto=format&fit=crop&q=80" alt="Plant-Powered Superfood Bowl" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                                    <span class="absolute top-2.5 right-2.5 bg-brandTealDeep/90 backdrop-blur-sm text-white font-heading font-bold text-xs px-2.5 py-0.5 rounded-full">
+                                        $22.50
+                                    </span>
+                                </div>
+                                <div class="flex items-center gap-2 mb-1.5">
+                                    <span class="text-[10px] font-heading font-extrabold tracking-wider uppercase px-2 py-0.5 rounded bg-emerald-100 text-emerald-800">100% Vegan</span>
+                                    <span class="text-[10px] font-heading font-extrabold tracking-wider uppercase px-2 py-0.5 rounded bg-sky-100 text-sky-800">Gluten-Free</span>
+                                </div>
+                                <h4 class="font-heading font-bold text-base sm:text-lg text-brandDark">Roasted Pumpkin &amp; Grain Bowl</h4>
+                                <p class="text-xs text-neutral-600 mt-1 line-clamp-2">
+                                    Maple roasted butternut pumpkin, spiced chickpeas, tri-colour quinoa, tahini citrus dressing.
+                                </p>
+                            </div>
+
+                            <!-- Dish 6: Grill / Mains -->
+                            <div class="dish-card bg-white rounded-2xl p-4 sm:p-5 border border-neutral-200/90 shadow-card hover:border-brandTeal transition-all" data-category="mains">
+                                <div class="h-44 rounded-xl overflow-hidden mb-3.5 relative">
+                                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=600&auto=format&fit=crop&q=80" alt="Crispy Skin Salmon" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                                    <span class="absolute top-2.5 right-2.5 bg-brandTealDeep/90 backdrop-blur-sm text-white font-heading font-bold text-xs px-2.5 py-0.5 rounded-full">
+                                        $33.00
+                                    </span>
+                                </div>
+                                <div class="flex items-center gap-2 mb-1.5">
+                                    <span class="text-[10px] font-heading font-extrabold tracking-wider uppercase px-2 py-0.5 rounded bg-sky-100 text-sky-800">Gluten-Free</span>
+                                    <span class="text-[10px] font-heading font-extrabold tracking-wider uppercase px-2 py-0.5 rounded bg-brandWarm text-brandTeal">Chef Special</span>
+                                </div>
+                                <h4 class="font-heading font-bold text-base sm:text-lg text-brandDark">Crispy Skin Tasmanian Salmon</h4>
+                                <p class="text-xs text-neutral-600 mt-1 line-clamp-2">
+                                    Pan-seared Atlantic salmon fillet, crushed herbed baby potatoes, broccolini, lemon butter sauce.
+                                </p>
+                            </div>
+
+                        </div>
+
+                        <!-- Bottom Order / Reserve Bar -->
+                        <div class="p-4 sm:p-6 rounded-2xl bg-brandWarm border border-brandTeal/20 flex flex-col sm:flex-row items-center justify-between gap-4">
+                            <div class="flex items-center gap-3">
+                                <i class="fa-solid fa-bell-concierge text-brandOrange text-2xl"></i>
+                                <div>
+                                    <div class="font-heading font-bold text-sm text-brandDark">Takeaway &amp; Pickup Orders Available</div>
+                                    <div class="text-xs text-neutral-500">Order directly for collection or via UberEats.</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-2.5 w-full sm:w-auto">
+                                <a href="tel:0397044333" class="w-full sm:w-auto bg-brandTeal hover:bg-brandTealHover text-white text-xs font-heading font-bold uppercase tracking-wider px-5 py-2.5 rounded-xl text-center">
+                                    Call To Order
+                                </a>
+                                <button onclick="openBookingModal()" class="w-full sm:w-auto bg-brandOrange hover:bg-brandOrangeHover text-white text-xs font-heading font-bold uppercase tracking-wider px-5 py-2.5 rounded-xl text-center">
+                                    Dine In With Us
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- 4. "AM TO PM" ATMOSPHERE TIMELINE (REPLACING BENTO BOXES)     -->
+        <!-- ============================================================ -->
+        <section id="journey" class="py-14 sm:py-20 lg:py-24 bg-white px-4 sm:px-6 lg:px-12 border-t border-neutral-200">
+            <div class="max-w-7xl 2xl:max-w-[1440px] mx-auto">
+                
+                <div class="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
+                    <span class="text-brandOrange font-heading font-extrabold uppercase tracking-[0.2em] text-xs sm:text-sm mb-1.5 block">
+                        The 24H Lifestyle Rhythm
+                    </span>
+                    <h2 class="text-2xl sm:text-4xl lg:text-5xl font-heading font-extrabold text-brandDark tracking-tight">
+                        From Morning Sun to Late Night Soul
+                    </h2>
+                    <p class="text-neutral-600 mt-2.5 text-xs sm:text-base">
+                        Switch Lifestyle moves with the clock. Experience how our space, menu, and music effortlessly transform through the day.
+                    </p>
+                </div>
+
+                <!-- 3-Phase Stepped Timeline Layout -->
+                <div class="space-y-8 sm:space-y-12">
+                    
+                    <!-- Phase 1: 09:00 AM - 03:00 PM -->
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center bg-brandSurface rounded-3xl p-6 sm:p-10 border border-brandTeal/20">
+                        <div class="lg:col-span-6 space-y-4">
+                            <div class="inline-flex items-center gap-2 bg-brandTeal/10 text-brandTeal px-3 py-1 rounded-full text-xs font-heading font-extrabold uppercase tracking-widest">
+                                <i class="fa-solid fa-sun text-brandOrange"></i>
+                                <span>09:00 AM — 03:00 PM</span>
+                            </div>
+                            <h3 class="text-2xl sm:text-3xl lg:text-4xl font-heading font-extrabold text-brandDark">
+                                Sunlit Brunch &amp; Specialty Coffee
+                            </h3>
+                            <p class="text-neutral-600 text-sm sm:text-base leading-relaxed">
+                                Freshly baked breakfast goods, avocado creations, house-cured salmon, fluffy pancakes, and our renowned weekend Bottomless Brunch with endless prosecco and cocktails.
+                            </p>
+                            <div class="flex items-center gap-4 text-xs font-heading font-bold text-brandTealDark pt-2">
+                                <span class="flex items-center gap-1.5"><i class="fa-solid fa-check text-brandOrange"></i> Specialty Espresso</span>
+                                <span class="flex items-center gap-1.5"><i class="fa-solid fa-check text-brandOrange"></i> Fresh Pressed Juices</span>
+                                <span class="flex items-center gap-1.5"><i class="fa-solid fa-check text-brandOrange"></i> Bottomless Packages</span>
+                            </div>
+                        </div>
+                        <div class="lg:col-span-6 rounded-2xl overflow-hidden shadow-lg border-2 border-white">
+                            <img src="images/teal_brunch_spread.jpg" alt="Morning Brunch Experience" class="w-full h-56 sm:h-72 object-cover hover:scale-105 transition-transform duration-700">
+                        </div>
+                    </div>
+
+                    <!-- Phase 2: 03:00 PM - 06:00 PM -->
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center bg-brandTealDeep text-white rounded-3xl p-6 sm:p-10 border border-brandTeal/40">
+                        <div class="lg:col-span-6 order-2 lg:order-1 rounded-2xl overflow-hidden shadow-lg border-2 border-brandTeal/50">
+                            <img src="images/teal_cocktails_bar.jpg" alt="Golden Hour Aperitivo" class="w-full h-56 sm:h-72 object-cover hover:scale-105 transition-transform duration-700">
+                        </div>
+                        <div class="lg:col-span-6 order-1 lg:order-2 space-y-4">
+                            <div class="inline-flex items-center gap-2 bg-brandOrange text-white px-3 py-1 rounded-full text-xs font-heading font-extrabold uppercase tracking-widest shadow">
+                                <i class="fa-solid fa-martini-glass"></i>
+                                <span>03:00 PM — 06:00 PM</span>
+                            </div>
+                            <h3 class="text-2xl sm:text-3xl lg:text-4xl font-heading font-extrabold text-white">
+                                Golden Hour Aperitivo &amp; Tapas
+                            </h3>
+                            <p class="text-neutral-300 text-sm sm:text-base leading-relaxed">
+                                Unwind as afternoon turns to evening. Indulge in artisanal share plates, crispy calamari, charcuterie, and cold tap beers while catching up with colleagues and friends.
+                            </p>
+                            <div class="flex items-center gap-4 text-xs font-heading font-bold text-neutral-300 pt-2">
+                                <span class="flex items-center gap-1.5"><i class="fa-solid fa-check text-brandOrange"></i> Spritz Specials</span>
+                                <span class="flex items-center gap-1.5"><i class="fa-solid fa-check text-brandOrange"></i> Share Grazing Boards</span>
+                                <span class="flex items-center gap-1.5"><i class="fa-solid fa-check text-brandOrange"></i> Relaxed Bar Seating</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Phase 3: 06:00 PM - LATE -->
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center bg-brandSurface rounded-3xl p-6 sm:p-10 border border-brandTeal/20">
+                        <div class="lg:col-span-6 space-y-4">
+                            <div class="inline-flex items-center gap-2 bg-brandTeal/10 text-brandTeal px-3 py-1 rounded-full text-xs font-heading font-extrabold uppercase tracking-widest">
+                                <i class="fa-solid fa-moon text-brandOrange"></i>
+                                <span>06:00 PM — LATE</span>
+                            </div>
+                            <h3 class="text-2xl sm:text-3xl lg:text-4xl font-heading font-extrabold text-brandDark">
+                                Candlelit Dining &amp; Night Mixology
+                            </h3>
+                            <p class="text-neutral-600 text-sm sm:text-base leading-relaxed">
+                                Dimmed lights, warm ambient tunes, and blistered stone-baked pizzas paired with aged reds. A premier date night and group celebration atmosphere right here at Fountain Gate.
+                            </p>
+                            <div class="flex items-center gap-4 text-xs font-heading font-bold text-brandTealDark pt-2">
+                                <span class="flex items-center gap-1.5"><i class="fa-solid fa-check text-brandOrange"></i> Stone Oven Pizzas</span>
+                                <span class="flex items-center gap-1.5"><i class="fa-solid fa-check text-brandOrange"></i> Prime Angus Steaks</span>
+                                <span class="flex items-center gap-1.5"><i class="fa-solid fa-check text-brandOrange"></i> Signature Cocktails</span>
+                            </div>
+                        </div>
+                        <div class="lg:col-span-6 rounded-2xl overflow-hidden shadow-lg border-2 border-white">
+                            <img src="images/teal_hero_dining.jpg" alt="Evening Dining Room" class="w-full h-56 sm:h-72 object-cover hover:scale-105 transition-transform duration-700">
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- 5. DUAL PRIVATE FUNCTION SUITES COMPARISON (REPLACING CARD)  -->
+        <!-- ============================================================ -->
+        <section id="functions" class="py-14 sm:py-20 lg:py-24 bg-brandTealDeep text-white px-4 sm:px-6 lg:px-12 relative overflow-hidden">
+            <div class="max-w-7xl 2xl:max-w-[1440px] mx-auto relative z-10">
+                
+                <div class="text-center max-w-2xl mx-auto mb-10 sm:mb-12">
+                    <span class="text-brandOrange font-heading font-extrabold uppercase tracking-[0.2em] text-xs sm:text-sm mb-1.5 block">
+                        Celebrate In Style
+                    </span>
+                    <h2 class="text-2xl sm:text-4xl lg:text-5xl font-heading font-extrabold text-white tracking-tight">
+                        Two Purpose-Built Function Suites
+                    </h2>
+                    <p class="text-neutral-300 mt-2.5 text-xs sm:text-base">
+                        From intimate 30-guest milestone birthdays to 200-guest gala celebrations. Select your room preference below to explore configurations.
+                    </p>
+                </div>
+
+                <!-- Interactive Suite Tab Switcher -->
+                <div class="flex items-center justify-center gap-3 mb-8 sm:mb-10">
+                    <button onclick="switchFunctionSuite('mezzanine')" id="tabSuiteMezzanine" class="suite-tab px-5 sm:px-7 py-2.5 sm:py-3 rounded-full font-heading font-bold text-xs sm:text-sm uppercase tracking-wider transition-all bg-brandOrange text-white shadow-lg">
+                        <i class="fa-solid fa-champagne-glasses mr-2"></i>
+                        <span>The Mezzanine Suite (30–70 Guests)</span>
+                    </button>
+                    <button onclick="switchFunctionSuite('grand')" id="tabSuiteGrand" class="suite-tab px-5 sm:px-7 py-2.5 sm:py-3 rounded-full font-heading font-bold text-xs sm:text-sm uppercase tracking-wider transition-all bg-brandTealDark text-neutral-300 hover:text-white border border-brandTeal/50">
+                        <i class="fa-solid fa-users mr-2"></i>
+                        <span>The Grand Lounge (80–200 Guests)</span>
+                    </button>
+                </div>
+
+                <!-- Suite Display Container -->
+                <div class="bg-brandTealDark rounded-3xl border border-brandTeal/50 shadow-2xl overflow-hidden p-6 sm:p-10 lg:p-12">
+                    
+                    <!-- SUITE 1: MEZZANINE (Default active) -->
+                    <div id="suiteMezzanineContent" class="grid lg:grid-cols-12 gap-8 items-center">
+                        <div class="lg:col-span-6 space-y-5">
+                            <div class="inline-flex items-center gap-2 bg-brandOrange/20 text-brandOrange border border-brandOrange/40 px-3 py-1 rounded-full text-xs font-heading font-bold uppercase tracking-wider">
+                                <span>Ideal for 30 to 70 Guests</span>
+                            </div>
+                            <h3 class="text-2xl sm:text-4xl font-heading font-extrabold text-white">
+                                The Private Mezzanine Suite
+                            </h3>
+                            <p class="text-neutral-300 text-sm sm:text-base leading-relaxed">
+                                An elevated, private sanctuary perched above the main dining room. Ideal for 21st, 30th, 40th and 50th birthdays, intimate baby showers, gender reveals, engagement dinners, and corporate team presentations.
+                            </p>
+
+                            <!-- Suite Highlights Grid -->
+                            <div class="grid grid-cols-2 gap-3 pt-2 text-xs sm:text-sm text-neutral-200">
+                                <div class="flex items-center gap-2">
+                                    <i class="fa-solid fa-circle-check text-brandOrange"></i>
+                                    <span>Dedicated Private Bar</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <i class="fa-solid fa-circle-check text-brandOrange"></i>
+                                    <span>Full AV, Mic &amp; Big Screen</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <i class="fa-solid fa-circle-check text-brandOrange"></i>
+                                    <span>Canapés &amp; Set Menus</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <i class="fa-solid fa-circle-check text-brandOrange"></i>
+                                    <span>Private Restroom Access</span>
+                                </div>
+                            </div>
+
+                            <div class="pt-4 flex flex-wrap gap-3">
+                                <button onclick="openFunctionModal('The Mezzanine Suite (30-70 Guests)')" class="bg-brandOrange hover:bg-brandOrangeHover text-white font-heading font-bold text-xs sm:text-sm uppercase tracking-wider px-7 py-3.5 rounded-full shadow-lg transition-all flex items-center gap-2">
+                                    <i class="fa-solid fa-envelope"></i>
+                                    <span>Enquire For Mezzanine</span>
+                                </button>
+                                <a href="tel:0397044333" class="bg-white/10 hover:bg-white/20 text-white font-heading font-bold text-xs sm:text-sm uppercase tracking-wider px-6 py-3.5 rounded-full transition-all flex items-center gap-2">
+                                    <i class="fa-solid fa-phone text-brandOrange"></i>
+                                    <span>Call (03) 9704 4333</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="lg:col-span-6 relative rounded-2xl overflow-hidden shadow-2xl border-2 border-brandTeal/60 group">
+                            <img src="images/teal_mezzanine_event.jpg" alt="Private Mezzanine Function Suite at Switch" class="w-full h-72 sm:h-96 object-cover group-hover:scale-105 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                            <div class="absolute bottom-4 left-4 right-4">
+                                <span class="text-xs font-heading font-bold uppercase tracking-wider text-brandOrange">Private Setting</span>
+                                <h4 class="text-lg font-heading font-bold text-white">Chic Lighting &amp; Intimate Table Layouts</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SUITE 2: GRAND LOUNGE (Hidden by default) -->
+                    <div id="suiteGrandContent" class="hidden grid lg:grid-cols-12 gap-8 items-center">
+                        <div class="lg:col-span-6 space-y-5">
+                            <div class="inline-flex items-center gap-2 bg-brandTeal/40 text-brandTealLight border border-brandTeal px-3 py-1 rounded-full text-xs font-heading font-bold uppercase tracking-wider">
+                                <span>Capacity: 80 to 200 Guests</span>
+                            </div>
+                            <h3 class="text-2xl sm:text-4xl font-heading font-extrabold text-white">
+                                The Grand Celebration Hall &amp; Bar
+                            </h3>
+                            <p class="text-neutral-300 text-sm sm:text-base leading-relaxed">
+                                For large engagement parties, wedding after-parties, company end-of-year banquets, and milestone celebrations. Full access to our main stone pizza oven, dual cocktail bars, and state-of-the-art sound system.
+                            </p>
+
+                            <!-- Suite Highlights Grid -->
+                            <div class="grid grid-cols-2 gap-3 pt-2 text-xs sm:text-sm text-neutral-200">
+                                <div class="flex items-center gap-2">
+                                    <i class="fa-solid fa-circle-check text-brandOrange"></i>
+                                    <span>Dual Cocktail Bars</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <i class="fa-solid fa-circle-check text-brandOrange"></i>
+                                    <span>DJ Booth &amp; Dance Area</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <i class="fa-solid fa-circle-check text-brandOrange"></i>
+                                    <span>Full Buffet or Grazing Stations</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <i class="fa-solid fa-circle-check text-brandOrange"></i>
+                                    <span>Complete Venue Buyout Available</span>
+                                </div>
+                            </div>
+
+                            <div class="pt-4 flex flex-wrap gap-3">
+                                <button onclick="openFunctionModal('The Grand Celebration Hall (80-200 Guests)')" class="bg-brandOrange hover:bg-brandOrangeHover text-white font-heading font-bold text-xs sm:text-sm uppercase tracking-wider px-7 py-3.5 rounded-full shadow-lg transition-all flex items-center gap-2">
+                                    <i class="fa-solid fa-envelope"></i>
+                                    <span>Enquire For Grand Hall</span>
+                                </button>
+                                <a href="tel:0397044333" class="bg-white/10 hover:bg-white/20 text-white font-heading font-bold text-xs sm:text-sm uppercase tracking-wider px-6 py-3.5 rounded-full transition-all flex items-center gap-2">
+                                    <i class="fa-solid fa-phone text-brandOrange"></i>
+                                    <span>Call (03) 9704 4333</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="lg:col-span-6 relative rounded-2xl overflow-hidden shadow-2xl border-2 border-brandTeal/60 group">
+                            <img src="images/Private-Party-Bar-Function-Room-Hire-at-Switch-Lifestyle-in-Melbourne.png" alt="Switch Grand Celebration Hall" class="w-full h-72 sm:h-96 object-cover group-hover:scale-105 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                            <div class="absolute bottom-4 left-4 right-4">
+                                <span class="text-xs font-heading font-bold uppercase tracking-wider text-brandOrange">Spacious Gala Setup</span>
+                                <h4 class="text-lg font-heading font-bold text-white">Full Venue Capacity &amp; Custom Stage</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- 6. EDITORIAL TESTIMONIALS & SOCIAL PROOF                     -->
+        <!-- ============================================================ -->
+        <section id="reviews" class="py-14 sm:py-20 lg:py-24 bg-white px-4 sm:px-6 lg:px-12 border-t border-neutral-200">
+            <div class="max-w-7xl 2xl:max-w-[1440px] mx-auto">
+                
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10 sm:mb-12">
+                    <div>
+                        <span class="text-brandOrange font-heading font-extrabold uppercase tracking-[0.2em] text-xs sm:text-sm mb-1.5 block">
+                            Verified Guest Experiences
+                        </span>
+                        <h2 class="text-2xl sm:text-4xl lg:text-5xl font-heading font-extrabold text-brandDark tracking-tight">
+                            Loved By Locals &amp; Diners
+                        </h2>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="bg-brandTeal/10 border border-brandTeal/30 px-4 py-2 rounded-2xl flex items-center gap-2">
+                            <span class="text-brandOrange font-heading font-black text-xl">4.9 ★</span>
+                            <span class="text-xs text-neutral-600 font-medium">1,400+ Verified Google Reviews</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3 Editorial Testimonial Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    
+                    <!-- Review 1: Large Spotlight -->
+                    <div class="bg-brandSurface rounded-3xl p-6 sm:p-8 border border-brandTeal/20 shadow-card flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="text-brandOrange text-sm flex gap-1">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-white text-neutral-500 border border-neutral-200">
+                                    Family Dining
+                                </span>
+                            </div>
+                            <blockquote class="text-brandDark text-sm sm:text-base leading-relaxed italic mb-6">
+                                "The wood-fired prosciutto and burrata pizza is honestly the best in Narre Warren! Service was warm and lightning fast despite a busy Friday night."
+                            </blockquote>
+                        </div>
+                        <div class="flex items-center gap-3 pt-4 border-t border-neutral-200">
+                            <div class="w-10 h-10 rounded-full bg-brandTeal text-white font-heading font-bold text-xs flex items-center justify-center shadow">
+                                GF
+                            </div>
+                            <div>
+                                <div class="font-heading font-bold text-brandDark text-sm">Gavin Fletcher</div>
+                                <div class="text-xs text-neutral-500">Verified Local Reviewer · 5 Stars</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Review 2 -->
+                    <div class="bg-brandSurface rounded-3xl p-6 sm:p-8 border border-brandTeal/20 shadow-card flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="text-brandOrange text-sm flex gap-1">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-white text-neutral-500 border border-neutral-200">
+                                    Weekend Brunch
+                                </span>
+                            </div>
+                            <blockquote class="text-brandDark text-sm sm:text-base leading-relaxed italic mb-6">
+                                "Bottomless brunch on Saturday was an absolute blast. Prosecco flowed without stopping, and the smash avocado plate was fresh and flavourful!"
+                            </blockquote>
+                        </div>
+                        <div class="flex items-center gap-3 pt-4 border-t border-neutral-200">
+                            <div class="w-10 h-10 rounded-full bg-brandOrange text-white font-heading font-bold text-xs flex items-center justify-center shadow">
+                                SD
+                            </div>
+                            <div>
+                                <div class="font-heading font-bold text-brandDark text-sm">Sharon Delaney</div>
+                                <div class="text-xs text-neutral-500">Brunch Regular · 5 Stars</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Review 3 -->
+                    <div class="bg-brandSurface rounded-3xl p-6 sm:p-8 border border-brandTeal/20 shadow-card flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="text-brandOrange text-sm flex gap-1">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-white text-neutral-500 border border-neutral-200">
+                                    50th Birthday Party
+                                </span>
+                            </div>
+                            <blockquote class="text-brandDark text-sm sm:text-base leading-relaxed italic mb-6">
+                                "We hired the Mezzanine function suite for my husband's 50th birthday. The events coordinator made everything effortless. Our guests are still raving!"
+                            </blockquote>
+                        </div>
+                        <div class="flex items-center gap-3 pt-4 border-t border-neutral-200">
+                            <div class="w-10 h-10 rounded-full bg-brandTealDark text-white font-heading font-bold text-xs flex items-center justify-center shadow">
+                                AH
+                            </div>
+                            <div>
+                                <div class="font-heading font-bold text-brandDark text-sm">Alin Henderson</div>
+                                <div class="text-xs text-neutral-500">Function Host · 5 Stars</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- 7. CURATED INSTAGRAM MEDIA REEL WALL                         -->
+        <!-- ============================================================ -->
+        <section class="py-12 sm:py-16 bg-brandWarm px-4 sm:px-6 lg:px-12 border-t border-neutral-200">
+            <div class="max-w-7xl 2xl:max-w-[1440px] mx-auto">
+                <div class="flex flex-col sm:flex-row items-center justify-between gap-3 mb-8">
+                    <div>
+                        <span class="text-xs font-heading font-bold uppercase tracking-widest text-brandOrange block">Social Feed</span>
+                        <h3 class="text-xl sm:text-2xl font-heading font-extrabold text-brandDark">
+                            <a href="https://www.instagram.com/switchlifestylerestaurant/" target="_blank" rel="noopener noreferrer" class="hover:text-brandOrange transition-colors inline-flex items-center gap-2">
+                                <span>@switchlifestylerestaurant</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square text-xs text-neutral-400"></i>
+                            </a>
+                        </h3>
+                    </div>
+                    <a href="https://www.instagram.com/switchlifestylerestaurant/" target="_blank" rel="noopener noreferrer" class="bg-white hover:bg-neutral-50 border border-neutral-300 px-4 py-2 rounded-full text-xs font-heading font-bold uppercase tracking-wider text-brandDark flex items-center gap-1.5 transition-colors">
+                        <i class="fa-brands fa-instagram text-brandOrange"></i>
+                        <span>Follow On Instagram</span>
+                    </a>
+                </div>
+
+                <!-- 5 Masonry Grid Images -->
+                <div class="grid grid-cols-2 md:grid-cols-5 gap-3 sm:gap-4">
+                    <div class="relative aspect-square rounded-2xl overflow-hidden group shadow-sm bg-neutral-200">
+                        <img src="images/teal_hero_dining.jpg" alt="Dine in style" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-brandTeal/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+                            <i class="fa-brands fa-instagram text-2xl"></i>
+                        </div>
+                    </div>
+                    <div class="relative aspect-square rounded-2xl overflow-hidden group shadow-sm bg-neutral-200">
+                        <img src="images/teal_cocktails_bar.jpg" alt="Craft mixology" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-brandTeal/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+                            <i class="fa-brands fa-instagram text-2xl"></i>
+                        </div>
+                    </div>
+                    <div class="relative aspect-square rounded-2xl overflow-hidden group shadow-sm bg-neutral-200">
+                        <img src="images/teal_artisan_pizza.jpg" alt="Stone baked pizza" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-brandTeal/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+                            <i class="fa-brands fa-instagram text-2xl"></i>
+                        </div>
+                    </div>
+                    <div class="relative aspect-square rounded-2xl overflow-hidden group shadow-sm bg-neutral-200">
+                        <img src="images/teal_brunch_spread.jpg" alt="Brunch spread" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-brandTeal/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+                            <i class="fa-brands fa-instagram text-2xl"></i>
+                        </div>
+                    </div>
+                    <div class="relative aspect-square rounded-2xl overflow-hidden group shadow-sm bg-neutral-200 hidden md:block">
+                        <img src="images/teal_mezzanine_event.jpg" alt="Private function suites" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-brandTeal/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+                            <i class="fa-brands fa-instagram text-2xl"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- 8. INTERACTIVE DESTINATION CONCIERGE & HOURS (WESTFIELD)     -->
+        <!-- ============================================================ -->
+        <section id="concierge" class="py-14 sm:py-20 lg:py-24 bg-white px-4 sm:px-6 lg:px-12 border-t border-neutral-200">
+            <div class="max-w-7xl 2xl:max-w-[1440px] mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+                    
+                    <!-- Left: Concierge, Parking & Quick Links (6 cols) -->
+                    <div class="lg:col-span-6 space-y-6 sm:space-y-8">
+                        <div>
+                            <span class="text-brandOrange font-heading font-extrabold uppercase tracking-[0.2em] text-xs sm:text-sm mb-1.5 block">
+                                Destination Concierge
+                            </span>
+                            <h2 class="text-2xl sm:text-4xl font-heading font-extrabold text-brandDark tracking-tight">
+                                Planning Your Visit To Switch
+                            </h2>
+                            <p class="text-neutral-600 mt-2.5 text-xs sm:text-base leading-relaxed">
+                                Located on Level 1 at Westfield Fountain Gate. Walk-ins are warmly welcomed all day; reservations are recommended for peak evenings and large groups.
+                            </p>
+                        </div>
+
+                        <!-- 3 Handy Guidance Cards -->
+                        <div class="space-y-3.5">
+                            
+                            <!-- Card 1: Address & Maps -->
+                            <div class="flex items-start gap-4 p-4 sm:p-5 rounded-2xl bg-brandSurface border border-brandTeal/20">
+                                <div class="w-11 h-11 rounded-xl bg-brandTeal text-white flex items-center justify-center shrink-0 shadow-md">
+                                    <i class="fa-solid fa-location-dot text-base"></i>
+                                </div>
+                                <div>
+                                    <div class="font-heading font-bold text-sm sm:text-base text-brandDark">Address &amp; Location</div>
+                                    <p class="text-xs sm:text-sm text-neutral-600 mt-0.5">
+                                        Westfield Fountain Gate Shopping Centre<br>
+                                        352 Princes Highway, Narre Warren VIC 3805 (Level 1, Cinema Precinct)
+                                    </p>
+                                    <a href="https://maps.google.com/?q=Switch+Lifestyle+Fountain+Gate" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-heading font-bold text-brandOrange hover:text-brandOrangeDark mt-2">
+                                        <span>Open in Google Maps</span>
+                                        <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- Card 2: Parking Guide -->
+                            <div class="flex items-start gap-4 p-4 sm:p-5 rounded-2xl bg-brandSurface border border-brandTeal/20">
+                                <div class="w-11 h-11 rounded-xl bg-brandTealDark text-white flex items-center justify-center shrink-0 shadow-md">
+                                    <i class="fa-solid fa-square-parking text-base text-brandOrange"></i>
+                                </div>
+                                <div>
+                                    <div class="font-heading font-bold text-sm sm:text-base text-brandDark">Best Free Parking</div>
+                                    <p class="text-xs sm:text-sm text-neutral-600 mt-0.5">
+                                        Park at <strong>Level 1 Cinema Carpark (Yellow Zone)</strong>. Direct escalator / lift entry brings you right outside our restaurant doors.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Card 3: Direct Phone -->
+                            <div class="flex items-start gap-4 p-4 sm:p-5 rounded-2xl bg-brandSurface border border-brandTeal/20">
+                                <div class="w-11 h-11 rounded-xl bg-brandOrange text-white flex items-center justify-center shrink-0 shadow-md">
+                                    <i class="fa-solid fa-phone text-base"></i>
+                                </div>
+                                <div>
+                                    <div class="font-heading font-bold text-sm sm:text-base text-brandDark">Direct Inquiries &amp; Orders</div>
+                                    <a href="tel:0397044333" class="text-xl sm:text-2xl font-heading font-extrabold text-brandOrange block mt-0.5">
+                                        (03) 9704 4333
+                                    </a>
+                                    <p class="text-xs text-neutral-500 mt-0.5">Direct bookings, function room tours, and pickup orders.</p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Action buttons -->
+                        <div class="flex flex-col sm:flex-row gap-3 pt-2">
+                            <button onclick="openBookingModal()" class="w-full sm:w-auto bg-brandOrange hover:bg-brandOrangeHover text-white font-heading font-bold text-xs sm:text-sm tracking-wider uppercase px-7 py-3.5 rounded-full shadow-lg transition-all flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-calendar-check"></i>
+                                <span>Reserve A Table</span>
+                            </button>
+                            <a href="tel:0397044333" class="w-full sm:w-auto bg-brandTeal hover:bg-brandTealHover text-white font-heading font-bold text-xs sm:text-sm tracking-wider uppercase px-7 py-3.5 rounded-full transition-all flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-phone"></i>
+                                <span>Call Direct</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Right: Live Hours Schedule (6 cols) -->
+                    <div class="lg:col-span-6 bg-brandTealDeep text-white rounded-3xl p-6 sm:p-8 lg:p-10 border border-brandTeal/40 shadow-2xl">
+                        <div class="flex items-center justify-between pb-6 border-b border-brandTeal/30">
+                            <div>
+                                <span class="text-brandOrange font-heading font-bold uppercase tracking-widest text-xs">Trading Schedule</span>
+                                <h3 class="text-xl sm:text-2xl font-heading font-extrabold text-white mt-1">Open 7 Days A Week</h3>
+                            </div>
+                            <div id="liveRadarBadge" class="bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-sm">
+                                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                                <span id="liveRadarText">OPEN TODAY</span>
+                            </div>
+                        </div>
+
+                        <!-- Schedule Rows -->
+                        <div class="space-y-2 mt-5 text-xs sm:text-sm">
+                            <div class="hours-row px-4 py-3 rounded-xl flex items-center justify-between hover:bg-white/5 transition-all" data-day="1">
+                                <span class="font-medium text-neutral-300">Monday</span>
+                                <span class="text-white font-heading font-bold">11:30 AM – 9:00 PM</span>
+                            </div>
+                            <div class="hours-row px-4 py-3 rounded-xl flex items-center justify-between hover:bg-white/5 transition-all" data-day="2">
+                                <span class="font-medium text-neutral-300">Tuesday</span>
+                                <span class="text-white font-heading font-bold">11:30 AM – 9:00 PM</span>
+                            </div>
+                            <div class="hours-row px-4 py-3 rounded-xl flex items-center justify-between hover:bg-white/5 transition-all" data-day="3">
+                                <span class="font-medium text-neutral-300">Wednesday</span>
+                                <span class="text-white font-heading font-bold">11:30 AM – 9:00 PM</span>
+                            </div>
+                            <div class="hours-row px-4 py-3 rounded-xl flex items-center justify-between hover:bg-white/5 transition-all" data-day="4">
+                                <span class="font-medium text-neutral-300">Thursday</span>
+                                <span class="text-white font-heading font-bold">11:30 AM – 10:00 PM</span>
+                            </div>
+                            <div class="hours-row px-4 py-3 rounded-xl flex items-center justify-between hover:bg-white/5 transition-all" data-day="5">
+                                <span class="font-medium text-neutral-300">Friday</span>
+                                <span class="text-white font-heading font-bold">11:30 AM – 10:30 PM</span>
+                            </div>
+                            <div class="hours-row px-4 py-3 rounded-xl flex items-center justify-between hover:bg-white/5 transition-all" data-day="6">
+                                <span class="font-medium text-neutral-300">Saturday</span>
+                                <span class="text-white font-heading font-bold">11:00 AM – 10:30 PM</span>
+                            </div>
+                            <div class="hours-row px-4 py-3 rounded-xl flex items-center justify-between hover:bg-white/5 transition-all" data-day="0">
+                                <span class="font-medium text-neutral-300">Sunday</span>
+                                <span class="text-white font-heading font-bold">11:00 AM – 9:00 PM</span>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 pt-4 border-t border-brandTeal/30 flex items-center justify-between text-xs text-neutral-300">
+                            <span>Kitchen closes 30 mins prior</span>
+                            <span class="text-brandOrange font-semibold">Walk-ins welcomed</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ============================================================ -->
+    <!-- 9. EDITORIAL FOOTER                                         -->
+    <!-- ============================================================ -->
+    <footer class="bg-brandTealDeep text-white border-t border-brandTeal/30 pt-14 pb-20 sm:pb-12 px-4 sm:px-6 lg:px-12">
+        <div class="max-w-7xl 2xl:max-w-[1440px] mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12 pb-12 border-b border-brandTeal/30">
+                
+                <!-- Col 1: Brand & Bio (4 cols) -->
+                <div class="lg:col-span-4 space-y-4">
+                    <img src="images/switch-email-logo.png" alt="Switch Lifestyle" class="h-10 w-auto object-contain">
+                    <p class="text-neutral-300 text-xs sm:text-sm leading-relaxed max-w-sm">
+                        Switch Lifestyle at Westfield Fountain Gate. Narre Warren's premier destination for chef-crafted Modern Australian dining, stone-fired pizza, cocktails, and private function celebrations.
+                    </p>
+                    <div class="flex items-center gap-3 pt-2">
+                        <a href="https://www.instagram.com/switchlifestylerestaurant/" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-white/10 hover:bg-brandOrange text-white flex items-center justify-center transition-colors">
+                            <i class="fa-brands fa-instagram text-sm"></i>
+                        </a>
+                        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-white/10 hover:bg-brandOrange text-white flex items-center justify-center transition-colors">
+                            <i class="fa-brands fa-facebook-f text-sm"></i>
+                        </a>
+                        <a href="https://maps.google.com/?q=Switch+Lifestyle+Fountain+Gate" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-white/10 hover:bg-brandOrange text-white flex items-center justify-center transition-colors">
+                            <i class="fa-solid fa-map-location-dot text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Col 2: Navigation Links (2 cols) -->
+                <div class="lg:col-span-2 space-y-3">
+                    <h4 class="font-heading font-extrabold uppercase text-xs tracking-wider text-brandOrange">Explore</h4>
+                    <ul class="space-y-2 text-xs sm:text-sm text-neutral-300">
+                        <li><a href="#hero" class="hover:text-white transition-colors">Overview</a></li>
+                        <li><a href="#pillars" class="hover:text-white transition-colors">Experiences</a></li>
+                        <li><a href="#menu" class="hover:text-white transition-colors">Seasonal Menu</a></li>
+                        <li><a href="#journey" class="hover:text-white transition-colors">AM to PM Journey</a></li>
+                        <li><a href="#functions" class="hover:text-white transition-colors">Private Suites</a></li>
+                        <li><a href="#concierge" class="hover:text-white transition-colors">Concierge &amp; Hours</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Dietary & Functions (3 cols) -->
+                <div class="lg:col-span-3 space-y-3">
+                    <h4 class="font-heading font-extrabold uppercase text-xs tracking-wider text-brandOrange">Services</h4>
+                    <ul class="space-y-2 text-xs sm:text-sm text-neutral-300">
+                        <li><a href="#functions" onclick="switchFunctionSuite('mezzanine')" class="hover:text-white transition-colors">The Mezzanine Suite (30-70)</a></li>
+                        <li><a href="#functions" onclick="switchFunctionSuite('grand')" class="hover:text-white transition-colors">The Grand Hall (80-200)</a></li>
+                        <li><a href="#menu" onclick="filterMenuCategory('dietary')" class="hover:text-white transition-colors">Vegan &amp; Gluten-Free Menu</a></li>
+                        <li><a href="#hero" class="hover:text-white transition-colors">Bottomless Brunch Packages</a></li>
+                        <li><a href="tel:0397044333" class="hover:text-white transition-colors">Pickup &amp; Takeaway Orders</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: VIP Club Signup (3 cols) -->
+                <div class="lg:col-span-3 space-y-3">
+                    <h4 class="font-heading font-extrabold uppercase text-xs tracking-wider text-brandOrange">Switch VIP Club</h4>
+                    <p class="text-xs text-neutral-300 leading-relaxed">
+                        Join our newsletter for exclusive tasting event invites, bottomless brunch tickets, and seasonal menu previews.
+                    </p>
+                    <form onsubmit="handleNewsletter(event)" class="space-y-2">
+                        <input type="email" required placeholder="Enter your email" class="w-full bg-white/10 border border-brandTeal text-white placeholder-neutral-400 rounded-xl px-3.5 py-2.5 text-xs focus:outline-none focus:border-brandOrange">
+                        <button type="submit" class="w-full bg-brandOrange hover:bg-brandOrangeHover text-white font-heading font-bold uppercase tracking-wider text-xs py-2.5 rounded-xl transition-all">
+                            Join VIP Community
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+
+            <!-- Bottom Copyright -->
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-neutral-400">
+                <div>
+                    &copy; <span id="currentYear"></span> Switch Lifestyle Restaurant &amp; Bar. All rights reserved.
+                </div>
+                <div class="flex items-center gap-4">
+                    <span>Westfield Fountain Gate, Victoria</span>
+                    <span>·</span>
+                    <a href="index2.html" class="text-neutral-400 hover:text-white underline">View Concept A (Warm Bistro)</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MOBILE FLOATING ACTION DOCK -->
+    <div class="sm:hidden fixed bottom-3 left-3 right-3 z-40 bg-brandTealDeep/95 backdrop-blur-md rounded-full border border-brandTeal/40 shadow-2xl px-4 py-2 flex items-center justify-between safe-bottom-dock">
+        <a href="tel:0397044333" class="flex flex-col items-center justify-center text-neutral-300 hover:text-white text-[10px]">
+            <i class="fa-solid fa-phone text-brandOrange text-sm"></i>
+            <span class="mt-0.5">Call</span>
+        </a>
+        <a href="#menu" class="flex flex-col items-center justify-center text-neutral-300 hover:text-white text-[10px]">
+            <i class="fa-solid fa-utensils text-sm"></i>
+            <span class="mt-0.5">Menu</span>
+        </a>
+        <button onclick="openBookingModal()" class="bg-brandOrange hover:bg-brandOrangeHover text-white text-[11px] font-heading font-extrabold uppercase tracking-wider px-5 py-2 rounded-full shadow-md">
+            Reserve Table
+        </button>
+        <a href="#concierge" class="flex flex-col items-center justify-center text-neutral-300 hover:text-white text-[10px]">
+            <i class="fa-solid fa-location-dot text-sm"></i>
+            <span class="mt-0.5">Visit</span>
+        </a>
+    </div>
+
+    <!-- TABLE RESERVATION MODAL -->
+    <div id="bookingModal" class="fixed inset-0 z-50 bg-black/75 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border border-neutral-200 relative max-h-[90vh] overflow-y-auto">
+            <button onclick="closeBookingModal()" class="absolute top-5 right-5 w-8 h-8 rounded-full bg-neutral-100 hover:bg-neutral-200 text-neutral-600 flex items-center justify-center">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="mb-5">
+                <span class="text-brandOrange font-heading font-extrabold uppercase text-xs tracking-wider">Switch Lifestyle Fountain Gate</span>
+                <h3 class="text-2xl font-heading font-extrabold text-brandDark mt-1">Reserve Your Dining Table</h3>
+                <p class="text-xs text-neutral-500 mt-1">Instant reservation request for up to 10 guests. For larger events, choose Function Enquiry.</p>
+            </div>
+
+            <form onsubmit="handleReservationSubmit(event)" class="space-y-3.5 text-xs">
+                <div>
+                    <label class="block font-bold text-neutral-700 mb-1">Full Name</label>
+                    <input type="text" id="modalName" required placeholder="Your full name" class="w-full bg-neutral-50 border border-neutral-300 rounded-xl px-3.5 py-2.5 text-sm focus:outline-none focus:border-brandTeal">
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block font-bold text-neutral-700 mb-1">Mobile Phone</label>
+                        <input type="tel" id="modalPhone" required placeholder="0400 000 000" class="w-full bg-neutral-50 border border-neutral-300 rounded-xl px-3.5 py-2.5 text-sm focus:outline-none focus:border-brandTeal">
+                    </div>
+                    <div>
+                        <label class="block font-bold text-neutral-700 mb-1">Email</label>
+                        <input type="email" id="modalEmail" required placeholder="name@email.com" class="w-full bg-neutral-50 border border-neutral-300 rounded-xl px-3.5 py-2.5 text-sm focus:outline-none focus:border-brandTeal">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block font-bold text-neutral-700 mb-1">Date</label>
+                        <input type="date" id="modalDate" required class="w-full bg-neutral-50 border border-neutral-300 rounded-xl px-3.5 py-2.5 text-sm focus:outline-none focus:border-brandTeal">
+                    </div>
+                    <div>
+                        <label class="block font-bold text-neutral-700 mb-1">Time</label>
+                        <select id="modalTime" class="w-full bg-neutral-50 border border-neutral-300 rounded-xl px-3.5 py-2.5 text-sm focus:outline-none focus:border-brandTeal">
+                            <option value="11:30 AM">11:30 AM</option>
+                            <option value="12:30 PM">12:30 PM</option>
+                            <option value="1:30 PM">1:30 PM</option>
+                            <option value="5:30 PM">5:30 PM</option>
+                            <option value="6:30 PM">6:30 PM</option>
+                            <option value="7:30 PM" selected>7:30 PM</option>
+                            <option value="8:30 PM">8:30 PM</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block font-bold text-neutral-700 mb-1">Number of Guests</label>
+                    <select id="modalGuests" class="w-full bg-neutral-50 border border-neutral-300 rounded-xl px-3.5 py-2.5 text-sm focus:outline-none focus:border-brandTeal">
+                        <option value="2 Guests">2 Guests</option>
+                        <option value="3 Guests">3 Guests</option>
+                        <option value="4 Guests" selected>4 Guests</option>
+                        <option value="5 Guests">5 Guests</option>
+                        <option value="6 Guests">6 Guests</option>
+                        <option value="8 Guests">8 Guests</option>
+                        <option value="10+ Guests">10+ Guests (Group Booking)</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block font-bold text-neutral-700 mb-1">Special Notes / Dietary / High Chairs</label>
+                    <textarea id="modalNotes" rows="2" placeholder="Birthday celebration, booth preference, allergies..." class="w-full bg-neutral-50 border border-neutral-300 rounded-xl px-3.5 py-2 text-sm focus:outline-none focus:border-brandTeal"></textarea>
+                </div>
+
+                <button type="submit" class="w-full bg-brandOrange hover:bg-brandOrangeHover text-white font-heading font-bold uppercase tracking-wider text-sm py-3.5 rounded-xl shadow-lg transition-all mt-2">
+                    Confirm Reservation Request
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- FUNCTION ENQUIRIES MODAL -->
+    <div id="functionModal" class="fixed inset-0 z-50 bg-black/75 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="bg-brandTealDeep text-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border border-brandTeal/40 relative max-h-[90vh] overflow-y-auto">
+            <button onclick="closeFunctionModal()" class="absolute top-5 right-5 w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="mb-5">
+                <span class="text-brandOrange font-heading font-extrabold uppercase text-xs tracking-wider">Private Function Suites</span>
+                <h3 class="text-2xl font-heading font-extrabold text-white mt-1">Host Your Event At Switch</h3>
+                <p class="text-xs text-neutral-300 mt-1">Tell us about your celebration and our dedicated events coordinator will provide menu packages and room options.</p>
+            </div>
+
+            <form onsubmit="handleFunctionSubmit(event)" class="space-y-3.5 text-xs">
+                <div>
+                    <label class="block font-bold text-neutral-200 mb-1">Preferred Suite</label>
+                    <input type="text" id="fnSuiteName" readonly class="w-full bg-white/10 border border-brandTeal rounded-xl px-3.5 py-2.5 text-sm text-brandOrange font-bold">
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block font-bold text-neutral-200 mb-1">Contact Name</label>
+                        <input type="text" required placeholder="Your name" class="w-full bg-white/10 border border-brandTeal rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-brandOrange">
+                    </div>
+                    <div>
+                        <label class="block font-bold text-neutral-200 mb-1">Phone Number</label>
+                        <input type="tel" required placeholder="0400 000 000" class="w-full bg-white/10 border border-brandTeal rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-brandOrange">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block font-bold text-neutral-200 mb-1">Event Date</label>
+                        <input type="date" required class="w-full bg-white/10 border border-brandTeal rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-brandOrange">
+                    </div>
+                    <div>
+                        <label class="block font-bold text-neutral-200 mb-1">Estimated Guests</label>
+                        <input type="number" min="20" max="250" placeholder="e.g. 50" class="w-full bg-white/10 border border-brandTeal rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-brandOrange">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block font-bold text-neutral-200 mb-1">Celebration Type &amp; Requirements</label>
+                    <textarea rows="3" placeholder="Birthday, engagement, corporate presentation, canapés vs sit-down dinner..." class="w-full bg-white/10 border border-brandTeal rounded-xl px-3.5 py-2 text-sm text-white focus:outline-none focus:border-brandOrange"></textarea>
+                </div>
+
+                <button type="submit" class="w-full bg-brandOrange hover:bg-brandOrangeHover text-white font-heading font-bold uppercase tracking-wider text-sm py-3.5 rounded-xl shadow-lg transition-all mt-2">
+                    Submit Function Enquiry
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Set Year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Default tomorrow for hero date
+        const today = new Date();
+        const tomorrow = new Date(today);
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        const yyyy = tomorrow.getFullYear();
+        const mm = String(tomorrow.getMonth() + 1).padStart(2, '0');
+        const dd = String(tomorrow.getDate()).padStart(2, '0');
+        const formattedTomorrow = `${yyyy}-${mm}-${dd}`;
+        
+        const heroDateInput = document.getElementById('heroDate');
+        if (heroDateInput) heroDateInput.value = formattedTomorrow;
+        
+        const modalDateInput = document.getElementById('modalDate');
+        if (modalDateInput) modalDateInput.value = formattedTomorrow;
+
+        // Mobile Nav Drawer Toggle
+        function toggleMobileNav() {
+            const drawer = document.getElementById('mobileDrawer');
+            const panel = document.getElementById('mobileDrawerPanel');
+            if (drawer.classList.contains('pointer-events-none')) {
+                drawer.classList.remove('pointer-events-none', 'opacity-0');
+                drawer.classList.add('opacity-100');
+                panel.classList.remove('translate-x-full');
+            } else {
+                drawer.classList.add('opacity-0');
+                panel.classList.add('translate-x-full');
+                setTimeout(() => drawer.classList.add('pointer-events-none'), 300);
+            }
+        }
+
+        // Booking Modal Handlers
+        function openBookingModal(date, time, guests) {
+            const modal = document.getElementById('bookingModal');
+            if (date) document.getElementById('modalDate').value = date;
+            if (time) document.getElementById('modalTime').value = time;
+            if (guests) document.getElementById('modalGuests').value = guests;
+            modal.classList.remove('pointer-events-none', 'opacity-0');
+            modal.classList.add('opacity-100');
+        }
+
+        function closeBookingModal() {
+            const modal = document.getElementById('bookingModal');
+            modal.classList.add('opacity-0');
+            setTimeout(() => modal.classList.add('pointer-events-none'), 300);
+        }
+
+        // Hero Quick Booking Handler
+        function handleHeroQuickBooking(e) {
+            e.preventDefault();
+            const date = document.getElementById('heroDate').value;
+            const time = document.getElementById('heroTime').value;
+            const guests = document.getElementById('heroGuests').value;
+            openBookingModal(date, time, guests);
+        }
+
+        function handleReservationSubmit(e) {
+            e.preventDefault();
+            alert('Thank you! Your table reservation request has been submitted to Switch Lifestyle Fountain Gate. Our host will confirm via SMS shortly.');
+            closeBookingModal();
+        }
+
+        // Function Modal Handlers
+        function openFunctionModal(suiteName) {
+            document.getElementById('fnSuiteName').value = suiteName || 'The Mezzanine Suite (30-70 Guests)';
+            const modal = document.getElementById('functionModal');
+            modal.classList.remove('pointer-events-none', 'opacity-0');
+            modal.classList.add('opacity-100');
+        }
+
+        function closeFunctionModal() {
+            const modal = document.getElementById('functionModal');
+            modal.classList.add('opacity-0');
+            setTimeout(() => modal.classList.add('pointer-events-none'), 300);
+        }
+
+        function handleFunctionSubmit(e) {
+            e.preventDefault();
+            alert('Thank you! Your function enquiry has been received. Our events manager will email you the full packages and room floorplans within 24 hours.');
+            closeFunctionModal();
+        }
+
+        function handleNewsletter(e) {
+            e.preventDefault();
+            alert('Welcome to the Switch Lifestyle VIP Club! Keep an eye on your inbox for our special event invites.');
+            e.target.reset();
+        }
+
+        // Function Suites Tab Switcher
+        function switchFunctionSuite(type) {
+            const tabMezzanine = document.getElementById('tabSuiteMezzanine');
+            const tabGrand = document.getElementById('tabSuiteGrand');
+            const contentMezzanine = document.getElementById('suiteMezzanineContent');
+            const contentGrand = document.getElementById('suiteGrandContent');
+
+            if (type === 'mezzanine') {
+                tabMezzanine.className = 'suite-tab px-5 sm:px-7 py-2.5 sm:py-3 rounded-full font-heading font-bold text-xs sm:text-sm uppercase tracking-wider transition-all bg-brandOrange text-white shadow-lg';
+                tabGrand.className = 'suite-tab px-5 sm:px-7 py-2.5 sm:py-3 rounded-full font-heading font-bold text-xs sm:text-sm uppercase tracking-wider transition-all bg-brandTealDark text-neutral-300 hover:text-white border border-brandTeal/50';
+                contentMezzanine.classList.remove('hidden');
+                contentGrand.classList.add('hidden');
+            } else {
+                tabGrand.className = 'suite-tab px-5 sm:px-7 py-2.5 sm:py-3 rounded-full font-heading font-bold text-xs sm:text-sm uppercase tracking-wider transition-all bg-brandOrange text-white shadow-lg';
+                tabMezzanine.className = 'suite-tab px-5 sm:px-7 py-2.5 sm:py-3 rounded-full font-heading font-bold text-xs sm:text-sm uppercase tracking-wider transition-all bg-brandTealDark text-neutral-300 hover:text-white border border-brandTeal/50';
+                contentGrand.classList.remove('hidden');
+                contentMezzanine.classList.add('hidden');
+            }
+        }
+
+        // Split Menu Category Filter
+        function filterMenuCategory(category) {
+            // Update buttons styling
+            const buttons = document.querySelectorAll('.cat-btn');
+            buttons.forEach(btn => {
+                if (btn.getAttribute('data-cat') === category) {
+                    btn.className = 'cat-btn w-full text-left px-4 py-3 rounded-xl font-heading font-bold text-sm flex items-center justify-between transition-all bg-brandTeal text-white shadow-md';
+                } else {
+                    btn.className = 'cat-btn w-full text-left px-4 py-3 rounded-xl font-heading font-bold text-sm flex items-center justify-between transition-all text-neutral-600 hover:bg-brandWarm';
+                }
+            });
+
+            // Filter cards
+            const cards = document.querySelectorAll('.dish-card');
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Live Radar Badge Calculation (Melbourne local time)
+        function updateLiveStatus() {
+            const now = new Date();
+            // Get day in Melbourne (0=Sun, 1=Mon, ..., 6=Sat)
+            const day = now.getDay();
+            const hour = now.getHours();
+            const minute = now.getMinutes();
+            const decimalTime = hour + minute / 60;
+
+            // Highlight current day row
+            const rows = document.querySelectorAll('.hours-row');
+            rows.forEach(r => {
+                if (parseInt(r.getAttribute('data-day')) === day) {
+                    r.classList.add('bg-brandTeal', 'text-white', 'font-bold');
+                } else {
+                    r.classList.remove('bg-brandTeal');
+                }
+            });
+
+            let isOpen = false;
+            if (day >= 1 && day <= 3) {
+                // Mon-Wed: 11:30 - 21:00
+                isOpen = decimalTime >= 11.5 && decimalTime < 21.0;
+            } else if (day === 4) {
+                // Thu: 11:30 - 22:00
+                isOpen = decimalTime >= 11.5 && decimalTime < 22.0;
+            } else if (day === 5) {
+                // Fri: 11:30 - 22.5
+                isOpen = decimalTime >= 11.5 && decimalTime < 22.5;
+            } else if (day === 6) {
+                // Sat: 11:00 - 22.5
+                isOpen = decimalTime >= 11.0 && decimalTime < 22.5;
+            } else if (day === 0) {
+                // Sun: 11:00 - 21.0
+                isOpen = decimalTime >= 11.0 && decimalTime < 21.0;
+            }
+
+            const badge = document.getElementById('liveRadarBadge');
+            const badgeText = document.getElementById('liveRadarText');
+            if (badge && badgeText) {
+                if (isOpen) {
+                    badge.className = 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-sm';
+                    badgeText.textContent = 'OPEN NOW';
+                } else {
+                    badge.className = 'bg-neutral-800 text-neutral-400 border border-neutral-700 text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-sm';
+                    badgeText.textContent = 'OPENS AT 11:30 AM';
+                }
+            }
+        }
+
+        updateLiveStatus();
+    </script>
+</body>
+</html>
