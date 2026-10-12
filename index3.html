@@ -1469,7 +1469,7 @@
     <!-- TABLE RESERVATION MODAL -->
     <div id="bookingModal" class="fixed inset-0 z-50 bg-black/75 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
         <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border border-neutral-200 relative max-h-[90vh] overflow-y-auto">
-            <button onclick="closeBookingModal()" class="absolute top-5 right-5 w-8 h-8 rounded-full bg-neutral-100 hover:bg-neutral-200 text-neutral-600 flex items-center justify-center">
+            <button type="button" onclick="closeBookingModal()" aria-label="Close reservation modal" class="absolute top-5 right-5 w-8 h-8 rounded-full bg-neutral-100 hover:bg-neutral-200 text-neutral-600 flex items-center justify-center transition-colors">
                 <i class="fa-solid fa-xmark"></i>
             </button>
 
@@ -1504,13 +1504,15 @@
                     <div>
                         <label class="block font-bold text-neutral-700 mb-1">Time</label>
                         <select id="modalTime" class="w-full bg-neutral-50 border border-neutral-300 rounded-xl px-3.5 py-2.5 text-sm focus:outline-none focus:border-brandTeal">
-                            <option value="11:30 AM">11:30 AM</option>
-                            <option value="12:30 PM">12:30 PM</option>
-                            <option value="1:30 PM">1:30 PM</option>
-                            <option value="5:30 PM">5:30 PM</option>
-                            <option value="6:30 PM">6:30 PM</option>
-                            <option value="7:30 PM" selected>7:30 PM</option>
-                            <option value="8:30 PM">8:30 PM</option>
+                            <option value="11:30 AM">11:30 AM (Lunch / Brunch)</option>
+                            <option value="12:30 PM">12:30 PM (Midday Lunch)</option>
+                            <option value="1:00 PM">1:00 PM (Afternoon Dining)</option>
+                            <option value="1:30 PM">1:30 PM (Late Lunch)</option>
+                            <option value="5:30 PM">5:30 PM (Early Dinner)</option>
+                            <option value="6:30 PM">6:30 PM (Dinner)</option>
+                            <option value="7:00 PM">7:00 PM (Prime Dinner)</option>
+                            <option value="7:30 PM" selected>7:30 PM (Prime Dinner)</option>
+                            <option value="8:30 PM">8:30 PM (Late Dining &amp; Cocktails)</option>
                         </select>
                     </div>
                 </div>
@@ -1518,12 +1520,13 @@
                 <div>
                     <label class="block font-bold text-neutral-700 mb-1">Number of Guests</label>
                     <select id="modalGuests" class="w-full bg-neutral-50 border border-neutral-300 rounded-xl px-3.5 py-2.5 text-sm focus:outline-none focus:border-brandTeal">
-                        <option value="2 Guests">2 Guests</option>
+                        <option value="2 Guests">2 Guests (Table for Two)</option>
                         <option value="3 Guests">3 Guests</option>
-                        <option value="4 Guests" selected>4 Guests</option>
+                        <option value="4 Guests" selected>4 Guests (Standard Booth)</option>
                         <option value="5 Guests">5 Guests</option>
-                        <option value="6 Guests">6 Guests</option>
-                        <option value="8 Guests">8 Guests</option>
+                        <option value="6 Guests">6 Guests (Social Table)</option>
+                        <option value="8 Guests">8 Guests (Group Dining)</option>
+                        <option value="8+ Guests">8+ Guests (Group Dining)</option>
                         <option value="10+ Guests">10+ Guests (Group Booking)</option>
                     </select>
                 </div>
@@ -1543,7 +1546,7 @@
     <!-- FUNCTION ENQUIRIES MODAL -->
     <div id="functionModal" class="fixed inset-0 z-50 bg-black/75 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
         <div class="bg-brandTealDeep text-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border border-brandTeal/40 relative max-h-[90vh] overflow-y-auto">
-            <button onclick="closeFunctionModal()" class="absolute top-5 right-5 w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center">
+            <button type="button" onclick="closeFunctionModal()" aria-label="Close function modal" class="absolute top-5 right-5 w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors">
                 <i class="fa-solid fa-xmark"></i>
             </button>
 
@@ -1617,66 +1620,172 @@
         function toggleMobileNav() {
             const drawer = document.getElementById('mobileDrawer');
             const panel = document.getElementById('mobileDrawerPanel');
+            if (!drawer || !panel) return;
             if (drawer.classList.contains('pointer-events-none')) {
                 drawer.classList.remove('pointer-events-none', 'opacity-0');
                 drawer.classList.add('opacity-100');
                 panel.classList.remove('translate-x-full');
+                document.body.style.overflow = 'hidden';
             } else {
+                drawer.classList.remove('opacity-100');
                 drawer.classList.add('opacity-0');
                 panel.classList.add('translate-x-full');
-                setTimeout(() => drawer.classList.add('pointer-events-none'), 300);
+                setTimeout(() => {
+                    if (drawer.classList.contains('opacity-0')) {
+                        drawer.classList.add('pointer-events-none');
+                    }
+                }, 300);
+                document.body.style.overflow = '';
             }
         }
 
         // Booking Modal Handlers
         function openBookingModal(date, time, guests) {
             const modal = document.getElementById('bookingModal');
-            if (date) document.getElementById('modalDate').value = date;
-            if (time) document.getElementById('modalTime').value = time;
-            if (guests) document.getElementById('modalGuests').value = guests;
+            if (!modal) return;
+            
+            if (date) {
+                const dateEl = document.getElementById('modalDate');
+                if (dateEl) dateEl.value = date;
+            }
+            if (time) {
+                const timeEl = document.getElementById('modalTime');
+                if (timeEl) {
+                    let matched = false;
+                    for (let opt of timeEl.options) {
+                        if (opt.value === time) {
+                            timeEl.value = time;
+                            matched = true;
+                            break;
+                        }
+                    }
+                    if (!matched) {
+                        for (let opt of timeEl.options) {
+                            if (opt.value.startsWith(time.split(' ')[0])) {
+                                timeEl.value = opt.value;
+                                matched = true;
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+            if (guests) {
+                if (guests === 'Private Function') {
+                    openFunctionModal('The Mezzanine Suite (30-70 Guests)');
+                    return;
+                }
+                const guestsEl = document.getElementById('modalGuests');
+                if (guestsEl) {
+                    let matched = false;
+                    for (let opt of guestsEl.options) {
+                        if (opt.value === guests) {
+                            guestsEl.value = guests;
+                            matched = true;
+                            break;
+                        }
+                    }
+                    if (!matched) {
+                        for (let opt of guestsEl.options) {
+                            if (opt.value.startsWith(guests.split(' ')[0])) {
+                                guestsEl.value = opt.value;
+                                matched = true;
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
             modal.classList.remove('pointer-events-none', 'opacity-0');
             modal.classList.add('opacity-100');
+            document.body.style.overflow = 'hidden';
         }
 
         function closeBookingModal() {
             const modal = document.getElementById('bookingModal');
+            if (!modal) return;
+            modal.classList.remove('opacity-100');
             modal.classList.add('opacity-0');
-            setTimeout(() => modal.classList.add('pointer-events-none'), 300);
+            setTimeout(() => {
+                if (modal.classList.contains('opacity-0')) {
+                    modal.classList.add('pointer-events-none');
+                }
+            }, 300);
+            document.body.style.overflow = '';
         }
 
         // Hero Quick Booking Handler
         function handleHeroQuickBooking(e) {
             e.preventDefault();
-            const date = document.getElementById('heroDate').value;
-            const time = document.getElementById('heroTime').value;
-            const guests = document.getElementById('heroGuests').value;
+            const date = document.getElementById('heroDate')?.value;
+            const time = document.getElementById('heroTime')?.value;
+            const guests = document.getElementById('heroGuests')?.value;
             openBookingModal(date, time, guests);
         }
 
         function handleReservationSubmit(e) {
             e.preventDefault();
-            alert('Thank you! Your table reservation request has been submitted to Switch Lifestyle Fountain Gate. Our host will confirm via SMS shortly.');
+            const name = document.getElementById('modalName')?.value || 'Guest';
+            alert(`Thank you, ${name}! Your table reservation request has been submitted to Switch Lifestyle Fountain Gate. Our host will confirm via SMS shortly.`);
+            e.target.reset();
             closeBookingModal();
         }
 
         // Function Modal Handlers
         function openFunctionModal(suiteName) {
-            document.getElementById('fnSuiteName').value = suiteName || 'The Mezzanine Suite (30-70 Guests)';
+            const suiteInput = document.getElementById('fnSuiteName');
+            if (suiteInput) suiteInput.value = suiteName || 'The Mezzanine Suite (30-70 Guests)';
             const modal = document.getElementById('functionModal');
+            if (!modal) return;
             modal.classList.remove('pointer-events-none', 'opacity-0');
             modal.classList.add('opacity-100');
+            document.body.style.overflow = 'hidden';
         }
 
         function closeFunctionModal() {
             const modal = document.getElementById('functionModal');
+            if (!modal) return;
+            modal.classList.remove('opacity-100');
             modal.classList.add('opacity-0');
-            setTimeout(() => modal.classList.add('pointer-events-none'), 300);
+            setTimeout(() => {
+                if (modal.classList.contains('opacity-0')) {
+                    modal.classList.add('pointer-events-none');
+                }
+            }, 300);
+            document.body.style.overflow = '';
         }
 
         function handleFunctionSubmit(e) {
             e.preventDefault();
             alert('Thank you! Your function enquiry has been received. Our events manager will email you the full packages and room floorplans within 24 hours.');
+            e.target.reset();
             closeFunctionModal();
+        }
+
+        // Modal backdrop and escape listeners
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeBookingModal();
+                closeFunctionModal();
+                const drawer = document.getElementById('mobileDrawer');
+                if (drawer && !drawer.classList.contains('pointer-events-none')) {
+                    toggleMobileNav();
+                }
+            }
+        });
+
+        const bModal = document.getElementById('bookingModal');
+        if (bModal) {
+            bModal.addEventListener('click', (e) => {
+                if (e.target === bModal) closeBookingModal();
+            });
+        }
+
+        const fModal = document.getElementById('functionModal');
+        if (fModal) {
+            fModal.addEventListener('click', (e) => {
+                if (e.target === fModal) closeFunctionModal();
+            });
         }
 
         function handleNewsletter(e) {

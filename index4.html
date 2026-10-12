@@ -1243,7 +1243,7 @@
     <!-- TABLE RESERVATION MODAL -->
     <div id="bookingModal" class="fixed inset-0 z-50 bg-black/75 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
         <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border border-neutral-200 relative max-h-[90vh] overflow-y-auto">
-            <button onclick="closeBookingModal()" class="absolute top-5 right-5 w-8 h-8 rounded-full bg-neutral-100 hover:bg-neutral-200 text-neutral-600 flex items-center justify-center">
+            <button type="button" onclick="closeBookingModal()" aria-label="Close reservation modal" class="absolute top-5 right-5 w-8 h-8 rounded-full bg-neutral-100 hover:bg-neutral-200 text-neutral-600 flex items-center justify-center transition-colors">
                 <i class="fa-solid fa-xmark"></i>
             </button>
 
@@ -1313,7 +1313,7 @@
     <!-- FUNCTION ENQUIRIES MODAL -->
     <div id="functionModal" class="fixed inset-0 z-50 bg-black/75 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
         <div class="bg-brandTerraDeep text-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border border-brandTerra/40 relative max-h-[90vh] overflow-y-auto">
-            <button onclick="closeFunctionModal()" class="absolute top-5 right-5 w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center">
+            <button type="button" onclick="closeFunctionModal()" aria-label="Close function modal" class="absolute top-5 right-5 w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors">
                 <i class="fa-solid fa-xmark"></i>
             </button>
 
@@ -1384,57 +1384,122 @@
         function toggleMobileNav() {
             const drawer = document.getElementById('mobileDrawer');
             const panel = document.getElementById('mobileDrawerPanel');
+            if (!drawer || !panel) return;
             if (drawer.classList.contains('pointer-events-none')) {
                 drawer.classList.remove('pointer-events-none', 'opacity-0');
                 drawer.classList.add('opacity-100');
                 panel.classList.remove('translate-x-full');
+                document.body.style.overflow = 'hidden';
             } else {
+                drawer.classList.remove('opacity-100');
                 drawer.classList.add('opacity-0');
                 panel.classList.add('translate-x-full');
-                setTimeout(() => drawer.classList.add('pointer-events-none'), 300);
+                setTimeout(() => {
+                    if (drawer.classList.contains('opacity-0')) {
+                        drawer.classList.add('pointer-events-none');
+                    }
+                }, 300);
+                document.body.style.overflow = '';
             }
         }
 
         // Booking Modal Handlers
         function openBookingModal(date, time, guests) {
             const modal = document.getElementById('bookingModal');
-            if (date) document.getElementById('modalDate').value = date;
-            if (time) document.getElementById('modalTime').value = time;
-            if (guests) document.getElementById('modalGuests').value = guests;
+            if (!modal) return;
+            if (date) {
+                const dateEl = document.getElementById('modalDate');
+                if (dateEl) dateEl.value = date;
+            }
+            if (time) {
+                const timeEl = document.getElementById('modalTime');
+                if (timeEl) timeEl.value = time;
+            }
+            if (guests) {
+                const guestsEl = document.getElementById('modalGuests');
+                if (guestsEl) guestsEl.value = guests;
+            }
             modal.classList.remove('pointer-events-none', 'opacity-0');
             modal.classList.add('opacity-100');
+            document.body.style.overflow = 'hidden';
         }
 
         function closeBookingModal() {
             const modal = document.getElementById('bookingModal');
+            if (!modal) return;
+            modal.classList.remove('opacity-100');
             modal.classList.add('opacity-0');
-            setTimeout(() => modal.classList.add('pointer-events-none'), 300);
+            setTimeout(() => {
+                if (modal.classList.contains('opacity-0')) {
+                    modal.classList.add('pointer-events-none');
+                }
+            }, 300);
+            document.body.style.overflow = '';
         }
 
         function handleReservationSubmit(e) {
             e.preventDefault();
-            alert('Thank you! Your feasting table reservation request has been submitted to Switch Lifestyle. Our host will confirm your booking via SMS.');
+            const name = document.getElementById('modalName')?.value || 'Guest';
+            alert(`Thank you, ${name}! Your feasting table reservation request has been submitted to Switch Lifestyle. Our host will confirm your booking via SMS.`);
+            e.target.reset();
             closeBookingModal();
         }
 
         // Function Modal Handlers
         function openFunctionModal(packageName) {
-            document.getElementById('fnPackageName').value = packageName || 'The Grand Feasting Table (40-80 Guests)';
+            const pkgInput = document.getElementById('fnPackageName');
+            if (pkgInput) pkgInput.value = packageName || 'The Grand Feasting Table (40-80 Guests)';
             const modal = document.getElementById('functionModal');
+            if (!modal) return;
             modal.classList.remove('pointer-events-none', 'opacity-0');
             modal.classList.add('opacity-100');
+            document.body.style.overflow = 'hidden';
         }
 
         function closeFunctionModal() {
             const modal = document.getElementById('functionModal');
+            if (!modal) return;
+            modal.classList.remove('opacity-100');
             modal.classList.add('opacity-0');
-            setTimeout(() => modal.classList.add('pointer-events-none'), 300);
+            setTimeout(() => {
+                if (modal.classList.contains('opacity-0')) {
+                    modal.classList.add('pointer-events-none');
+                }
+            }, 300);
+            document.body.style.overflow = '';
         }
 
         function handleFunctionSubmit(e) {
             e.preventDefault();
             alert('Thank you! Your celebration package enquiry has been received. Our event coordinator will email you the full menu brochure within 24 hours.');
+            e.target.reset();
             closeFunctionModal();
+        }
+
+        // Modal backdrop and escape listeners
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeBookingModal();
+                closeFunctionModal();
+                const drawer = document.getElementById('mobileDrawer');
+                if (drawer && !drawer.classList.contains('pointer-events-none')) {
+                    toggleMobileNav();
+                }
+            }
+        });
+
+        const bModal = document.getElementById('bookingModal');
+        if (bModal) {
+            bModal.addEventListener('click', (e) => {
+                if (e.target === bModal) closeBookingModal();
+            });
+        }
+
+        const fModal = document.getElementById('functionModal');
+        if (fModal) {
+            fModal.addEventListener('click', (e) => {
+                if (e.target === fModal) closeFunctionModal();
+            });
         }
 
         function handleNewsletter(e) {
